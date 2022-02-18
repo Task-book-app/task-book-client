@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { GlobalContext } from './context/GlobalContext'
 import { RendererProvider, ThemeProvider } from 'react-fela'
-// import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import renderer from './felaConfig/renderer'
 import theme from './felaConfig/theme'

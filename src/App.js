@@ -1,15 +1,12 @@
-import Button from './Components/Button'
-
+import AuthLayout from './pages/AuthLayout'
 
 function App() {
   
   return (
     <div className="App">
-      <h1>Hello</h1>
-        <Button
-          fontSize={['7rem', '10rem']}
-    
-        >Button</Button>
+      <AuthLayout>
+        
+      </AuthLayout>  
     </div>
   );
 }

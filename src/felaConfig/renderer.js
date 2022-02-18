@@ -9,7 +9,7 @@ import MontserratItalic from '../fonts/Montserrat/Montserrat-Italic-VariableFont
 const getMediaQueries = (values, props) => {
    
   const { small, mediumSmall, medium, largeMedium, large, exlarge } = props.theme.breakpoints
-
+console.log(values);
   // we can even return different breakpoints depending on the number of passed values
   // remember the first value is always the default value
   switch (values.length) {
@@ -40,6 +40,8 @@ const responsiveProps = {
   marginBottom: true,
   width: true,
   height: true,
+  position: true,
+  display: true,
 }
 
  const renderer = createRenderer({
