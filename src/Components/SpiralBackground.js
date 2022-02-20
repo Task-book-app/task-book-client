@@ -12,14 +12,19 @@ const rule = ({display, position, width, height, top, left, right, bottom}) => (
   left,
   right,
   bottom,
-  // overflow: 'hidden'
 })
 
-
-export default function SpiralMedium({display, position, width, height, top, left, right, bottom}) {
+export default function SpiralBackground({
+  display, 
+  position, 
+  width, 
+  height, 
+  top, left, 
+  right, 
+  bottom
+}) {
 
   const { css } = useFela({display, position, width, height, top, left, right, bottom})
-
 
   return (
     <img 

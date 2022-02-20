@@ -29,9 +29,23 @@ const theme = {
    html {
      box-sizing: border-box;
      font-size: 62.5%;
-     font-family: 'Nunito', sans-serif;
+     font-family: 'Poppins';
+
+     color: #4B4B4B;
    }
    `,
+
+  //  colors
+  colors:{
+    black: '#4B4B4B',
+    blue: '#0aa7bd',
+  },
+
+  // gradients
+  gradients: {
+    blueGradient: 'linear-gradient(90.17deg, #09A7BC 0.19%, #2EC0EE 99.77%)',
+  }
+
 }
 
 export default theme

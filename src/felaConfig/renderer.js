@@ -5,11 +5,11 @@ import Nunito from '../fonts/Nunito/Nunito-VariableFont_wght.ttf'
 import NunitoItalic from '../fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf'
 import Montserrat from '../fonts/Montserrat/Montserrat-VariableFont_wght.ttf'
 import MontserratItalic from '../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf'
+import { bold, poppins } from '../fonts/Poppins/poppins'
 
 const getMediaQueries = (values, props) => {
    
   const { small, mediumSmall, medium, largeMedium, large, exlarge } = props.theme.breakpoints
-console.log(values);
   // we can even return different breakpoints depending on the number of passed values
   // remember the first value is always the default value
   switch (values.length) {
@@ -53,11 +53,14 @@ renderer.renderStatic(theme.resetStyles)
 // font-family
 const nunito = renderer.renderFont('Nunito', [ Nunito, NunitoItalic ])
 const montserrat = renderer.renderFont('Montserrat', [ Montserrat, MontserratItalic ])
+renderer.renderFont('Poppins', poppins )
+const poppinsBold = renderer.renderFont('Poppins-Bold', bold, {fontWeight :'bold'})
 
 // send fonts in theme object to your app
 theme.fontFamily = { 
   nunito, 
-  montserrat 
+  montserrat,
+  poppinsBold
 }
 
 export default renderer

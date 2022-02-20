@@ -1,40 +1,43 @@
 import React from 'react'
-import SpiralMedium from '../Components/SpiralMedium'
+import SpiralBackground from '../Components/SpiralBackground'
+import { useFela } from 'react-fela'
 
-
-export default function AuthLayout({children}) {
-
-  const style = {
+const layout = {
     position: 'relative',
     height: "100vh",
     overflow: "hidden",
-    divCircle: {
-      height: "10rem",
-      width: "10rem",
-      borderRadius: "50%",
-      position: "absolute",
-      top: "-5rem",
-      right: "-5rem",
-      
-      background: `linear-gradient(90.17deg, #09A7BC 190.88%, #2EC0EE 290.46%)`
-    }
+  }
+  
+  const circle = {
+    position: "absolute",
+    height: "10rem",
+    width: "10rem",
+    borderRadius: "50%",
+    top: "-5rem",
+    right: "-4rem",
+    background: `linear-gradient(90.17deg, #09A7BC 190.88%, #2EC0EE 290.46%)`
   }
 
+export default function AuthLayout({children}) {
+  const { css } = useFela()
+  
   return (
-    <div style={style}>
-      <SpiralMedium
+    <div 
+      className={css(layout)}
+    >
+      <SpiralBackground
         position="absolute"
         height="calc(100% * 1.5)"           
         top="calc(-100% / 3.5)"
         left="calc(-100% + 82% )"
       />
-      <SpiralMedium
+      <SpiralBackground
         position="absolute"
         height="calc(100% - 55%)"      
         bottom="-5%"
         right="-9%"
       />
-      <div style={style.divCircle}></div>
+      <div className={css(circle)}></div>
       {children}
     </div>
   )
