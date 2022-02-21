@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { useFela } from 'react-fela'
 
 const rules = () => ({
@@ -6,8 +6,8 @@ const rules = () => ({
     borderRadius: '2rem',
 
     // width: '40%',
-    // width: '588px',
-    // height: '588px',
+    width: '58.8rem',
+    height: '58.8rem',
     position: 'absolute',
     left: '49.56%',
     right: '7.39%',

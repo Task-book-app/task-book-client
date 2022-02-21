@@ -1,6 +1,5 @@
-import React from 'react'
+// import React from 'react'
 import { useFela } from 'react-fela'
-
 
 const rule = ({m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr}) => ({
     width: "100%",
@@ -14,9 +13,10 @@ const rule = ({m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr}) => ({
     paddingLeft: `${pl}rem`,
     paddingRight: `${pr}rem`,
     padding: px ? `0 ${px}rem` : py ? `${py}rem 0`: `${p}rem`,
+    
 })
 
-export default function FormControl({ children, m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr }) {
+const FormControl = ({ children, m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr }) => {
 
     const { css } = useFela({m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr})
 
@@ -26,3 +26,5 @@ export default function FormControl({ children, m, mx, my, mt, mb, ml, mr, p, px
     >{children}</div>
   )
 }
+
+export default FormControl

@@ -1,6 +1,12 @@
 import React from 'react'
 import SpiralBackground from '../Components/SpiralBackground'
 import { useFela } from 'react-fela'
+import Form from '../Components/form-components/Form'
+import FormControl from '../Components/form-components/FormControl'
+import H1 from '../Components/typography/H1'
+import Icon from '../Components/Icon'
+import { faAt, faLock } from '@fortawesome/free-solid-svg-icons'
+
 
 const layout = {
     position: 'relative',
@@ -19,7 +25,7 @@ const layout = {
   }
 
 export default function AuthLayout({children}) {
-  const { css } = useFela()
+  const { css, theme } = useFela()
   
   return (
     <div 
@@ -38,7 +44,27 @@ export default function AuthLayout({children}) {
         right="-9%"
       />
       <div className={css(circle)}></div>
-      {children}
+      <Form>
+          <H1>Sign Up</H1>
+          <FormControl
+            my={4}
+          >
+            <Icon
+              fontSize={2}
+              size={3}
+              // bg='green'
+              color={theme.colors.blue}
+              fontIcon={faAt}
+            />
+            <Icon
+              fontSize={2}
+              size={3}
+              // bg='purple'
+              color={theme.colors.blue}
+              fontIcon={faLock}
+            />
+            </FormControl>
+        </Form>
     </div>
   )
 }
