@@ -1,8 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import { useFela } from 'react-fela'
 
 
-export default function H1({children}) {
+const H1 = ({children}) => {
     
     const { css, theme } = useFela()
 
@@ -10,8 +10,7 @@ export default function H1({children}) {
         fontFamily: theme.fontFamily.poppinsBold,
         fontSize: '3rem',
         lineHeight: '4.5rem',
-        fontWeight: 'bold',
-       
+        // fontWeight: 'bold',
     })
 
   return (
@@ -20,3 +19,5 @@ export default function H1({children}) {
     >{children}</h1>
   )
 }
+
+export default H1

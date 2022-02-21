@@ -1,18 +1,33 @@
-import React from 'react'
 import { useFela } from 'react-fela'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const rules  = ({ fontSize}) => ({
-  color: 'pink',
-  fontSize : `${fontSize}rem`
+const rules  = ({ size, fontSize, bg, color}) => ({
+  color,
+  fontSize : `${fontSize}rem`,
+  backgroundColor: bg,
+  width: size ? `${size}rem` : 'fit-content',
+  height: size ? `${size}rem` : '',
+//   height: `${size}rem`,
+  padding: '.5rem',
+  display: 'inline-flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  border: 'none'
+  
+  
 })
 
+const Icon = ({fontIcon, size, fontSize, bg, color}) => {
 
-export default function Icon({fontIcon, fontSize=1}) {
-
-    const { css } = useFela({fontSize})
+    const { css } = useFela({size, fontSize, bg, color})
 
   return (
-    <i 
-        className={`${css(rules)} ${fontIcon}`}
-    ></i>  )
+    
+      <div className={css(rules)}>
+            <FontAwesomeIcon icon={fontIcon}  fontSize='inherit' color="inherit"/>
+      </div> 
+    )
 }
+
+export default Icon
+
