@@ -9,7 +9,7 @@ const H1 = ({children}) => {
     const rule = () => ({
         fontFamily: theme.fontFamily.poppinsBold,
         fontSize: '3rem',
-        lineHeight: '4.5rem',
+        lineHeight: '4.8rem',
         // fontWeight: 'bold',
     })
 
