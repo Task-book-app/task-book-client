@@ -1,0 +1,24 @@
+.form {
+  padding: 1.5rem;
+  border-radius: 2rem;
+  width: 90%;
+  box-shadow: $box-shadow-2;
+
+  filter: drop-shadow(0px 4px 60px rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(20px);
+
+  @supports not (backdrop-filter: blur(20px)) {
+    background: rgba($color-white, 0.5);
+  }
+
+  @include devices(mobile-L) {
+    padding: 4rem;
+  }
+  @include devices(tablet) {
+    width: 80%;
+    padding: 8rem;
+  }
+  @include devices(laptop) {
+    width: 45%;
+  }
+}
