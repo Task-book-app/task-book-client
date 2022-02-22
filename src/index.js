@@ -1,7 +1,7 @@
 // import React from 'react';
+import './sass/main.scss'
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css'
 import { GlobalContext } from './context/GlobalContext'
 import { RendererProvider, ThemeProvider } from 'react-fela'
 // import '@fortawesome/fontawesome-free/js/all.js';
