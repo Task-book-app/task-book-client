@@ -5,17 +5,19 @@ const bp = {
   medium: '50em', // 800px
   largeMedium: '56.25em', // 900px
   large:  '64em', // 1024px
-  exlarge:  '112.5em', // 1800px
+  largeExlarge: '75em', // 1200px
+  exlarge:  '100em' // 1600px
 }
 
 const theme = {
   breakpoints: {
-    small: `@media only screen and (min-width: ${bp.small})`, // 480px
-    mediumSmall: `@media only screen and (min-width: ${bp.mediumSmall})`, // 700px
-    medium: `@media only screen and (min-width: ${bp.medium})`, // 800px
-    largeMedium: `@media only screen and (min-width: ${bp.largeMedium})`, // 900px
-    large: `@media only screen and (min-width: ${bp.large})`, // 1024px
-    exlarge: `@media only screen and (min-width: ${bp.exlarge})`, // 1800px
+    small: `@media (min-width: ${bp.small})`, // 480px
+    mediumSmall: `@media (min-width: ${bp.mediumSmall})`, // 700px
+    medium: `@media (min-width: ${bp.medium})`, // 800px
+    largeMedium: `@media (min-width: ${bp.largeMedium})`, // 900px
+    large: `@media (min-width: ${bp.large})`, // 1024px
+    largeExlarge: `@media (min-width: ${bp.largeExlarge})`, // 1200px
+    exlarge: `@media (min-width: ${bp.exlarge})`, // 1600px
   },
 
   resetStyles : `*,
@@ -26,13 +28,26 @@ const theme = {
      box-sizing: inherit;
    }
 
+  
    html {
      box-sizing: border-box;
-     font-size: 62.5%;
+     font-size: 37.5%;
      font-family: 'Poppins';
-
      color: #4B4B4B;
    }
+
+   @media only screen and (min-width: ${bp.large}) {
+    html {
+      font-size: 62.5%;
+    }
+  }
+
+  @media only screen and (min-width: ${bp.exlarge}) {
+    html {
+      font-size: 75%;
+    }
+  }
+
    `,
 
   //  colors
@@ -44,6 +59,14 @@ const theme = {
   // gradients
   gradients: {
     blueGradient: 'linear-gradient(90.17deg, #09A7BC 0.19%, #2EC0EE 99.77%)',
+  },
+
+  // box-shadow
+
+  shadows: {
+    boxShadow_1: '0 1rem 2rem rgba(0, 0, 0, 0.1)',
+    boxShadow_2: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+
   }
 
 }
