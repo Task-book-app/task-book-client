@@ -9,19 +9,20 @@ import { faAt, faLock } from '@fortawesome/free-solid-svg-icons'
 import Button from '../Components/Button'
 
 
-const rules = ({paddingRight})=> ({
+const rules = ({paddingRight, justifyContent})=> ({
     position: 'relative',
     height: "100vh",
     overflow: "hidden",
-    display: 'flex',
-    justifyContent: 'flex-end',
+    
     alignItems: 'center',
-    paddingRight
+    display: 'flex',
+    justifyContent,
+    paddingRight,
   })
   
-  export default function AuthLayout({ paddingRight }) {
+  export default function AuthLayout({ paddingRight, justifyContent }) {
 
-    const { css, theme } = useFela({paddingRight})
+    const { css, theme } = useFela({ paddingRight, justifyContent })
 
     const circle = {
       position: "absolute",
@@ -37,18 +38,19 @@ const rules = ({paddingRight})=> ({
     <div 
       className={css(rules)}
     >
+
       <SpiralBackground
         position="absolute"
-        height={['80rem', '90rem', "125rem", "110rem" ]}          
-        bottom={[, , ,"-20%", "-15%"]}
-        left={[ "0rem" , "-15rem", "-20%", "-15%"]}
-        
+        height={['75rem', '90rem', '90rem', "125rem", "110rem" ]}          
+        left={[ "-120%", "-60%", "-40%", "-30%","-10%", "-15rem", "-20%", "-15%"]}
+        bottom={["" , , , ,"-20%", "-15%"]}
       />
+
       <SpiralBackground
         position="absolute"
-        height={[  , , "45rem", "42rem"]}     
-        bottom={[ , ,"-5rem", "-4rem"]}
-        right={[  , , "-16%", "-10%"]}
+        height={[  ,"40rem" , "45rem", "42rem"]}     
+        bottom={[ ,"-10%" ,"-5rem", "-4rem"]}
+        right={[  ,  "-16%", "-16%", "-10%"]}
       />
 
       <div className={css(circle)}></div>

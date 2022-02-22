@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+// 1rem = 10px, 10/16 * 100 = 62.5%
+
+html {
+  box-sizing: border-box;
+  font-size: 50%;
+  font-family: "Poppins";
+  color: $color-dark;
+
+  @include devices(laptop) {
+    font-size: 62.5%;
+  }
+  @include devices(desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}

@@ -1,0 +1,46 @@
+// center elements with flexbox
+@mixin centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// first-mobile approach min-width: 320px
+@mixin devices($breakpoint) {
+  @if $breakpoint == mobile-M {
+    // min-width : 375px
+    @media only screen and (min-width: 23.4375em) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-L {
+    // min-width : 425px
+    @media only screen and (min-width: 26.5625em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    // min-width : 768px
+    @media only screen and (min-width: 48em) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    // min-width : 1024px
+    @media only screen and (min-width: 64em) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop-L {
+    // min-widht: 1440px
+    @media only screen and (min-width: 90em) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    // min-widht: 1600px
+    @media only screen and (min-width: 100em) {
+      @content;
+    }
+  }
+}

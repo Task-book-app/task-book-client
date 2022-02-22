@@ -20,36 +20,6 @@ const theme = {
     exlarge: `@media (min-width: ${bp.exlarge})`, // 1600px
   },
 
-  resetStyles : `*,
-    *::before,
-    *::after {
-     margin:0;
-     padding:0;
-     box-sizing: inherit;
-   }
-
-  
-   html {
-     box-sizing: border-box;
-     font-size: 37.5%;
-     font-family: 'Poppins';
-     color: #4B4B4B;
-   }
-
-   @media only screen and (min-width: ${bp.large}) {
-    html {
-      font-size: 62.5%;
-    }
-  }
-
-  @media only screen and (min-width: ${bp.exlarge}) {
-    html {
-      font-size: 75%;
-    }
-  }
-
-   `,
-
   //  colors
   colors:{
     black: '#4B4B4B',
@@ -62,13 +32,10 @@ const theme = {
   },
 
   // box-shadow
-
   shadows: {
     boxShadow_1: '0 1rem 2rem rgba(0, 0, 0, 0.1)',
     boxShadow_2: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
-
   }
-
 }
 
 export default theme

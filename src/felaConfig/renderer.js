@@ -61,17 +61,17 @@ const responsiveProps = {
   width: true,
   height: true,
   position: true,
-  display: true,
   bottom: true,
   left: true,
-  right: true
+  right: true,
+  display: true,
+  justifyContent: true,
+  alignItems: true,
 }
 
  const renderer = createRenderer({
   plugins: [responsiveValue(getMediaQueries, responsiveProps)],
 })
-
-renderer.renderStatic(theme.resetStyles)
 
 // font-family
 const nunito = renderer.renderFont('Nunito', [ Nunito, NunitoItalic ])
