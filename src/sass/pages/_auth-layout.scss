@@ -1,0 +1,62 @@
+.auth-layout {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  @include centerFlex;
+
+  @include devices(mobile-L) {
+    @media (orientation: "landscape") {
+      padding: 8rem 0;
+    }
+  }
+
+  @include devices(laptop) {
+    padding-right: 8rem;
+    justify-content: flex-end;
+  }
+
+  @include devices(desktop) {
+    padding-right: 10rem;
+  }
+
+  &__image {
+    z-index: -1;
+    position: absolute;
+
+    &--1 {
+      width: 160%;
+      left: -100%;
+
+      @include devices(mobile-L) {
+        width: 180%;
+        left: -120%;
+        bottom: -0%;
+      }
+      @include devices(tablet) {
+        width: 140%;
+        left: -90%;
+        bottom: -10%;
+      }
+      @include devices(laptop) {
+        width: 95%;
+        left: -25%;
+        bottom: -25%;
+      }
+    }
+
+    &--2 {
+      width: 40%;
+      right: -10%;
+      bottom: -5%;
+      @media (orientation: landscape) {
+        bottom: -20%;
+      }
+      @include devices(laptop) {
+        display: block;
+        width: 25%;
+        right: -10%;
+        bottom: -5%;
+      }
+    }
+  }
+}

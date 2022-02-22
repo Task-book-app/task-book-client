@@ -1,12 +1,31 @@
+@use "sass:math";
+
 @function pow($base, $exponent) {
   $result: 1;
-  @for $_ from 1 through $exponent {
+  @for $i from 1 through $exponent {
     $result: $result * $base;
   }
   @return $result;
 }
 
-.sidebar {
-  float: left;
-  margin-left: pow(4, 3) * 1px;
-}
+// // Divides `$value` by `$ratio` until it's below `$base`.
+// @function scale-below($value, $base, $ratio: 1.618) {
+//   @while $value > $base {
+//     $value: math.div($value, $ratio);
+//   }
+//   @return $value;
+// }
+
+// .sidebar {
+//   font-size: scale-below(2rem, 1rem);
+//   float: left;
+//   padding: pow(4, 3) * 0.05rem;
+//   height: 150vh;
+//   background-color: red;
+// }
+
+// img {
+//   aspect-ratio: 16 / 9;
+//   width: 100%;
+//   object-fit: contain;
+// }
