@@ -1,29 +1,30 @@
 // Breakpoints
 const bp = {
-  small: '30em', // 480px
-  mediumSmall: '43.75em', // 700px
-  medium: '50em', // 800px
-  largeMedium: '56.25em', // 900px
-  large:  '64em', // 1024px
-  largeExlarge: '75em', // 1200px
-  exlarge:  '100em' // 1600px
+  mobile_M: '23.4375em',  // 375px
+  mobile_L: '26.5625em',  // 425px
+  tablet: '48em',         // 768px
+  laptop: '64em',         // 1024px
+  laptop_L:  '90em',      // 1440px
+  desktop: '100em',       // 1600px
+  
 }
 
 const theme = {
   breakpoints: {
-    small: `@media (min-width: ${bp.small})`, // 480px
-    mediumSmall: `@media (min-width: ${bp.mediumSmall})`, // 700px
-    medium: `@media (min-width: ${bp.medium})`, // 800px
-    largeMedium: `@media (min-width: ${bp.largeMedium})`, // 900px
-    large: `@media (min-width: ${bp.large})`, // 1024px
-    largeExlarge: `@media (min-width: ${bp.largeExlarge})`, // 1200px
-    exlarge: `@media (min-width: ${bp.exlarge})`, // 1600px
+    mobile_M: `@media only screen and (min-width: ${bp.mobile_M})`, // 375px
+    mobile_L: `@media only screen and (min-width: ${bp.mobile_L})`, // 425px
+    tablet: `@media only screen and (min-width: ${bp.tablet})`,     // 768px
+    laptop: `@media only screen and (min-width: ${bp.laptop})`,     // 1024px
+    laptop_L: `@media only screen and (min-width: ${bp.laptop_L})`, // 1440px
+    desktop: `@media only screen and (min-width: ${bp.desktop})`,   // 1600px
   },
 
   //  colors
   colors:{
-    black: '#4B4B4B',
+    dark: '#4b4b4b',
     blue: '#0aa7bd',
+    black: '#000000',
+    white: '#ffffff',
   },
 
   // gradients

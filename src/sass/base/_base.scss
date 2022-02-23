@@ -24,7 +24,14 @@ body {
   box-sizing: border-box;
 }
 
-// .App {
-//   // position: relative;
-//   // min-height: 100vh;
-// }
+.active {
+  transition: all 0.3s;
+  color: $color-blue;
+  transform: skewX(-8deg) translateX(0.4rem);
+}
+
+.inactive {
+  color: inherit;
+  transition: all 0.3s;
+  transform: skewX() translateX(0);
+}
