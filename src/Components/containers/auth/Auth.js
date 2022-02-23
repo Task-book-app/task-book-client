@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Brand from '../../presentational/Brand'
 import { NavLink } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
@@ -36,20 +36,20 @@ const Auth = () => {
           top='1rem'
           bp={brandBp}
         >
-            <NavLink 
-              to='/'
-              className={ ({isActive}) => (isActive ? "active" : "inactive")}
-            >
-              Log In
-            </NavLink>
-            <NavLink 
-              to='/signup'
-              className={ ({isActive}) => (isActive ? "active" : "inactive")}
-            >
-              Sign Up
-            </NavLink>
-          </Brand>
-           <Outlet />
+          <NavLink 
+            to='/'
+            className={ ({isActive}) => (isActive ? "active" : "inactive")}
+          >
+            Log In
+          </NavLink>
+          <NavLink 
+            to='/signup'
+            className={ ({isActive}) => (isActive ? "active" : "inactive")}
+          >
+            Sign Up
+          </NavLink>
+        </Brand>
+        <Outlet />
     </div>
   )
 }

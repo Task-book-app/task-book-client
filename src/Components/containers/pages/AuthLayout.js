@@ -1,12 +1,9 @@
-import React from 'react'
 import SpiralBackground from '../../presentational/SpiralBackground'
 import CircleBg from '../../presentational/CircleBg'
-// import { Outlet } from 'react-router-dom'
 import Auth from '../auth/Auth'
 
 
 const AuthLayout = () => {
- 
   return (
     <div className="auth-layout">
       <div className="auth-layout__image auth-layout__image--1">
