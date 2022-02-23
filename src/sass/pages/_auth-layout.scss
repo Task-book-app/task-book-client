@@ -11,6 +11,8 @@
   }
 
   @include devices(laptop) {
+    padding-top: 0;
+    padding-bottom: 0;
     padding-right: 8rem;
     justify-content: flex-end;
   }
@@ -30,7 +32,6 @@
       @include devices(mobile-L) {
         width: 180%;
         left: -120%;
-        bottom: -0%;
       }
       @include devices(tablet) {
         width: 140%;
@@ -58,5 +59,16 @@
         bottom: -5%;
       }
     }
+  }
+}
+
+.auth {
+  width: 90%;
+  position: relative;
+  @include devices(tablet) {
+    width: 80%;
+  }
+  @include devices(laptop) {
+    width: 45%;
   }
 }
