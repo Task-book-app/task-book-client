@@ -36,6 +36,13 @@ const theme = {
   shadows: {
     boxShadow_1: '0 1rem 2rem rgba(0, 0, 0, 0.1)',
     boxShadow_2: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+  },
+
+  // flex combis
+  centerFlex:{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 }
 

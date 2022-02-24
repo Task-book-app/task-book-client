@@ -7,7 +7,7 @@ import { useFela } from 'react-fela'
 
 const Auth = () => {
 
-  const { theme } = useFela()
+  const { css, theme } = useFela()
 
   const { mobile_L, tablet, laptop, laptop_L } = theme.breakpoints
 
@@ -30,26 +30,26 @@ const Auth = () => {
 
   return (
     <div className="auth">
-        <Brand
-          position='absolute'
-          right='1.5rem'
-          top='1rem'
-          bp={brandBp}
+      <Brand
+        position='absolute'
+        right='1.5rem'
+        top='1rem'
+        bp={brandBp}
+      >
+        <NavLink 
+          to='/'
+          className={ ({isActive}) => (isActive ? "active" : "inactive")}
         >
-          <NavLink 
-            to='/'
-            className={ ({isActive}) => (isActive ? "active" : "inactive")}
-          >
-            Log In
-          </NavLink>
-          <NavLink 
-            to='/signup'
-            className={ ({isActive}) => (isActive ? "active" : "inactive")}
-          >
-            Sign Up
-          </NavLink>
-        </Brand>
-        <Outlet />
+          Log In
+        </NavLink>
+        <NavLink 
+          to='/signup'
+          className={ ({isActive}) => (isActive ? "active" : "inactive")}
+        >
+          Sign Up
+        </NavLink>
+      </Brand>
+      <Outlet /> 
     </div>
   )
 }
