@@ -1,5 +1,5 @@
 // import React from 'react'
-import Form from '../Form'
+import Form from './Form'
 import FormControl from '../../presentational/FormControl'
 import H1 from '../../presentational/typography/H1'
 import Icon from '../../presentational/Icon'
@@ -26,7 +26,12 @@ const SignUp = () => {
                 color={theme.colors.blue}
                 fontIcon={faAt}
               />
-              <input type="text" name="email" id="email"/>
+              <input 
+                type="email"
+                name="email" 
+                id="email" 
+                placeholder="name@example.com" 
+                />
             </div>
           </FormControl>
           <FormControl
@@ -38,7 +43,12 @@ const SignUp = () => {
                 color={theme.colors.blue}
                 fontIcon={faLock}
               />
-              <input type="password" name="password" id="password"/>
+              <input 
+                type="password" 
+                name="password" 
+                id="password"
+                placeholder="Enter your password"
+              />
             </div>
           </FormControl>
           <FormControl

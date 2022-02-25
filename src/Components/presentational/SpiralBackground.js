@@ -2,13 +2,17 @@
 import logo from '../../images/spiral/logo-spiral.svg'
 import { useFela } from 'react-fela'
 
-const rules = () => ({
-  width: '100%',
-  zIndex:'-1'
-})
 
- const SpiralBackground = () => {
-  const { css } = useFela()
+
+ const SpiralBackground = ({styles, width='100%'}) => {
+  const { css } = useFela({width})
+
+  const rules = ({width}) => ({
+    width,
+    ...styles,
+    zIndex:'0'
+  })
+
   return (
     <img 
       src={logo} alt="spiral" 

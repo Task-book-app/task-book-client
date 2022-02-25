@@ -22,9 +22,17 @@ const theme = {
   //  colors
   colors:{
     dark: '#4b4b4b',
+    dark_background: '#222831',
     blue: '#0aa7bd',
     black: '#000000',
+
+
     white: '#ffffff',
+
+    whiteBtn: '#f9f7f6',
+
+
+    greyLight: '#bebebe'
   },
 
   // gradients
@@ -36,6 +44,13 @@ const theme = {
   shadows: {
     boxShadow_1: '0 1rem 2rem rgba(0, 0, 0, 0.1)',
     boxShadow_2: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+  },
+
+  // flex combis
+  centerFlex:{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 }
 
