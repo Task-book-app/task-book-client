@@ -7,7 +7,7 @@ import { useFela } from 'react-fela'
 
 const Auth = () => {
 
-  const { css, theme } = useFela()
+  const { theme } = useFela()
 
   const { mobile_L, tablet, laptop, laptop_L } = theme.breakpoints
 

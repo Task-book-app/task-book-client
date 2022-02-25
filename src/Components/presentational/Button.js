@@ -11,11 +11,12 @@ const Button = ({children, fontSize=1.4, type, event=null }) => {
       
       border: 'none',
       fontSize: `${fontSize}rem`,
+      // fontWeight:'bold',
       fontFamily: theme.fontFamily.poppinsBold,
       letterSpacing:'.1rem',
 
       transition: 'all 0.2s',
-      color:'#f9f7f6',
+      color: theme.colors.whiteBtn,
       ':hover': {
         transform: 'translateY(-2px)',
         cursor: 'pointer',

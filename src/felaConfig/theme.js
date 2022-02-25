@@ -22,9 +22,17 @@ const theme = {
   //  colors
   colors:{
     dark: '#4b4b4b',
+    dark_background: '#222831',
     blue: '#0aa7bd',
     black: '#000000',
+
+
     white: '#ffffff',
+
+    whiteBtn: '#f9f7f6',
+
+
+    greyLight: '#bebebe'
   },
 
   // gradients

@@ -12,7 +12,7 @@ import Bold from './Poppins-Bold.ttf'
 // import Medium from './Poppins-Medium.ttf'
 // import MediumItalic from './Poppins-MediumItalic.ttf'
 import Regular from './Poppins-Regular.ttf'
-// import SemiBold from './Poppins-SemiBold.ttf'
+import SemiBold from './Poppins-SemiBold.ttf'
 // import SemiBoldItalic from './Poppins-SemiBoldItalic.ttf'
 // import Thin from './Poppins-Thin.ttf'
 // import ThinItalic from './Poppins-ThinItalic.ttf'
@@ -22,4 +22,6 @@ const poppins = [Regular]
 
 const bold = [Bold]
 
-export { poppins, bold }
+const semi_bold = [SemiBold]
+
+export { poppins, bold, semi_bold } 
