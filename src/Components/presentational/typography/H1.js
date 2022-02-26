@@ -1,22 +1,17 @@
 // import React from 'react'
-import { useFela } from 'react-fela'
+import { useFela } from "react-fela";
 
+const H1 = ({ children, color }) => {
+  const { css, theme } = useFela({ color });
 
-const H1 = ({children}) => {
-    
-    const { css, theme } = useFela()
+  const rule = ({ color }) => ({
+    color,
+    fontFamily: theme.fontFamily.poppinsBold,
+    fontSize: "3rem",
+    lineHeight: "4.8rem",
+  });
 
-    const rule = () => ({
-        fontFamily: theme.fontFamily.poppinsBold,
-        fontSize: '3rem',
-        lineHeight: '4.8rem',
-    })
+  return <h1 className={css(rule)}>{children}</h1>;
+};
 
-  return (
-    <h1
-        className={css(rule)}
-    >{children}</h1>
-  )
-}
-
-export default H1
+export default H1;

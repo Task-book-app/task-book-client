@@ -1,15 +1,13 @@
-import SpiralBackground from '../../presentational/SpiralBackground'
-import CircleBg from '../../presentational/CircleBg'
-import Auth from '../auth/Auth'
-import { useFela } from 'react-fela'
+import SpiralBackground from "../../presentational/SpiralBackground";
+import CircleBg from "../../presentational/CircleBg";
+import Auth from "../auth/Auth";
+import { useFela } from "react-fela";
 
 const AuthLayout = () => {
+  const { theme } = useFela();
 
-  const { theme } = useFela()
+  const { mobile_L, tablet, laptop } = theme.breakpoints;
 
-  const { mobile_L, tablet, laptop } = theme.breakpoints
-
-  
   // const layoutRules = () => ({
   //   margin: '0 auto',
   //   padding: '2rem 0',
@@ -39,53 +37,49 @@ const AuthLayout = () => {
   // })
 
   const bigImagerules = {
-    position: 'absolute',
-    width: '160%',
-    left: '-100%',
+    position: "absolute",
+    width: "160%",
+    left: "-100%",
     [mobile_L]: {
-      width: '180%',
-      left: '-120%'
+      width: "180%",
+      left: "-120%",
     },
     [tablet]: {
-      width: '140%',
-      left: '-90%',
-      bottom: '-10%'
+      width: "140%",
+      left: "-90%",
+      bottom: "-10%",
     },
     [laptop]: {
-      width: '95%',
-      left: '-25%',
-      bottom: '-25%'
+      width: "95%",
+      left: "-25%",
+      bottom: "-25%",
     },
-  }
+  };
 
-  const smallImageRules = { 
-    position: 'absolute',
-    width: '40%',
-    right: '-10%',
-    bottom: '-5%',
+  const smallImageRules = {
+    position: "absolute",
+    width: "40%",
+    right: "-10%",
+    bottom: "-5%",
     "@media (orientation: 'landscape')": {
-      bottom: '-20%',
+      bottom: "-20%",
     },
     [laptop]: {
-      display: 'block',
-      width: '25%',
-      right: '-10%',
-      bottom: '-5%'
-  }
-}
-  
+      display: "block",
+      width: "25%",
+      right: "-10%",
+      bottom: "-5%",
+    },
+  };
+
   return (
     <div className="auth-layout">
-        <SpiralBackground 
-          styles={bigImagerules}
-        />
-        <SpiralBackground 
-          styles={smallImageRules}
-        />
-        <CircleBg />
-        <Auth />
+      <SpiralBackground styles={bigImagerules} />
+      <SpiralBackground styles={smallImageRules} />
+      <CircleBg />
+      <Auth />
     </div>
-  )
-}
+  );
+};
 
-export default AuthLayout
+export default AuthLayout;
