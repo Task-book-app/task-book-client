@@ -1,14 +1,12 @@
 import React from 'react'
+import SideBar from '../dashboard/sideBar/SideBar'
+import TaskView from '../dashboard/TaskView'
 
 const DashboardLayout = () => {
   return (
     <div className="dashboard-layout">
-        <div className="sidebar">
-            sidebar
-        </div>
-        <div className="task-view">
-            task-view
-        </div>
+        <SideBar />
+        <TaskView />
     </div>
   )
 }

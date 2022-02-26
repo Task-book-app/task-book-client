@@ -17,13 +17,17 @@ const rules  = ({ size, fontSize, bg, color}) => ({
     alignItems: 'center',
 })
 
-const Icon = ({fontIcon, size=3, fontSize=1.6, bg='none', color}) => {
+const Icon = ({fontIcon, size=2, fontSize=1.6, bg='none', color='inherit'}) => {
 
     const { css } = useFela({size, fontSize, bg, color})
 
   return (
       <div className={css(rules)}>
-            <FontAwesomeIcon icon={fontIcon}  fontSize='inherit' color="inherit"/>
+            <FontAwesomeIcon
+                icon={fontIcon} 
+                fontSize='inherit' 
+                color="inherit"
+            />
       </div> 
     )
 }

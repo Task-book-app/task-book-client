@@ -10,7 +10,6 @@ const H1 = ({children}) => {
         fontFamily: theme.fontFamily.poppinsBold,
         fontSize: '3rem',
         lineHeight: '4.8rem',
-        // fontWeight: 'bold',
     })
 
   return (
