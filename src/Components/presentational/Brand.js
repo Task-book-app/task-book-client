@@ -37,6 +37,10 @@ const Brand = ({ children, position, right, top, bp }) => {
     const rulesHeadings = () => ({
         paddingLeft: '1rem',
         paddingRight: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
         '& a': {
             // position: 'relative',
             fontSize: '2.2rem',
