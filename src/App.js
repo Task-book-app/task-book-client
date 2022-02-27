@@ -7,7 +7,7 @@ import DashboardLayout from "./Components/containers/pages/DashboardLayout";
 import TaskView from "./Components/containers/dashboard/mainView/TaskView";
 import Categorie from "./Components/containers/dashboard/mainView/Categorie";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Routes>
@@ -41,6 +41,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
