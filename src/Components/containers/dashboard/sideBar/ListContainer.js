@@ -5,9 +5,7 @@ const ListContainer = ({ children }) => {
   const { css } = useFela();
 
   const rules = () => ({
-    "& li": {
-      listStyle: "none",
-    },
+    listStyle: "none",
     "& > :not(:last-child)": {
       marginBottom: "3rem",
     },

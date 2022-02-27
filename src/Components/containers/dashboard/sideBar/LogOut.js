@@ -8,6 +8,7 @@ const LogOut = () => {
   const { css } = useFela();
 
   const rules = () => ({
+    width: "auto",
     flex: "1 1 auto",
     display: "flex",
     alignItems: "flex-end",
