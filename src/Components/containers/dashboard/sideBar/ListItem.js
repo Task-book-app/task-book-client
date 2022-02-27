@@ -1,34 +1,86 @@
 import React from "react";
 import { useFela } from "react-fela";
 import { NavLink } from "react-router-dom";
+import Icon from "../../../presentational/Icon";
+import H4 from "../../../presentational/typography/H4";
+import { combineRules } from "fela";
 
-const ListItem = () => {
-  const { css, theme } = useFela();
+const ListItem = ({
+  title = "",
+  fontIcon,
+  color = "inherit",
+  hover = null,
+}) => {
+  const { css, theme } = useFela({ color });
 
-  const linkRuleActive = () => ({
-    color: "purple",
-    ":after": {
+  const rules = ({ color }) => ({
+    color,
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    position: "relative",
+    transition: "all .5s ease",
+
+    ":before": {
       content: '" "',
+
+      position: "absolute",
       display: "block",
-      width: "50px",
-      height: "50px",
-      backgroundColor: "purple",
+
+      right: "-2rem",
+      bottom: "0.3rem",
+
+      borderRadius: "10px 0px 0px 10px",
+
+      transform: "scaleX(0)",
+    },
+
+    "& > :first-child": {
+      marginRight: "2rem",
     },
   });
 
-  const linkRuleInactive = () => ({
-    color: "red",
+  const rulesActive = () => ({
+    color: theme.colors.blue,
+
+    ":before": {
+      content: '" "',
+
+      position: "absolute",
+      display: "block",
+      background: theme.gradients.blueGradient,
+
+      width: "3rem",
+      height: "1.8rem",
+
+      borderRadius: "10px 0px 0px 10px",
+
+      transition: "transform 0.5s ease",
+      transformOrigin: "right",
+      transform: "scaleX(1)",
+    },
   });
+
+  const rulesInactive = () => ({
+    color,
+    ":hover": {
+      color: !hover ? theme.colors.blue : hover,
+    },
+  });
+
+  const activeCombined = combineRules(rules, rulesActive);
+  const inactiveCombined = combineRules(rules, rulesInactive);
 
   return (
     <li>
       <NavLink
-        to="view/list-item"
+        to={`view/${title.toLowerCase()}`}
         className={({ isActive }) =>
-          css(isActive ? linkRuleActive : linkRuleInactive)
+          css(isActive ? activeCombined : inactiveCombined)
         }
       >
-        List Item
+        <Icon size={1.5} fontIcon={fontIcon} />
+        <H4>{title}</H4>
       </NavLink>
     </li>
   );

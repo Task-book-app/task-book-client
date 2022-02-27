@@ -1,6 +1,6 @@
-import AuthLayout from "./Components/containers/pages/AuthLayout";
-import SignUp from "./Components/containers/auth/SignUp";
-import Login from "./Components/containers/auth/Login";
+// import AuthLayout from "./Components/containers/pages/AuthLayout";
+// import SignUp from "./Components/containers/auth/SignUp";
+// import Login from "./Components/containers/auth/Login";
 import H1 from "./Components/presentational/typography/H1";
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./Components/containers/pages/DashboardLayout";
@@ -10,12 +10,12 @@ import Categorie from "./Components/containers/dashboard/mainView/Categorie";
 const App = () => {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Route>
-      </Routes>
+      </Routes> */}
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
           <Route path="view" element={<TaskView />}>
@@ -23,7 +23,7 @@ const App = () => {
               index
               element={
                 <main>
-                  <H1 color={"white"}>Select a categorie</H1>
+                  <H1 color={"Purple"}>Select a categorie</H1>
                 </main>
               }
             />
