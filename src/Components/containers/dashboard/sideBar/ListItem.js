@@ -11,7 +11,7 @@ const ListItem = ({
   color = "inherit",
   hover = null,
 }) => {
-  const { css, theme } = useFela({ color });
+  const { css, theme } = useFela({ color, hover });
 
   const rules = ({ color }) => ({
     color,
@@ -61,7 +61,7 @@ const ListItem = ({
     },
   });
 
-  const rulesInactive = () => ({
+  const rulesInactive = ({ hover }) => ({
     color,
     ":hover": {
       color: !hover ? theme.colors.blue : hover,
