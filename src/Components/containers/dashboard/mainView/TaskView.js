@@ -8,8 +8,9 @@ const TaskView = () => {
 
   const rules = () => ({
     // width: '84%',
+
     flex: "1 1 auto",
-    backgroundColor: "currentColor",
+    // backgroundColor: "currentColor",
     minHeight: "100%",
     ...theme.centerFlex,
   });

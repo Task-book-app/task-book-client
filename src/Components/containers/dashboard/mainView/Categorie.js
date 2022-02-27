@@ -12,10 +12,10 @@ const Categorie = () => {
   if (!founded)
     return (
       <main>
-        <H1 color={"white"}>Categorie not Found</H1>
+        <H1 color={"purple"}>Categorie not Found</H1>
       </main>
     );
-  return <H1 color={"white"}>{founded}</H1>;
+  return <H1 color={"purple"}>{founded}</H1>;
 };
 
 export default Categorie;
