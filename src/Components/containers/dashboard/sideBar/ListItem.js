@@ -74,7 +74,7 @@ const ListItem = ({
   return (
     <li>
       <NavLink
-        to={`view/${title.toLowerCase()}`}
+        to={`${title.toLowerCase()}`}
         className={({ isActive }) =>
           css(isActive ? activeCombined : inactiveCombined)
         }
