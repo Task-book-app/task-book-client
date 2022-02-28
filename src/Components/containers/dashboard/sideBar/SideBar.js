@@ -16,7 +16,7 @@ const SideBar = () => {
     padding: "2rem",
     display: "flex",
     flexDirection: "column",
-
+    overflow: "scroll",
     filter: "drop-shadow(0px 10px 25px rgba(29, 52, 54, 0.08))",
     "& > :not(:last-child)": {
       marginBottom: "6rem",
