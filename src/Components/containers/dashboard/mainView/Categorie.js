@@ -10,17 +10,28 @@ const Categorie = () => {
   const founded = categories.find(
     (item) => item.toLowerCase() === categorie.toLowerCase()
   );
-  if (!founded)
-    return (
-      <main>
-        <H1 color={"purple"}>Categorie not Found</H1>
-        <Lock width="50" height="50" fill="blue" />
-      </main>
-    );
+
   return (
-    <main>
-      <H1 color={"purple"}>{founded}</H1>
-      <Lock width="50" height="50" fill="green" />
+    <main
+      style={{
+        flex: "1 1 auto",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      {founded ? (
+        <>
+          <H1 color={"purple"}>{founded}</H1>
+          <Lock width="50" height="50" fill="green" />
+        </>
+      ) : (
+        <>
+          <H1 color={"purple"}>Categorie not Found</H1>
+          <Lock width="50" height="50" fill="blue" />
+        </>
+      )}
     </main>
   );
 };

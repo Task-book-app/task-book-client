@@ -49,6 +49,20 @@ const theme = {
     justifyContent: "center",
     alignItems: "center",
   },
+
+  // button styles
+  buttonStyles: {
+    borderRadius: ".5rem",
+    transition: "all 0.2s",
+    ":hover": {
+      transform: "translateY(-2px)",
+      cursor: "pointer",
+      boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    },
+    ":active": {
+      transform: "translateY(0)",
+    },
+  },
 };
 
 export default theme;

@@ -1,39 +1,41 @@
-import { useFela } from 'react-fela'
+import { useFela } from "react-fela";
 
-const Button = ({children, fontSize=1.4, type, event=null }) => {
-    const { css, theme } = useFela({fontSize})
+const Button = ({
+  children,
+  fontSize = 1.4,
+  type,
+  event = null,
+  width = "100%",
+  fontFamily,
+}) => {
+  const { css, theme } = useFela({ fontSize, width, fontFamily });
 
-    const rule = ({ fontSize }) => ({
-      width: '100%',
-      padding: `1rem 2rem`,
-      background: theme.gradients.blueGradient,
-      borderRadius: '.5rem',
-      
-      border: 'none',
-      fontSize: `${fontSize}rem`,
-      // fontWeight:'bold',
-      fontFamily: theme.fontFamily.poppinsBold,
-      letterSpacing:'.1rem',
+  const rule = ({ fontSize, width }) => ({
+    width,
+    padding: `1rem 2rem`,
+    background: theme.gradients.blueGradient,
 
-      transition: 'all 0.2s',
-      color: theme.colors.whiteBtn,
-      ':hover': {
-        transform: 'translateY(-2px)',
-        cursor: 'pointer',
-        boxShadow: theme.shadows.boxShadow_1
-      },
-      ':active': {
-        transform: 'translateY(0)',
-      }
-  })
+    border: "none",
+    fontSize: `${fontSize}rem`,
+    fontFamily: fontFamily ? fontFamily : "inherit",
+    letterSpacing: ".1rem",
+
+    color: theme.colors.whiteBtn,
+
+    ...theme.centerFlex,
+
+    ...theme.buttonStyles,
+
+    "& > :first-child": {
+      marginRight: "1rem",
+    },
+  });
 
   return (
-    <button
-        type={type}
-        onClick={event}
-        className={css(rule)}
-    >{children}</button>
-  )
-}
+    <button type={type} onClick={event} className={css(rule)}>
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
