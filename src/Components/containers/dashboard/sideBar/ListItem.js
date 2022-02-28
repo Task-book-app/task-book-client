@@ -36,7 +36,7 @@ const ListItem = ({
     },
 
     "& > :first-child": {
-      marginRight: "2rem",
+      marginRight: "1rem",
     },
   });
 
@@ -79,7 +79,10 @@ const ListItem = ({
           css(isActive ? activeCombined : inactiveCombined)
         }
       >
-        <Icon size={1.5} fontIcon={fontIcon} />
+        <Icon
+          // size={1.5}
+          fontIcon={fontIcon}
+        />
         <H4>{title}</H4>
       </NavLink>
     </li>
