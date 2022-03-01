@@ -1,8 +1,8 @@
 import React from "react";
 import { useFela } from "react-fela";
 import { NavLink } from "react-router-dom";
-import Icon from "../../../presentational/Icon";
-import H4 from "../../../presentational/typography/H4";
+import Icon from "./Icon";
+import H4 from "./typography/H4";
 import { combineRules } from "fela";
 
 const ListItem = ({
@@ -21,7 +21,7 @@ const ListItem = ({
     position: "relative",
     transition: "all .5s ease",
 
-    ":before": {
+    ":after": {
       content: '" "',
 
       position: "absolute",
@@ -43,7 +43,7 @@ const ListItem = ({
   const rulesActive = () => ({
     color: theme.colors.blue,
 
-    ":before": {
+    ":after": {
       content: '" "',
 
       position: "absolute",
