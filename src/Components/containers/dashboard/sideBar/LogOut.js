@@ -1,7 +1,7 @@
 import React from "react";
 import { useFela } from "react-fela";
-import ListContainer from "./ListContainer";
-import ListItem from "./ListItem";
+import ListContainer from "../ListContainer";
+import ListItem from "../../../presentational/ListItem";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const LogOut = () => {
@@ -16,7 +16,7 @@ const LogOut = () => {
 
   return (
     <div className={css(rules)}>
-      <ListContainer>
+      <ListContainer marginBottom={3}>
         <ListItem title="Log Out" fontIcon={faRightFromBracket} hover="red" />
       </ListContainer>
     </div>

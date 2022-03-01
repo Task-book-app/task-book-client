@@ -1,9 +1,9 @@
+import React, { useEffect, useRef } from "react";
+import { useFela } from "react-fela";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { useFela } from "react-fela";
 
-const ToogleDropDown = () => {
+const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
   const { css, theme } = useFela();
 
   const rules = () => ({
@@ -19,8 +19,31 @@ const ToogleDropDown = () => {
     ...theme.buttonStyles,
   });
 
+  const handleDropDown = () => {
+    setShowDropDown(!showDropDown);
+  };
+
+  const toggleButton = useRef(null);
+
+  // function to catch click outside element
+  const useOutsideClick = (ref) => {
+    useEffect(() => {
+      // Function for click event
+      function handleOutsideClick(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setShowDropDown(false);
+        }
+      }
+      // Adding click event listener
+      document.addEventListener("click", handleOutsideClick);
+      return () => document.removeEventListener("click", handleOutsideClick);
+    }, [ref]);
+  };
+
+  useOutsideClick(toggleButton, setShowDropDown);
+
   return (
-    <div className={css(rules)}>
+    <div ref={toggleButton} className={css(rules)} onClick={handleDropDown}>
       <FontAwesomeIcon icon={faChevronDown} fontSize={"1.6rem"} />
     </div>
   );

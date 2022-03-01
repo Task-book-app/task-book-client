@@ -41,6 +41,7 @@ const theme = {
   shadows: {
     boxShadow_1: "0 1rem 2rem rgba(0, 0, 0, 0.1)",
     boxShadow_2: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    boxShadow_3: "0px 10px 25px rgba(29, 52, 54, 0.08)",
   },
 
   // flex combis
@@ -62,6 +63,13 @@ const theme = {
     ":active": {
       transform: "translateY(0)",
     },
+  },
+
+  boxesGeneral: {
+    padding: "2rem",
+    boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",
+    backgroundColor: "#fafafa",
+    borderRadius: "1rem",
   },
 };
 

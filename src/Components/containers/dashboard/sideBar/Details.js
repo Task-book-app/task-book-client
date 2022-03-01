@@ -1,6 +1,6 @@
 import React from "react";
-import ListContainer from "./ListContainer";
-import ListItem from "./ListItem";
+import ListContainer from "../ListContainer";
+import ListItem from "../../../presentational/ListItem";
 import {
   faSquarePollVertical,
   faChartLine,
@@ -20,7 +20,7 @@ const Details = () => {
   return (
     <div className={css(rules)}>
       <H2 color={theme.colors.blue}>Details</H2>
-      <ListContainer>
+      <ListContainer marginBottom={3}>
         <ListItem title="Statistics" fontIcon={faSquarePollVertical} />
         <ListItem title="Compare" fontIcon={faChartLine} />
       </ListContainer>

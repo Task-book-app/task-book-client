@@ -40,7 +40,7 @@ const SignUp = () => {
           </div>
         </FormControl>
         <FormControl mt={8}>
-          <Button type="button" fontFamily={theme.fontFamily.semiBold}>
+          <Button type="button" fontFamily="Semi-bold">
             Sign Up
           </Button>
         </FormControl>

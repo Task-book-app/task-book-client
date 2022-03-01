@@ -1,14 +1,14 @@
 import React from "react";
 import { useFela } from "react-fela";
 
-const ListContainer = ({ children }) => {
-  const { css } = useFela();
+const ListContainer = ({ children, marginBottom }) => {
+  const { css } = useFela({ marginBottom });
 
-  const rules = () => ({
+  const rules = ({ marginBottom }) => ({
     width: "100%",
     listStyle: "none",
     "& > :not(:last-child)": {
-      marginBottom: "3rem",
+      marginBottom: `${marginBottom}rem`,
     },
   });
 
