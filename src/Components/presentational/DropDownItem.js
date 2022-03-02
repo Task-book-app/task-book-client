@@ -6,7 +6,7 @@ import { combineRules } from "fela";
 
 const rules = () => ({
   textDecoration: "none",
-  transition: "all .5s ease",
+  transition: "all 0.5s ease",
   display: "flex",
   alignItems: "center",
 
