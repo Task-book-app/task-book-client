@@ -1,4 +1,3 @@
-// import React from "react";
 import { useFela } from "react-fela";
 import { bold, poppins, semi_bold } from "../fonts/Poppins/poppins";
 
@@ -28,8 +27,6 @@ const GlobalStyles = () => {
     html {
         font-size: 50%;
         font-family: "Poppins";
-        color: ${theme.colors.dark};
-    
     }
 
     ${[laptop]} {
@@ -44,9 +41,9 @@ const GlobalStyles = () => {
         }
     }
 
-  body {
-    box-sizing: border-box;
-  }
+    body{
+      box-sizing: border-box;
+    }
 `);
 
   return null;
