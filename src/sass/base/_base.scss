@@ -1,29 +1,29 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
+// *,
+// *::after,
+// *::before {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: inherit;
+// }
 // 1rem = 10px, 10/16 * 100 = 62.5%
 
-html {
-  font-size: 50%;
-  font-family: "Poppins";
-  color: $color-dark;
-  // color: #bebebe; // color dark modus
+// html {
+//   font-size: 50%;
+//   font-family: "Poppins";
+//   color: $color-dark;
+//   color: #bebebe; // color dark modus
 
-  @include devices(laptop) {
-    font-size: 62.5%;
-  }
-  @include devices(desktop) {
-    font-size: 75%;
-  }
-}
+//   @include devices(laptop) {
+//     font-size: 62.5%;
+//   }
+//   @include devices(desktop) {
+//     font-size: 75%;
+//   }
+// }
 
-body {
-  box-sizing: border-box;
-}
+// body {
+//   box-sizing: border-box;
+// }
 
 .activeLink {
   transition: all 0.3s;
