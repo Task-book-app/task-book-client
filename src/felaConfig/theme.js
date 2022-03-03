@@ -20,14 +20,18 @@ const theme = {
 
   //  colors
   colors: {
+    blue: "#0aa7bd",
+
     dark: "#4b4b4b",
     bg_dark: "#222831",
-    blue: "#0aa7bd",
+    bg_box_dark: "#2c3440",
     black: "#000000",
 
     white: "#ffffff",
     whiteBtn: "#f9f7f6",
     bg_light: "#fafafa",
+
+    whiteText: "#f9f9f9",
 
     greyLight: "#bebebe",
   },

@@ -7,8 +7,12 @@ import DashboardLayout from "./Components/containers/pages/DashboardLayout";
 import Categorie from "./Components/containers/dashboard/mainView/Categorie";
 import GlobalStyles from "./Components/GlobalStyles";
 import MainLayout from "./Components/containers/pages/MainLayout";
+import useDarkMode from "./Components/hooks/useDarkMode";
 
 const App = () => {
+  const [mountedComponent] = useDarkMode();
+
+  if (!mountedComponent) return <div />;
   return (
     <>
       <GlobalStyles />

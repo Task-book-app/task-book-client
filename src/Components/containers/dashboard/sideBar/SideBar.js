@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFela } from "react-fela";
+import { appContext } from "../../../../context/GlobalContext";
 import Brand from "../../../presentational/Brand";
 import H3 from "../../../presentational/typography/H3";
 import Categories from "./Categories";
@@ -8,10 +9,12 @@ import LogOut from "./LogOut";
 
 const SideBar = () => {
   const { css, theme } = useFela();
-
-  const rule = () => ({
+  const { currentTheme } = useContext(appContext);
+  const rules = () => ({
     width: "16%",
-    backgroundColor: theme.colors.white,
+    backgroundColor:
+      currentTheme === "light" ? theme.colors.white : theme.colors.bg_box_dark,
+    transition: "all 0.50s linear",
     minHeight: "100%",
     padding: "2rem",
     display: "flex",
@@ -24,7 +27,7 @@ const SideBar = () => {
   });
 
   return (
-    <div className={css(rule)}>
+    <div className={css(rules)}>
       <Brand>
         <H3 color={theme.colors.blue}>
           Tasks

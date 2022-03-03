@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { Outlet } from "react-router-dom";
+import { appContext } from "../../../context/GlobalContext";
 
 const MainLayout = () => {
   const { css, theme } = useFela();
 
+  const { currentTheme } = useContext(appContext);
   const rules = () => ({
+    color:
+      currentTheme === "light" ? theme.colors.dark : theme.colors.whiteText,
+    background:
+      currentTheme === "light" ? theme.colors.bg_light : theme.colors.bg_dark,
+    transition: "all 0.50s linear",
     margin: "0 auto",
     width: "100vw",
     maxWidth: "1440px",
-    background: theme.colors.bg_light,
-    // background: theme.colors.bg_dark,
-
     minHeight: "100vh",
-    maxHeight: "900px",
 
     [theme.breakpoints.desktop]: {
       maxWidth: "1600px",

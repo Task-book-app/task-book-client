@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faMoon } from "@fortawesome/free-regular-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import Button from "../../../presentational/Button";
 import { useFela } from "react-fela";
 import UserTopBar from "./UserTopBar";
+import ToogleDarkMode from "../../../presentational/ToogleDarkMode";
 
 const TopBar = () => {
   const { css } = useFela();
@@ -13,6 +14,7 @@ const TopBar = () => {
     justifyContent: "space-between",
     alignItems: "center",
   });
+
   return (
     <div className={css(rules)}>
       <Button width={"auto"} fontSize={1.6}>
@@ -23,7 +25,7 @@ const TopBar = () => {
         />
         New task
       </Button>
-      <FontAwesomeIcon icon={faMoon} fontSize={"2rem"} />
+      <ToogleDarkMode />
       <UserTopBar />
     </div>
   );

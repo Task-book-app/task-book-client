@@ -19,7 +19,6 @@ const ListItem = ({
     display: "flex",
     alignItems: "center",
     position: "relative",
-    transition: "all .5s ease",
 
     ":after": {
       content: '" "',
