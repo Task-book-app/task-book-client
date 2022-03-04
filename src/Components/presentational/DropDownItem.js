@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useFela } from "react-fela";
 import { combineRules } from "fela";
+import { appContext } from "../../context/GlobalContext";
 
 const rules = () => ({
   textDecoration: "none",
-  transition: "all 0.5s ease",
+  padding: "1.25rem 2rem",
+
   display: "flex",
   alignItems: "center",
 
@@ -21,8 +23,10 @@ const rules = () => ({
 const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
   const { css, theme } = useFela();
 
+  const { currentTheme } = useContext(appContext);
+
   const rulesActive = () => ({
-    color: theme.colors.blue,
+    ...theme.darkModusDropDown(currentTheme),
   });
 
   const rulesInactive = () => ({
@@ -32,7 +36,7 @@ const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
     },
 
     ":hover": {
-      color: theme.colors.blue,
+      ...theme.darkModusDropDown(currentTheme),
     },
   });
 

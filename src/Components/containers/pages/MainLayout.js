@@ -8,11 +8,7 @@ const MainLayout = () => {
 
   const { currentTheme } = useContext(appContext);
   const rules = () => ({
-    color:
-      currentTheme === "light" ? theme.colors.dark : theme.colors.whiteText,
-    background:
-      currentTheme === "light" ? theme.colors.bg_light : theme.colors.bg_dark,
-    transition: "all 0.50s linear",
+    ...theme.darkModusLayout(currentTheme),
     margin: "0 auto",
     width: "100vw",
     maxWidth: "1440px",

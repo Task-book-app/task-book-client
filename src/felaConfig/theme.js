@@ -72,8 +72,42 @@ const theme = {
   boxesGeneral: {
     padding: "2rem",
     boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",
-    backgroundColor: "#fafafa",
     borderRadius: "1rem",
+  },
+
+  // methods
+  darkModusBoxes: (modus) => {
+    const currentModus =
+      modus === "light"
+        ? {
+            backgroundColor: "#ffffff",
+          }
+        : { backgroundColor: "#2c3440" };
+
+    return { transition: "all 0.50s linear", ...currentModus };
+  },
+
+  darkModusLayout: (modus) => {
+    const currentModus =
+      modus === "light"
+        ? {
+            backgroundColor: "#fafafa",
+            color: "#4b4b4b",
+          }
+        : { backgroundColor: "#222831", color: "#f9f9f9" };
+
+    return { transition: "all 0.50s linear", ...currentModus };
+  },
+
+  darkModusDropDown: (modus) => {
+    const currentModus =
+      modus === "light"
+        ? {
+            backgroundColor: "#fafafa",
+          }
+        : { backgroundColor: "#222831" };
+
+    return { color: "#0aa7bd", ...currentModus };
   },
 };
 

@@ -12,7 +12,6 @@ const ToogleDarkMode = () => {
 
   const rules = () => ({
     cursor: "pointer",
-    // transition: "all 0.50s linear",
   });
 
   return (
