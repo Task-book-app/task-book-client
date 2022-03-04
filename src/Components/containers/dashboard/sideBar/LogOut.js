@@ -1,11 +1,11 @@
 import React from "react";
 import { useFela } from "react-fela";
 import ListContainer from "../ListContainer";
-import ListItem from "../../../presentational/ListItem";
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import ButtonMenu from "../../../presentational/ButtonMenu";
+import LogOutIcon from "../../../presentational/icons/LogOutIcon";
 
 const LogOut = () => {
-  const { css } = useFela();
+  const { css, theme } = useFela();
 
   const rules = () => ({
     width: "auto",
@@ -17,7 +17,15 @@ const LogOut = () => {
   return (
     <div className={css(rules)}>
       <ListContainer marginBottom={3}>
-        <ListItem title="Log Out" fontIcon={faRightFromBracket} hover="red" />
+        <ButtonMenu
+          fontSize={1.6}
+          title="Log Out"
+          event={null}
+          hoverColor={theme.colors.danger}
+          switchOffBg={true}
+        >
+          <LogOutIcon />
+        </ButtonMenu>
       </ListContainer>
     </div>
   );

@@ -34,6 +34,8 @@ const theme = {
     whiteText: "#f9f9f9",
 
     greyLight: "#bebebe",
+
+    danger: "#f05454;",
   },
 
   // gradients

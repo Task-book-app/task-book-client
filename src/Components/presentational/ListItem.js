@@ -2,7 +2,6 @@ import React from "react";
 import { useFela } from "react-fela";
 import { NavLink } from "react-router-dom";
 import Icon from "./Icon";
-import H4 from "./typography/H4";
 import { combineRules } from "fela";
 
 const ListItem = ({
@@ -10,11 +9,13 @@ const ListItem = ({
   fontIcon,
   color = "inherit",
   hover = null,
+  fontSize = 1.6,
 }) => {
-  const { css, theme } = useFela({ color, hover });
+  const { css, theme } = useFela({ color, hover, fontSize });
 
-  const rules = ({ color }) => ({
+  const rules = ({ color, fontSize }) => ({
     color,
+    fontSize: `${fontSize}rem`,
     textDecoration: "none",
     display: "flex",
     alignItems: "center",
@@ -78,11 +79,8 @@ const ListItem = ({
           css(isActive ? activeCombined : inactiveCombined)
         }
       >
-        <Icon
-          // size={1.5}
-          fontIcon={fontIcon}
-        />
-        <H4>{title}</H4>
+        <Icon fontIcon={fontIcon} />
+        {title}
       </NavLink>
     </li>
   );
