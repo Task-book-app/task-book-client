@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useFela } from "react-fela";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { appContext } from "../../context/GlobalContext";
 
 const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
   const { css, theme } = useFela();
+  const { currentTheme } = useContext(appContext);
 
   const rules = () => ({
     color: theme.colors.blue,
@@ -12,11 +14,10 @@ const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
     height: "2.4rem",
     boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",
 
-    backgroundColor: theme.colors.whiteBg,
-
     ...theme.centerFlex,
 
     ...theme.buttonStyles,
+    ...theme.darkModusBoxes(currentTheme),
   });
 
   const handleDropDown = () => {
@@ -40,7 +41,7 @@ const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
     }, [ref]);
   };
 
-  useOutsideClick(toggleButton, setShowDropDown);
+  useOutsideClick(toggleButton);
 
   return (
     <div ref={toggleButton} className={css(rules)} onClick={handleDropDown}>

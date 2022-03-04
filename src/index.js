@@ -12,13 +12,13 @@ const renderer = createRenderer();
 
 ReactDOM.render(
   <BrowserRouter>
-    <GlobalContext>
-      <RendererProvider renderer={renderer}>
-        <ThemeProvider theme={theme}>
+    <RendererProvider renderer={renderer}>
+      <ThemeProvider theme={theme}>
+        <GlobalContext>
           <App />
-        </ThemeProvider>
-      </RendererProvider>
-    </GlobalContext>
+        </GlobalContext>
+      </ThemeProvider>
+    </RendererProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

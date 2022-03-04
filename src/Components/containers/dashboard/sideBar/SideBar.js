@@ -9,12 +9,12 @@ import LogOut from "./LogOut";
 
 const SideBar = () => {
   const { css, theme } = useFela();
+
   const { currentTheme } = useContext(appContext);
   const rules = () => ({
     width: "16%",
-    backgroundColor:
-      currentTheme === "light" ? theme.colors.white : theme.colors.bg_box_dark,
-    transition: "all 0.50s linear",
+
+    ...theme.darkModusBoxes(currentTheme),
     minHeight: "100%",
     padding: "2rem",
     display: "flex",
