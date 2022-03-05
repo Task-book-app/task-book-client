@@ -24,7 +24,7 @@ const LogOut = () => {
           hoverColor={theme.colors.danger}
           switchOffBg={true}
         >
-          <LogOutIcon />
+          <LogOutIcon fontSize={2} />
         </ButtonMenu>
       </ListContainer>
     </div>

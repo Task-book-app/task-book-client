@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import SunIcon from "./icons/SunIcon";
 import { useFela } from "react-fela";
 import { appContext } from "../../context/GlobalContext";
+import MoonIcon from "./icons/MoonIcon";
 
 const ToogleDarkMode = () => {
   const { css } = useFela();
@@ -17,7 +16,7 @@ const ToogleDarkMode = () => {
   return (
     <div className={css(rules)} onClick={themeToggler}>
       {currentTheme === "light" ? (
-        <FontAwesomeIcon icon={faMoon} fontSize={"2.3rem"} />
+        <MoonIcon fontSize={2.5} />
       ) : (
         <SunIcon fontSize={2.5} />
       )}
