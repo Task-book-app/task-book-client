@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFela } from "react-fela";
 
 const rules = ({ showModal }) => ({
   display: showModal,
+  justifyContent: "center",
+  alignItems: "center",
   position: "fixed",
   width: "100%",
   height: "100vh",
@@ -20,43 +22,11 @@ const rules = ({ showModal }) => ({
     },
 });
 
-const BlurredScreen = ({ children, showModal, setShowModal }) => {
-  const { css, renderer } = useFela({ showModal });
-
-  // key-frames
-  const fadeIn = renderer.renderKeyframe(() => ({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-  }));
-
-  const fadeOut = renderer.renderKeyframe(() => ({
-    from: { opacity: 1 },
-    to: { opacity: 0 },
-  }));
-
-  const fadeInRules = {
-    WebkitAnimation: fadeIn + " 0.4s ease-in-out",
-    animation: fadeIn + " 0.4s ease-in-out",
-  };
-
-  const fadeOutRules = {
-    WebkitAnimation: fadeOut + " 0.4s ease-in-out",
-    animation: fadeOut + " 0.4s ease-in-out",
-  };
-
-  const [animation, setAnimation] = useState(fadeInRules);
-
-  const handleCloseModal = async () => {
-    setAnimation(fadeOutRules);
-    await new Promise((r) => setTimeout(r, 400));
-    setShowModal("none");
-    setAnimation(fadeInRules);
-
-    return;
-  };
+const BlurredScreen = ({ children, showModal, event, fadeAnimation }) => {
+  const { css } = useFela({ showModal });
 
   return (
-    <div className={css(rules, animation)} onClick={handleCloseModal}>
+    <div className={css(rules, fadeAnimation)} onClick={event}>
       {children}
     </div>
   );
