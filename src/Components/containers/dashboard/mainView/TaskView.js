@@ -1,6 +1,7 @@
 import React from "react";
 import { useFela } from "react-fela";
 import { Outlet } from "react-router-dom";
+import { ModalProvider } from "../../../../context/ModalProvider";
 import TopBar from "./TopBar";
 
 const TaskView = () => {
@@ -15,7 +16,9 @@ const TaskView = () => {
   });
   return (
     <div className={css(rules)}>
-      <TopBar />
+      <ModalProvider>
+        <TopBar />
+      </ModalProvider>
       <Outlet />
     </div>
   );
