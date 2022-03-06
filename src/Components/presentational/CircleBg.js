@@ -1,22 +1,20 @@
 // import React from 'react'
-import { useFela } from "react-fela"
-
+import { useFela } from "react-fela";
 
 const CircleBg = () => {
-    
-    const { css, theme } = useFela()
-    
-    const rules = {
-        height: "12rem",
-        width: "12rem",
-        borderRadius: "50%",
-        top: "-5rem",
-        right: "-5rem",
-        position: "absolute",
-        background: theme.gradients.blueGradient
-      }
+  const { css, theme } = useFela();
 
-  return <div className={css(rules)}></div>
-}
+  const rules = {
+    height: "12rem",
+    width: "12rem",
+    borderRadius: "50%",
+    top: "-5rem",
+    right: "-5rem",
+    position: "absolute",
+    background: theme.gradients.blueGradient,
+  };
 
-export default CircleBg
+  return <div className={css(rules)}></div>;
+};
+
+export default CircleBg;
