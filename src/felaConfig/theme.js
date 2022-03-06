@@ -59,7 +59,7 @@ const theme = {
 
   // button styles
   buttonStyles: {
-    borderRadius: ".5rem",
+    borderRadius: "0.5rem",
     transition: "all 0.2s",
     ":hover": {
       transform: "translateY(-2px)",

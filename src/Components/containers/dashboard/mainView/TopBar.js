@@ -6,9 +6,9 @@ import Button from "../../../presentational/Button";
 import { useFela } from "react-fela";
 import UserTopBar from "./UserTopBar";
 import ToogleDarkMode from "../../../presentational/ToogleDarkMode";
-import H1 from "../../../presentational/typography/H1";
 import Modal from "../../modal/Modal";
 import { modalContext } from "../../../../context/ModalProvider";
+import CreateTaskModal from "../../modal/CreateTaskModal";
 
 const rules = () => ({
   display: "flex",
@@ -25,7 +25,9 @@ const TopBar = () => {
 
   return (
     <div className={css(rules)}>
-      <Modal component={<H1>Hello Modal</H1>} />
+      <Modal
+        component={<CreateTaskModal handleCloseModal={handleCloseModal} />}
+      />
       <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
         <FontAwesomeIcon
           icon={faCircleXmark}

@@ -10,7 +10,7 @@ const Button = ({
 }) => {
   const { css, theme } = useFela({ fontSize, width, fontFamily });
 
-  const rule = ({ fontSize, width }) => ({
+  const rule = ({ fontSize, width, fontFamily }) => ({
     width,
     padding: `1rem 2rem`,
     background: theme.gradients.blueGradient,
