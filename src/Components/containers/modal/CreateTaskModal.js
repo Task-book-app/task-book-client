@@ -7,6 +7,7 @@ import Label from "../../presentational/Label";
 import H3 from "../../presentational/typography/H3";
 import ModalGroup from "./ModalGroup";
 import Select from "../../presentational/Select";
+import DatePicker from "../../presentational/DatePicker";
 
 const CreateTaskModal = ({ handleCloseModal }) => {
   const { css, theme } = useFela();
@@ -24,6 +25,12 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   });
 
   const myCategories = ["Home", "Family", "Work", "Sports"];
+  const myPriorities = [
+    "Very important!",
+    "Important",
+    "Medium",
+    "Not so important",
+  ];
 
   return (
     <form className={css(rules)}>
@@ -45,32 +52,34 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           <Select dropDownValues={myCategories} />
         </ModalGroup>
         <ModalGroup gb={1}>
-          <Label htmlFor={"category"}>Category</Label>
-          <Input />
+          <Label htmlFor={"category"}>When?</Label>
+          <DatePicker />
         </ModalGroup>
         <ModalGroup gb={1}>
           <Label htmlFor={"priority"}>Priority</Label>
-          <Select dropDownValues={myCategories} />
+          <Select dropDownValues={myPriorities} />
         </ModalGroup>
       </ModalGroup>
 
-      <Button
-        width={"auto"}
-        fontSize={1.6}
-        bg="danger"
-        type="button"
-        event={handleCloseModal}
-      >
-        Cancel
-      </Button>
-      <Button
-        width={"auto"}
-        fontSize={1.6}
-        type="button"
-        event={handleCloseModal}
-      >
-        Add
-      </Button>
+      <ModalGroup fd={"row"} gr={3} jc="flex-end">
+        <Button
+          width={"auto"}
+          fontSize={1.6}
+          bg="danger"
+          type="button"
+          event={handleCloseModal}
+        >
+          Cancel
+        </Button>
+        <Button
+          width={"auto"}
+          fontSize={1.6}
+          type="button"
+          event={handleCloseModal}
+        >
+          Add
+        </Button>
+      </ModalGroup>
     </form>
   );
 };

@@ -4,6 +4,7 @@ import { appContext } from "../../context/GlobalContext";
 import DropDown from "../containers/dashboard/DropDown";
 import ListContainer from "../containers/dashboard/ListContainer";
 import ButtonMenu from "./ButtonMenu";
+import ChevronIcon from "./icons/ChevronIcon";
 import Input from "./Input";
 
 const Select = ({ dropDownValues }) => {
@@ -80,6 +81,8 @@ const Select = ({ dropDownValues }) => {
         cursor="pointer"
         value={inputValue}
       />
+
+      <ChevronIcon showDropDown={showDropDown} />
 
       {showDropDown && (
         <DropDown width={"100%"} border={"1px solid " + theme.colors.blue}>
