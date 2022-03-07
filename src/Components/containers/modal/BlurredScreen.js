@@ -26,7 +26,10 @@ const BlurredScreen = ({ children, showModal, event, fadeAnimation }) => {
   const { css } = useFela({ showModal });
 
   return (
-    <div className={css(rules, fadeAnimation)} onClick={event}>
+    <div
+      className={css(rules, fadeAnimation)}
+      // onClick={event}
+    >
       {children}
     </div>
   );

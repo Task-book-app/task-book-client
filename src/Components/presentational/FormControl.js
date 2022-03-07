@@ -103,33 +103,6 @@ const FormControl = ({
         fontFamily: "inherit",
       },
     },
-
-    "& div select": {
-      marginLeft: marginModal ? marginModal : "1.9rem",
-      fontFamily: "inherit",
-      color: "inherit",
-      // color: theme.colors.blue,
-      transition: "all 0.1s",
-      fontSize: "1.8rem",
-      padding: "0.5rem 1.7rem",
-      // padding: '2rem',
-      border: "none",
-      borderRadius: ".5rem",
-      outline: "none",
-      backgroundColor: "#80808024",
-      width: "100%",
-      height: "3.5rem",
-      ":focus": {
-        boxShadow: theme.shadows.boxShadow_1,
-        outline: `2px solid ${theme.colors.blue}`,
-      },
-      "::placeholder": {
-        // color: theme.colors.blue,
-        fontSize: "1.5rem",
-        fontStyle: "italic",
-        fontFamily: "inherit",
-      },
-    },
   });
 
   return <div className={css(rule)}>{children}</div>;

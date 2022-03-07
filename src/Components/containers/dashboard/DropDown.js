@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../context/GlobalContext";
 
-const DropDown = ({ children }) => {
+const DropDown = ({ children, width, border }) => {
   const { css, theme } = useFela();
   const { currentTheme } = useContext(appContext);
 
   const rules = () => ({
+    width,
+    border,
     padding: "1rem 0",
     position: "absolute",
 

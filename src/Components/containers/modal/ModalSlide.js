@@ -4,7 +4,10 @@ import { useFela } from "react-fela";
 const ModalSlide = ({ children, slideAnimation }) => {
   const { css } = useFela();
   return (
-    <div className={css(slideAnimation)} onClick={(e) => e.stopPropagation()}>
+    <div
+      className={css(slideAnimation)}
+      // onClick={(e) => e.stopPropagation()}
+    >
       {children}
     </div>
   );
