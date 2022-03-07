@@ -10,6 +10,7 @@ const ButtonMenu = ({
   event = null,
   hoverColor,
   switchOffBg = false,
+  id,
 }) => {
   const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela({ padding, fontSize, hoverColor });
@@ -43,7 +44,7 @@ const ButtonMenu = ({
   });
 
   return (
-    <div className={css(rules)} onClick={event}>
+    <div className={css(rules)} onClick={event} id={id}>
       {children}
       {title}
     </div>

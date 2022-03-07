@@ -7,13 +7,15 @@ const Button = ({
   event = null,
   width = "100%",
   fontFamily,
+  bg,
 }) => {
-  const { css, theme } = useFela({ fontSize, width, fontFamily });
+  const { css, theme } = useFela({ fontSize, width, fontFamily, bg });
 
-  const rule = ({ fontSize, width, fontFamily }) => ({
+  const rule = ({ fontSize, width, fontFamily, bg }) => ({
     width,
     padding: `1rem 2rem`,
-    background: theme.gradients.blueGradient,
+    background:
+      bg === "danger" ? theme.colors.danger : theme.gradients.blueGradient,
 
     border: "none",
     fontSize: `${fontSize}rem`,
