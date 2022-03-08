@@ -7,13 +7,13 @@ import ButtonMenu from "./ButtonMenu";
 import ChevronIcon from "./icons/ChevronIcon";
 import Input from "./Input";
 
-const Select = ({ dropDownValues }) => {
+const Select = ({ dropDownValues, onChange, value, setValue }) => {
   const { currentTheme } = useContext(appContext);
   const [showDropDown, setShowDropDown] = useState(false);
   const { css, theme } = useFela({ currentTheme });
 
   //   this state needs to be clened after submiting or cancel
-  const [inputValue, setInputValue] = useState("");
+  // const [value, setValue] = useState("");
 
   const rules = () => ({
     paddingRight: "1rem",
@@ -61,7 +61,10 @@ const Select = ({ dropDownValues }) => {
         title={item}
         key={item}
         id={item}
-        event={(e) => setInputValue(e.target.id)}
+        event={(e) => {
+          setValue(e.target.id);
+        }}
+        onChange={onChange}
       />
     ));
 
@@ -72,14 +75,15 @@ const Select = ({ dropDownValues }) => {
       onClick={() => setShowDropDown(!showDropDown)}
     >
       <Input
-        type="text"
+        type="select"
         name="category"
         disabled
         id="category"
         placeholder="Select"
         border="none"
         cursor="pointer"
-        value={inputValue}
+        value={value}
+        // onChange={onChange}
       />
 
       <ChevronIcon showDropDown={showDropDown} />
