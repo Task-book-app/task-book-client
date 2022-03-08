@@ -11,6 +11,7 @@ const Input = ({
   disabled,
   border,
   cursor,
+  onChange,
 }) => {
   const { css, theme } = useFela();
 
@@ -50,6 +51,7 @@ const Input = ({
       value={value}
       placeholder={placeholder}
       disabled={disabled}
+      onChange={onChange}
     />
   );
 };

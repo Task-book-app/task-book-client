@@ -60,14 +60,14 @@ const theme = {
   // button styles
   buttonStyles: {
     borderRadius: "0.5rem",
-    transition: "all 0.2s",
+    transition: "all 0.05s",
     ":hover": {
-      transform: "translateY(-2px)",
+      transform: "translateY(-1px)",
       cursor: "pointer",
       boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
     },
     ":active": {
-      transform: "translateY(0)",
+      transform: "translateY(1px)",
     },
   },
 
