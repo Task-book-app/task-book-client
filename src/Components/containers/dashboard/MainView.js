@@ -1,10 +1,10 @@
 import React from "react";
 import { useFela } from "react-fela";
-import { Outlet } from "react-router-dom";
-import { ModalProvider } from "../../../../context/ModalProvider";
-import TopBar from "./TopBar";
+import { ModalProvider } from "../../../context/ModalProvider";
+import BoxesView from "./boxesView/BoxesView";
+import TopBar from "./topbar/TopBar";
 
-const TaskView = () => {
+const MainView = () => {
   const { css } = useFela();
 
   const rules = () => ({
@@ -19,9 +19,9 @@ const TaskView = () => {
       <ModalProvider>
         <TopBar />
       </ModalProvider>
-      <Outlet />
+      <BoxesView />
     </div>
   );
 };
 
-export default TaskView;
+export default MainView;

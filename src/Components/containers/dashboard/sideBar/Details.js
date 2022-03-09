@@ -21,8 +21,12 @@ const Details = () => {
     <div className={css(rules)}>
       <H2 color={theme.colors.blue}>Details</H2>
       <ListContainer marginBottom={3}>
-        <ListItem title="Statistics" fontIcon={faSquarePollVertical} />
-        <ListItem title="Compare" fontIcon={faChartLine} />
+        <ListItem
+          title="Statistics"
+          link={"statistics"}
+          fontIcon={faSquarePollVertical}
+        />
+        <ListItem title="Compare" link={"compare"} fontIcon={faChartLine} />
       </ListContainer>
     </div>
   );

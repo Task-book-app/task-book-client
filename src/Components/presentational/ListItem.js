@@ -10,6 +10,7 @@ const ListItem = ({
   color = "inherit",
   hover = null,
   fontSize = 1.6,
+  link,
 }) => {
   const { css, theme } = useFela({ color, hover, fontSize });
 
@@ -74,7 +75,7 @@ const ListItem = ({
   return (
     <li>
       <NavLink
-        to={`${title.toLowerCase()}`}
+        to={link}
         className={({ isActive }) =>
           css(isActive ? activeCombined : inactiveCombined)
         }

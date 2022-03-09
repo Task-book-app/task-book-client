@@ -25,13 +25,14 @@ const Categories = () => {
     <div className={css(categories)}>
       <H2 color={theme.colors.blue}>Categories</H2>
       <ListContainer marginBottom={3}>
-        <ListItem title={"All"} fontIcon={faClipboard} />
-        <ListItem title={"Home"} fontIcon={faHome} />
-        <ListItem title={"Family"} fontIcon={faUserGroup} />
-        <ListItem title={"Work"} fontIcon={faSuitcase} />
-        <ListItem title={"Sports"} fontIcon={faPersonRunning} />
+        <ListItem title={"All"} link={"all"} fontIcon={faClipboard} />
+        <ListItem title={"Home"} link={"home"} fontIcon={faHome} />
+        <ListItem title={"Family"} link={"family"} fontIcon={faUserGroup} />
+        <ListItem title={"Work"} link={"work"} fontIcon={faSuitcase} />
+        <ListItem title={"Sports"} link={"sports"} fontIcon={faPersonRunning} />
         <ListItem
           title={"Add"}
+          link={"add"}
           fontIcon={faSquarePlus}
           color={theme.colors.blue}
         />
