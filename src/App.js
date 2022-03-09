@@ -4,7 +4,7 @@ import Login from "./Components/containers/auth/Login";
 import H1 from "./Components/presentational/typography/H1";
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./Components/containers/pages/DashboardLayout";
-import Categorie from "./Components/containers/dashboard/mainView/Categorie";
+import Categorie from "./Components/containers/dashboard/topbar/Categorie";
 import GlobalStyles from "./Components/GlobalStyles";
 import MainLayout from "./Components/containers/pages/MainLayout";
 import useDarkMode from "./Components/hooks/useDarkMode";
@@ -36,7 +36,7 @@ const App = () => {
                       flex: "1 1 auto",
                     }}
                   >
-                    <H1 color={"Purple"}>Select a categorie</H1>
+                    <H1 color={"Yellow"}>Select a categorie</H1>
                   </main>
                 }
               />

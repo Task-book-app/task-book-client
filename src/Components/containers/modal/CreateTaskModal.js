@@ -8,7 +8,7 @@ import H3 from "../../presentational/typography/H3";
 import ModalGroup from "./ModalGroup";
 import Select from "../../presentational/Select";
 import DatePicker from "../../presentational/DatePicker";
-import { today } from "../../helpers/functions";
+import { today } from "../../../helpers/functions";
 
 const CreateTaskModal = ({ handleCloseModal }) => {
   const { css, theme } = useFela();
@@ -36,6 +36,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   // select states
   const [category, setCategory] = useState("");
   const [priority, setPriority] = useState("");
+
   // date and task states
   const [formValues, setFormValues] = useState({
     task: "",
@@ -72,8 +73,6 @@ const CreateTaskModal = ({ handleCloseModal }) => {
     });
     handleCloseModal();
   };
-
-  // console.log(formValues);
 
   return (
     <form className={css(rules)} onSubmit={handleSubmit}>

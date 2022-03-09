@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../context/GlobalContext";
-import { today } from "../helpers/functions";
+import { today } from "../../helpers/functions";
 
 const DatePicker = ({ name, id, value, onChange }) => {
   const { currentTheme } = useContext(appContext);
