@@ -38,7 +38,7 @@ const TimeAndDate = () => {
           <Clock />
         </div>
         <div className="container__child">
-          <HeadingSmall>Today is the</HeadingSmall>
+          <HeadingSmall>Today</HeadingSmall>
           <DateToday />
         </div>
       </div>

@@ -6,9 +6,10 @@ import Statements from "../boxes/Statements";
 import TimeAndDate from "../boxes/TimeAndDate";
 
 const rules = () => ({
+  width: "47%",
   display: "flex",
   flexDirection: "column",
-  flex: "1 1 auto",
+
   "& > :not(:last-child)": {
     marginBottom: "3rem",
   },

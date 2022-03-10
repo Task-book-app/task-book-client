@@ -10,7 +10,7 @@ const Statements = () => {
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     display: "flex",
-    flex: "1 1 auto",
+    // flex: "1 1 auto",
   });
   return (
     <div className={css(rules)}>
