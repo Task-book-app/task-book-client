@@ -1,7 +1,7 @@
 import React from "react";
 import { useFela } from "react-fela";
 import CalendarIcon from "./icons/CalendarIcon";
-import { today } from "../../helpers/functions";
+import { longDate } from "../../helpers/functions";
 const rules = () => ({
   display: "flex",
   alignItems: "center",
@@ -18,13 +18,7 @@ const DateToday = () => {
   return (
     <div className={css(rules)}>
       <CalendarIcon fontSize={2.3} />
-      <p>
-        {new Date(today()).toLocaleDateString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </p>
+      <p>{longDate()}</p>
     </div>
   );
 };
