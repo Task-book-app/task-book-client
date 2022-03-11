@@ -13,7 +13,6 @@ const SideBar = () => {
   const { currentTheme } = useContext(appContext);
   const rules = () => ({
     width: "16%",
-
     ...theme.darkModusBoxes(currentTheme),
     minHeight: "100%",
     padding: "2rem",

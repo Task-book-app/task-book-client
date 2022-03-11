@@ -78,17 +78,6 @@ const theme = {
   },
 
   // methods
-  darkModusBoxes: (modus) => {
-    const currentModus =
-      modus === "light"
-        ? {
-            backgroundColor: "#ffffff",
-          }
-        : { backgroundColor: "#2c3440" };
-
-    return { transition: "all 0.50s linear", ...currentModus };
-  },
-
   darkModusLayout: (modus) => {
     const currentModus =
       modus === "light"
@@ -97,6 +86,17 @@ const theme = {
             color: "#4b4b4b",
           }
         : { backgroundColor: "#222831", color: "#f9f9f9" };
+
+    return { transition: "all 0.50s linear", ...currentModus };
+  },
+
+  darkModusBoxes: (modus) => {
+    const currentModus =
+      modus === "light"
+        ? {
+            backgroundColor: "#ffffff",
+          }
+        : { backgroundColor: "#2c3440" };
 
     return { transition: "all 0.50s linear", ...currentModus };
   },

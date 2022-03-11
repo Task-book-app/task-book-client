@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useFela } from "react-fela";
 import ClockIcon from "./icons/ClockIcon";
 
@@ -13,13 +13,17 @@ const rules = () => ({
   },
 });
 
-const Clock = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+const Clock = ({ time, setTime }) => {
+  // const [time, setTime] = useState(new Date().toLocaleTimeString());
+
   const { css } = useFela();
 
-  useEffect(() => {
-    setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
-  });
+  // useEffect(() => {
+  //   const timeId = setInterval(
+  //     () => setTime(new Date().toLocaleTimeString()),
+  //     1000
+  //   );
+  // });
 
   return (
     <div className={css(rules)}>
