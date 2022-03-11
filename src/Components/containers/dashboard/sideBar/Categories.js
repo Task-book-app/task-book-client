@@ -34,7 +34,7 @@ const Categories = () => {
           title={"Add"}
           link={"add"}
           fontIcon={faSquarePlus}
-          color={theme.colors.blue}
+          // color={theme.colors.blue}
         />
       </ListContainer>
     </div>

@@ -1,27 +1,17 @@
-import React from "react";
+// import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { NavLink } from "react-router-dom";
 import Icon from "./Icon";
-import { combineRules } from "fela";
 
-const ListItem = ({
-  title = "",
-  fontIcon,
-  color = "inherit",
-  hover = null,
-  fontSize = 1.6,
-  link,
-}) => {
-  const { css, theme } = useFela({ color, hover, fontSize });
+const ListItem = ({ title = "", fontIcon, fontSize = 1.6, link }) => {
+  const { css, theme } = useFela({ fontSize });
 
-  const rules = ({ color, fontSize }) => ({
-    color,
+  const rules = ({ fontSize }) => ({
     fontSize: `${fontSize}rem`,
     textDecoration: "none",
     display: "flex",
     alignItems: "center",
     position: "relative",
-
     ":after": {
       content: '" "',
 
@@ -41,7 +31,7 @@ const ListItem = ({
     },
   });
 
-  const rulesActive = () => ({
+  const activeSideBar = {
     color: theme.colors.blue,
 
     ":after": {
@@ -60,24 +50,28 @@ const ListItem = ({
       transformOrigin: "right",
       transform: "scaleX(1)",
     },
-  });
+  };
 
-  const rulesInactive = ({ hover }) => ({
-    color,
-    ":hover": {
-      color: !hover ? theme.colors.blue : hover,
+  const inactiveSideBar = {
+    color: "inherit",
+    transition: "all linear",
+    ":link": {
+      color: "inherit",
     },
-  });
-
-  const activeCombined = combineRules(rules, rulesActive);
-  const inactiveCombined = combineRules(rules, rulesInactive);
+    ":visited": {
+      color: "inherit",
+    },
+    ":hover": {
+      color: theme.colors.blue,
+    },
+  };
 
   return (
     <li>
       <NavLink
         to={link}
         className={({ isActive }) =>
-          css(isActive ? activeCombined : inactiveCombined)
+          css(rules, isActive ? activeSideBar : inactiveSideBar)
         }
       >
         <Icon fontIcon={fontIcon} />

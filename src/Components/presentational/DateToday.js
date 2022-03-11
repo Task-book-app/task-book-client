@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFela } from "react-fela";
 import CalendarIcon from "./icons/CalendarIcon";
 import { longDate } from "../../helpers/functions";
+
 const rules = () => ({
   display: "flex",
   alignItems: "center",
@@ -13,12 +14,21 @@ const rules = () => ({
   },
 });
 
-const DateToday = () => {
+const DateToday = ({ time }) => {
   const { css } = useFela();
+
+  const [date, setDate] = useState(longDate());
+
+  useEffect(() => {
+    if (time === "00:00:00") {
+      setDate(longDate());
+    }
+  }, [time]);
+
   return (
     <div className={css(rules)}>
       <CalendarIcon fontSize={2.3} />
-      <p>{longDate()}</p>
+      <p>{date}</p>
     </div>
   );
 };
