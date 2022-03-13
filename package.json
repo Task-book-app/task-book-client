@@ -17,6 +17,7 @@
     "react-fela": "^11.7.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "recharts": "^2.1.9",
     "sass": "^1.49.8",
     "web-vitals": "^2.1.4"
   },
