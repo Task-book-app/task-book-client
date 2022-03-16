@@ -1,0 +1,35 @@
+export const tempData = [
+  { status: "active", task: "Clean kitschen", category: "home" },
+  { status: "completed", task: "Buy Groceries", category: "home" },
+  { status: "active", task: "Change betsheets", category: "home" },
+  { status: "active", task: "Take out trash", category: "home" },
+  { status: "completed", task: "Clean Basement", category: "home" },
+  { status: "active", task: "Walk with the dog", category: "family" },
+  { status: "completed", task: "Take child to school", category: "family" },
+  {
+    status: "completed",
+    task: "Go with the wife to the doctor",
+    category: "family",
+  },
+  { status: "active", task: "Call Parents", category: "family" },
+  { status: "active", task: "Organice familiar meeting", category: "family" },
+  { status: "completed", task: "Finish Task component", category: "work" },
+  {
+    status: "completed",
+    task: "Read new documentation for react-router-dom",
+    category: "work",
+  },
+  { status: "active", task: "Start at 7:15am in Gorillas", category: "work" },
+  {
+    status: "active",
+    task: "Check breaks and weels from the bike",
+    category: "work",
+  },
+  { status: "completed", task: "Play basketball", category: "sports" },
+  { status: "completed", task: "Run one hour", category: "sports" },
+  {
+    status: "active",
+    task: "Play Ping-Pong with Soonam",
+    category: "sports",
+  },
+];
