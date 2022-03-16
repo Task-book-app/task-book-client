@@ -33,6 +33,8 @@ const FactDay = () => {
 
     "& .blockquote": {
       fontStyle: "italic",
+      whiteSpace: "break-spaces",
+      textAlign: "center",
     },
 
     "& .figcaption": {
@@ -49,7 +51,7 @@ const FactDay = () => {
       <H3 color={theme.colors.blue}>Quote of the day</H3>
       <figure className="figure">
         <blockquote className="blockquote">
-          <p>“{quote.text}”</p>
+          <q>{quote.text}</q>
         </blockquote>
         <figcaption className="figcaption">
           <b>- {!quote.author ? "anonymous" : quote.author}</b>

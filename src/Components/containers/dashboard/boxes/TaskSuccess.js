@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../context/GlobalContext";
+import Success from "../../../presentational/Success";
 import H3 from "../../../presentational/typography/H3";
 
 const TaskSuccess = () => {
@@ -11,17 +12,36 @@ const TaskSuccess = () => {
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     display: "flex",
-    // flex: "1 1 auto",
+    flexDirection: "column",
+
+    "& > :not(:last-child)": {
+      marginBottom: "2rem",
+    },
+
+    "& .container": {
+      display: "flex",
+      justifyContent: "space-between",
+    },
   });
 
-  // const datep = new Date("2020-10-01T16:45:49.455+00:00");
-
-  // console.log(datep.getWeek());
-  // console.log(datep.getWeekYear());
+  const data = [
+    { status: "Created", quantity: 113 },
+    { status: "Completed", quantity: 97 },
+    { status: "Removed", quantity: 14 },
+  ];
 
   return (
     <div className={css(rules)}>
       <H3 color={theme.colors.blue}>Success for the week</H3>
+      <div className="container">
+        {data.map((item) => (
+          <Success
+            key={item.status}
+            status={item.status}
+            quantity={item.quantity}
+          />
+        ))}
+      </div>
     </div>
   );
 };
