@@ -1,6 +1,6 @@
 import React from "react";
 import { useFela } from "react-fela";
-import TasksBox from "../boxes/TasksBox";
+import { Outlet } from "react-router-dom";
 import TaskSuccess from "../boxes/TaskSuccess";
 
 const rules = () => ({
@@ -18,7 +18,7 @@ const MainFeatures = () => {
   return (
     <div className={css(rules)}>
       <TaskSuccess />
-      <TasksBox />
+      <Outlet />
     </div>
   );
 };

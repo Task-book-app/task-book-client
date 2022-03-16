@@ -4,13 +4,16 @@ import Lock from "../../../presentational/Lock";
 import H1 from "../../../presentational/typography/H1";
 
 const Categorie = () => {
-  const { categorie } = useParams();
+  let { categorie } = useParams();
+  if (!categorie) {
+    categorie = "all";
+  }
   const categories = ["all", "home", "family", "work", "sports", "list-item"];
 
   const founded = categories.find(
     (item) => item.toLowerCase() === categorie.toLowerCase()
   );
-
+  console.log(categorie);
   return (
     <main
       style={{

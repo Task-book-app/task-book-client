@@ -7,7 +7,7 @@ const rules = () => ({
   alignItems: "center",
   fontSize: "2.3rem",
   lineHeight: "3.4rem",
-  letterSpacing: "0.02em",
+  letterSpacing: "0.1em",
   "& > :not(:last-child)": {
     marginRight: "1.2rem",
   },
