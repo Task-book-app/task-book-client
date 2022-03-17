@@ -1,22 +1,28 @@
 import React from "react";
-import CheckBoxFalse from "../../../../presentational/icons/CheckBoxFalse";
-import CheckBoxTrue from "../../../../presentational/icons/CheckBoxTrue";
-import EditIcon from "../../../../presentational/icons/EditIcon";
-import TrashIcon from "../../../../presentational/icons/TrashIcon";
 import H3 from "../../../../presentational/typography/H3";
 import { useFela } from "react-fela";
+import ActiveTask from "./ActiveTask";
 
 const ActiveTasksContainer = ({ tasks }) => {
-  const { theme } = useFela();
+  const { css, theme } = useFela();
+  const rules = () => ({
+    "& > :not(:last-child)": {
+      marginBottom: "1rem",
+    },
+  });
+
+  const displayTasks = () => {
+    return tasks.length === 0 ? (
+      <></>
+    ) : (
+      tasks.map((item, i) => <ActiveTask key={i} task={item.task} />)
+    );
+  };
 
   return (
-    <div>
+    <div className={css(rules)}>
       <H3 color={theme.colors.blue}>Active tasks</H3>
-      <TrashIcon />
-      <EditIcon />
-      <CheckBoxFalse />
-      <CheckBoxTrue />
-      {tasks.length === 0 ? "" : tasks[0].task}
+      {displayTasks()}
     </div>
   );
 };

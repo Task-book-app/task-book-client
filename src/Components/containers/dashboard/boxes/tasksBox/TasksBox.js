@@ -52,7 +52,10 @@ const TasksBox = () => {
     ...theme.darkModusBoxes(currentTheme),
     display: "flex",
     flexDirection: "column",
-    flex: "1 1 auto",
+    // flex: "1 1 auto",
+    "& > :not(:last-child)": {
+      marginBottom: "2rem",
+    },
   });
   return (
     <div className={css(rules)}>
