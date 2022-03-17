@@ -24,9 +24,12 @@ const App = () => {
               <Route path="signup" element={<SignUp />} />
             </Route>
 
-            <Route path="view" element={<DashboardLayout />}>
+            <Route path="dashboard" element={<DashboardLayout />}>
               <Route index element={<TasksBox />} />
-              <Route path=":category" element={<TasksBox />} />
+              <Route path="task" element={<TasksBox />}>
+                <Route path=":category" element={<TasksBox />} />
+              </Route>
+              <Route path="profile" element={<main>Hello</main>} />
             </Route>
 
             <Route

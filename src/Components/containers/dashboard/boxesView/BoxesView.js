@@ -11,6 +11,7 @@ const rules = () => ({
     marginRight: "3rem",
   },
 });
+
 const BoxesView = () => {
   const { css } = useFela();
   return (

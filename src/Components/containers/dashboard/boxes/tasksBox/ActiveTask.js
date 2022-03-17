@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../../context/GlobalContext";
+import ButtonIcon from "../../../../presentational/ButtonIcon";
 import CheckBox from "../../../../presentational/CheckBox";
 import EditIcon from "../../../../presentational/icons/EditIcon";
 import TrashIcon from "../../../../presentational/icons/TrashIcon";
 
 const rules = ({ currentTheme }) => ({
-  overflow: "hidden",
   padding: "1.5rem",
   fontSize: "1.4rem",
   lineHeight: "1.9rem",
   letterSpacing: "0.02em",
+  overflow: "hidden",
   border:
     currentTheme === "light"
       ? "1px solid rgba(40, 40, 70, 0.1)"
@@ -47,7 +48,7 @@ const rules = ({ currentTheme }) => ({
     },
   },
 });
-const ActiveTask = ({ task }) => {
+const ActiveTask = ({ task, checked }) => {
   const { currentTheme } = useContext(appContext);
 
   const { css } = useFela({ currentTheme });
@@ -55,13 +56,17 @@ const ActiveTask = ({ task }) => {
   return (
     <div className={css(rules)}>
       <div className={"box box__1"}>
-        <CheckBox fontSize={1.8} />
+        <CheckBox fontSize={1.8} checked={checked} />
         <p>{task}</p>
       </div>
 
       <div className="box box__2">
-        <EditIcon fontSize={1.8} />
-        <TrashIcon fontSize={1.8} />
+        <ButtonIcon>
+          <EditIcon fontSize={1.8} />
+        </ButtonIcon>
+        <ButtonIcon>
+          <TrashIcon fontSize={1.8} />
+        </ButtonIcon>
       </div>
     </div>
   );

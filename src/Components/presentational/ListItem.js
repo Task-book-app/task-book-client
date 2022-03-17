@@ -69,7 +69,7 @@ const ListItem = ({ title = "", fontIcon, fontSize = 1.6, link }) => {
   return (
     <li>
       <NavLink
-        to={link}
+        to={`task/${link}`}
         className={({ isActive }) =>
           css(rules, isActive ? activeSideBar : inactiveSideBar)
         }

@@ -15,7 +15,9 @@ const CompletedTasksContainer = ({ tasks }) => {
     return tasks.length === 0 ? (
       <></>
     ) : (
-      tasks.map((item, i) => <CompletedTask key={i} task={item.task} />)
+      tasks.map((item, i) => (
+        <CompletedTask key={i} checked={item.completed} task={item.task} />
+      ))
     );
   };
 
