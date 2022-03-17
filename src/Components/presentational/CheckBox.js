@@ -17,9 +17,10 @@ const rules = () => ({
   },
 });
 
-const CheckBox = ({ fontSize }) => {
+const CheckBox = ({ fontSize, checked }) => {
   const { css } = useFela();
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(checked);
+
   return (
     <label className={css(rules)}>
       <input

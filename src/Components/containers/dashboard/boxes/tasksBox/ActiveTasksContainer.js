@@ -15,7 +15,9 @@ const ActiveTasksContainer = ({ tasks }) => {
     return tasks.length === 0 ? (
       <></>
     ) : (
-      tasks.map((item, i) => <ActiveTask key={i} task={item.task} />)
+      tasks.map((item, i) => (
+        <ActiveTask key={i} checked={item.completed} task={item.task} />
+      ))
     );
   };
 

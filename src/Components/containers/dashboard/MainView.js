@@ -16,6 +16,7 @@ const MainView = () => {
     display: "flex",
     flexDirection: "column",
   });
+
   return (
     <div className={css(rules)}>
       <ModalProvider>

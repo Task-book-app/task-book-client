@@ -27,11 +27,11 @@ const TasksBox = () => {
 
   const divideByStatus = () => {
     const active = tasksToDisplay(tempData).filter(
-      (item) => item.status.toLowerCase() === "active"
+      (item) => item.completed === false
     );
 
     const completed = tasksToDisplay(tempData).filter(
-      (item) => item.status.toLowerCase() === "completed"
+      (item) => item.completed === true
     );
     setActiveTask(active);
     setCompletedTask(completed);
