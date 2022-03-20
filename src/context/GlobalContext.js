@@ -1,16 +1,26 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
+import useAlert from "../Components/hooks/useAlert";
 import useDarkMode from "../Components/hooks/useDarkMode";
 
 export const appContext = createContext();
 
 export function GlobalContext({ children }) {
   const [currentTheme, themeToggler] = useDarkMode();
+  const [alertMessage, setAlertMessage] = useAlert();
 
-  const user = { name: "habid" };
-  const items = ["item1", "item2", "item3"];
+  const [tasks, setTasks] = useState([]);
 
   return (
-    <appContext.Provider value={{ user, items, currentTheme, themeToggler }}>
+    <appContext.Provider
+      value={{
+        tasks,
+        setTasks,
+        alertMessage,
+        setAlertMessage,
+        currentTheme,
+        themeToggler,
+      }}
+    >
       {children}
     </appContext.Provider>
   );

@@ -8,6 +8,7 @@ const Button = ({
   width = "100%",
   fontFamily,
   bg,
+  disabled,
 }) => {
   const { css, theme } = useFela({ fontSize, width, fontFamily, bg });
 
@@ -34,7 +35,12 @@ const Button = ({
   });
 
   return (
-    <button type={type} onClick={event} className={css(rule)}>
+    <button
+      type={type}
+      onClick={event}
+      className={css(rule)}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import React from "react";
 import Button from "../../../presentational/Button";
 import { useFela } from "react-fela";
 import UserTopBar from "./UserTopBar";

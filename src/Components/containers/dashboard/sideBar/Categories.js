@@ -8,7 +8,7 @@ import {
   faUserGroup,
   faSuitcase,
   faPersonRunning,
-  faSquarePlus,
+  // faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "../../../presentational/ListItem";
 
@@ -30,12 +30,12 @@ const Categories = () => {
         <ListItem title={"Family"} link={"family"} fontIcon={faUserGroup} />
         <ListItem title={"Work"} link={"work"} fontIcon={faSuitcase} />
         <ListItem title={"Sports"} link={"sports"} fontIcon={faPersonRunning} />
-        <ListItem
+        {/* <ListItem
           title={"Add"}
           link={"add"}
           fontIcon={faSquarePlus}
           // color={theme.colors.blue}
-        />
+        /> */}
       </ListContainer>
     </div>
   );

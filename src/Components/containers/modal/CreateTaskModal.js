@@ -9,11 +9,15 @@ import ModalGroup from "./ModalGroup";
 import Select from "../../presentational/Select";
 import DatePicker from "../../presentational/DatePicker";
 import { today } from "../../../helpers/functions";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateTaskModal = ({ handleCloseModal }) => {
   const { css, theme } = useFela();
 
-  const { currentTheme } = useContext(appContext);
+  const { setAlertMessage, tasks, setTasks, currentTheme } =
+    useContext(appContext);
+
+  // console.log(message);
 
   const rules = () => ({
     minWidth: "50vw",
@@ -33,6 +37,14 @@ const CreateTaskModal = ({ handleCloseModal }) => {
     "Not so important",
   ];
 
+  const [disable, setDisable] = useState(false);
+
+  const disableForm = () => {
+    setDisable(true);
+    setTimeout(() => {
+      setDisable(false);
+    }, 2000);
+  };
   // select states
   const [category, setCategory] = useState("");
   const [priority, setPriority] = useState("");
@@ -52,16 +64,42 @@ const CreateTaskModal = ({ handleCloseModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { ...formValues, category, priority };
-    console.log(data);
+    try {
+      const data = {
+        ...formValues,
+        category: category.toLowerCase(),
+        priority: priority.toLowerCase(),
+        completed: false,
+        id: uuidv4(),
+      };
 
-    setCategory("");
-    setPriority("");
-    setFormValues({
-      task: "",
-      date: today(),
-    });
-    handleCloseModal();
+      if (!data.task) {
+        disableForm();
+        throw new Error("Please enter a task");
+      }
+
+      if (!data.category) {
+        disableForm();
+        throw new Error("Please select a category");
+      }
+      if (!data.priority) {
+        disableForm();
+        throw new Error("Please select a priority");
+      }
+
+      // console.log(data);
+      setTasks([...tasks, data]);
+
+      setCategory("");
+      setPriority("");
+      setFormValues({
+        task: "",
+        date: today(),
+      });
+      handleCloseModal();
+    } catch (error) {
+      setAlertMessage({ error });
+    }
   };
 
   const resetAndClose = () => {
@@ -129,10 +167,11 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           bg="danger"
           type="button"
           event={resetAndClose}
+          disabled={disable}
         >
           Cancel
         </Button>
-        <Button width={"auto"} fontSize={1.6} type="submit">
+        <Button width={"auto"} fontSize={1.6} type="submit" disabled={disable}>
           Add
         </Button>
       </ModalGroup>

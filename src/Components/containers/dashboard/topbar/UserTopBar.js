@@ -33,7 +33,7 @@ const UserTopBar = () => {
 
   return (
     <div className={css(rules)}>
-      <H4>Habid</H4>
+      <H4>Username</H4>
       <Avatar />
       <ToogleDropDown
         showDropDown={showDropDown}
@@ -46,9 +46,19 @@ const UserTopBar = () => {
               <UserIcon fontSize={1.2} />
             </DropDownItem>
 
-            <DropDownItem title={"Settings"} link={"settings"}>
+            {/* <DropDownItem title={"Settings"} link={"settings"}>
               <GearIcon fontSize={1.2} />
-            </DropDownItem>
+            </DropDownItem> */}
+
+            <ButtonMenu
+              padding="1.25rem 2rem"
+              fontSize={1.2}
+              title="Settings"
+              event={null}
+              // hoverColor={theme.colors.danger}
+            >
+              <GearIcon fontSize={1.2} />
+            </ButtonMenu>
 
             <ButtonMenu
               padding="1.25rem 2rem"
