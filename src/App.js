@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import AuthLayout from "./Components/containers/pages/AuthLayout";
 import SignUp from "./Components/containers/auth/SignUp";
 import Login from "./Components/containers/auth/Login";
@@ -8,8 +9,12 @@ import GlobalStyles from "./Components/GlobalStyles";
 import MainLayout from "./Components/containers/pages/MainLayout";
 import useDarkMode from "./Components/hooks/useDarkMode";
 import TasksBox from "./Components/containers/dashboard/boxes/tasksBox/TasksBox";
+import Profile from "./Components/containers/dashboard/boxes/profile/Profile";
+import Alert from "./Components/presentational/Alert";
+import { appContext } from "./context/GlobalContext";
 
 const App = () => {
+  const { alertMessage } = useContext(appContext);
   const [mountedComponent] = useDarkMode();
 
   if (!mountedComponent) return <div />;
@@ -17,6 +22,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <div className="App">
+        <Alert message={alertMessage} />
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route element={<AuthLayout />}>
@@ -29,7 +35,7 @@ const App = () => {
               <Route path="task" element={<TasksBox />}>
                 <Route path=":category" element={<TasksBox />} />
               </Route>
-              <Route path="profile" element={<main>Hello</main>} />
+              <Route path="profile" element={<Profile />} />
             </Route>
 
             <Route

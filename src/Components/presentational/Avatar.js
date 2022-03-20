@@ -1,14 +1,15 @@
 import React from "react";
 import { useFela } from "react-fela";
 
-const Avatar = () => {
-  const { css } = useFela();
+const Avatar = ({ width = 4.4, height = 4.4 }) => {
+  const { css, theme } = useFela();
 
   const rules = () => ({
-    width: "4.4rem",
-    height: "4.4rem",
+    // display: "inline-block",
+    width: `${width}rem`,
+    height: `${height}rem`,
     borderRadius: "50%",
-    border: "1px solid #f0f0f0",
+    border: "1px solid " + theme.colors.blue,
     overflow: "hidden",
     "& img": {
       width: "100%",

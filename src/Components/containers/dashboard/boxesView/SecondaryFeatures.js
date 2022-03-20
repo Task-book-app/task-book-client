@@ -1,8 +1,8 @@
 import React from "react";
 import { useFela } from "react-fela";
 import FactDay from "../boxes/FactDay";
-import ProgressChart from "../boxes/ProgressChart";
-import Statements from "../boxes/Statements";
+// import ProgressChart from "../boxes/ProgressChart";
+// import Statements from "../boxes/Statements";
 import TimeAndDate from "../boxes/TimeAndDate";
 
 const rules = () => ({
@@ -21,9 +21,9 @@ const SecondaryFeatures = () => {
   return (
     <div className={css(rules)}>
       <TimeAndDate />
-      <Statements />
+      {/* <Statements /> */}
       <FactDay />
-      <ProgressChart />
+      {/* <ProgressChart /> */}
     </div>
   );
 };

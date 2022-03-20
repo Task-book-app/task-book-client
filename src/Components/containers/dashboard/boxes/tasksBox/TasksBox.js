@@ -8,7 +8,8 @@ import CompletedTasksContainer from "./CompletedTasksContainer";
 
 const TasksBox = () => {
   let { category } = useParams();
-
+  const { tasks } = useContext(appContext);
+  console.log(tasks);
   const [activeTask, setActiveTask] = useState([]);
   const [completedTask, setCompletedTask] = useState([]);
 
@@ -26,11 +27,11 @@ const TasksBox = () => {
   };
 
   const divideByStatus = () => {
-    const active = tasksToDisplay(tempData).filter(
+    const active = tasksToDisplay(tasks).filter(
       (item) => item.completed === false
     );
 
-    const completed = tasksToDisplay(tempData).filter(
+    const completed = tasksToDisplay(tasks).filter(
       (item) => item.completed === true
     );
     setActiveTask(active);
@@ -42,7 +43,7 @@ const TasksBox = () => {
     divideByStatus();
     return;
     // eslint-disable-next-line
-  }, [category]);
+  }, [category, tasks]);
 
   const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela();
