@@ -22,7 +22,7 @@ const rules = ({ showModal }) => ({
     },
 });
 
-const BlurredScreen = ({ children, showModal, event, fadeAnimation }) => {
+const BlurredScreen = ({ children, showModal, fadeAnimation }) => {
   const { css } = useFela({ showModal });
 
   return <div className={css(rules, fadeAnimation)}>{children}</div>;

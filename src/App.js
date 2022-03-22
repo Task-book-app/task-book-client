@@ -12,9 +12,10 @@ import TasksBox from "./Components/containers/dashboard/boxes/tasksBox/TasksBox"
 import Profile from "./Components/containers/dashboard/boxes/profile/Profile";
 import Alert from "./Components/presentational/Alert";
 import { appContext } from "./context/GlobalContext";
+import { ModalProvider } from "./context/ModalProvider";
 
 const App = () => {
-  const { alertMessage } = useContext(appContext);
+  const { alertMessage, alertSettings } = useContext(appContext);
   const [mountedComponent] = useDarkMode();
 
   if (!mountedComponent) return <div />;
@@ -22,7 +23,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <div className="App">
-        <Alert message={alertMessage} />
+        <Alert message={alertMessage} alertSettings={alertSettings} />
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route element={<AuthLayout />}>
@@ -35,7 +36,14 @@ const App = () => {
               <Route path="task" element={<TasksBox />}>
                 <Route path=":category" element={<TasksBox />} />
               </Route>
-              <Route path="profile" element={<Profile />} />
+              <Route
+                path="profile"
+                element={
+                  <ModalProvider>
+                    <Profile />
+                  </ModalProvider>
+                }
+              />
             </Route>
 
             <Route

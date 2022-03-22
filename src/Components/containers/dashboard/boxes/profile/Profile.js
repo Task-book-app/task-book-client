@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../../context/GlobalContext";
-import UploadPicture from "../../../../presentational/UploadPicture";
 import ModalGroup from "../../../modal/ModalGroup";
 import Label from "../../../../presentational/Label";
 import Input from "../../../../presentational/Input";
 import Button from "../../../../presentational/Button";
+import Avatar from "../../../../presentational/Avatar";
+import { modalContext } from "../../../../../context/ModalProvider";
+import Modal from "../../../modal/Modal";
+import UpdateProfileModal from "../../../modal/UpdateProfileModal";
 
 const Profile = () => {
+  const { user } = useContext(appContext);
+  const { handleShowModal, handleCloseModal } = useContext(modalContext);
+
   const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela();
 
@@ -31,23 +37,32 @@ const Profile = () => {
   });
 
   return (
-    <form className={css(rules)}>
-      <UploadPicture />
+    <div className={css(rules)}>
+      <Modal
+        component={<UpdateProfileModal handleCloseModal={handleCloseModal} />}
+      />
+      <Avatar width={15} height={15} picture={user.picture} />
+
       <div className="info">
         <ModalGroup gb={1}>
           <Label htmlFor="username">Username</Label>
-          <Input placeholder="username" />
+          <Input placeholder="username" value={user.username} disabled={true} />
         </ModalGroup>
         <ModalGroup gb={1}>
           <Label htmlFor="email">Email</Label>
-          <Input placeholder="email@address.com" type="email" />
+          <Input
+            placeholder="email@address.com"
+            type="email"
+            value={user.email}
+            disabled={true}
+          />
         </ModalGroup>
 
-        <Button width="auto" type="button">
-          Update
+        <Button width="auto" type="button" event={handleShowModal}>
+          Update profile
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 
