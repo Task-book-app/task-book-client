@@ -2,14 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../../context/GlobalContext";
 import { useParams } from "react-router-dom";
-import { tempData } from "../../../../../helpers/tempData";
 import ActiveTasksContainer from "./ActiveTasksContainer";
 import CompletedTasksContainer from "./CompletedTasksContainer";
 
 const TasksBox = () => {
   let { category } = useParams();
   const { tasks } = useContext(appContext);
-  console.log(tasks);
   const [activeTask, setActiveTask] = useState([]);
   const [completedTask, setCompletedTask] = useState([]);
 

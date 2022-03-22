@@ -17,8 +17,6 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   const { setAlertMessage, tasks, setTasks, currentTheme } =
     useContext(appContext);
 
-  // console.log(message);
-
   const rules = () => ({
     minWidth: "50vw",
     fontSize: "1.4rem",
@@ -43,7 +41,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
     setDisable(true);
     setTimeout(() => {
       setDisable(false);
-    }, 2000);
+    }, 2500);
   };
   // select states
   const [category, setCategory] = useState("");

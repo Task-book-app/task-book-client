@@ -4,16 +4,11 @@ import BlurredScreen from "./BlurredScreen";
 import ModalSlide from "./ModalSlide";
 
 const Modal = ({ component }) => {
-  const { showModal, fadeAnimation, slideAnimation, handleCloseModal } =
-    useContext(modalContext);
+  const { showModal, fadeAnimation, slideAnimation } = useContext(modalContext);
 
   return (
     <>
-      <BlurredScreen
-        showModal={showModal}
-        fadeAnimation={fadeAnimation}
-        event={handleCloseModal}
-      >
+      <BlurredScreen showModal={showModal} fadeAnimation={fadeAnimation}>
         <ModalSlide slideAnimation={slideAnimation}>{component}</ModalSlide>
       </BlurredScreen>
     </>

@@ -27,14 +27,14 @@ const rules = () => ({
 const UserTopBar = () => {
   const { css, theme } = useFela();
 
-  const { currentTheme, themeToggler } = useContext(appContext);
+  const { currentTheme, themeToggler, user } = useContext(appContext);
 
   const [showDropDown, setShowDropDown] = useState(false);
 
   return (
     <div className={css(rules)}>
-      <H4>Username</H4>
-      <Avatar />
+      <H4>{user.username}</H4>
+      <Avatar picture={user.picture} />
       <ToogleDropDown
         showDropDown={showDropDown}
         setShowDropDown={setShowDropDown}
