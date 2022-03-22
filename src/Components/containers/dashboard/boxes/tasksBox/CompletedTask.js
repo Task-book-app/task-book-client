@@ -37,14 +37,14 @@ const rules = ({ currentTheme }) => ({
   },
 });
 
-const CompletedTask = ({ task, checked }) => {
+const CompletedTask = ({ task, checked, id }) => {
   const { currentTheme } = useContext(appContext);
   const { css } = useFela({ currentTheme });
 
   return (
     <div className={css(rules)}>
       <div className="box">
-        <CheckBox fontSize={1.8} checked={checked} />
+        <CheckBox fontSize={1.8} checked={checked} id={id} />
         <p>{task}</p>
       </div>
     </div>
