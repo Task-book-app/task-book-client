@@ -28,8 +28,13 @@ const ActiveTasksContainer = ({ tasks }) => {
         <HeadingSmall>0 tasks created</HeadingSmall>
       </div>
     ) : (
-      tasks.map((item, i) => (
-        <ActiveTask key={i} checked={item.completed} task={item.task} />
+      tasks.map((item) => (
+        <ActiveTask
+          key={item.id}
+          id={item.id}
+          checked={item.completed}
+          task={item.task}
+        />
       ))
     );
   };
