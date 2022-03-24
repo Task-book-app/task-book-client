@@ -7,7 +7,6 @@ export const appContext = createContext();
 export function GlobalContext({ children }) {
   const [currentTheme, themeToggler] = useDarkMode();
   const [alertMessage, setAlertMessage, alertSettings] = useAlert();
-
   const [tasks, setTasks] = useState([
     {
       category: "home",
