@@ -18,10 +18,11 @@ const rules = () => ({
   },
 });
 
-const CheckBox = ({ fontSize, checked, id }) => {
+const CheckBox = ({ fontSize, checked, id, setShowClass }) => {
   const { tasks, setTasks } = useContext(appContext);
   const { css } = useFela();
   const [isChecked, setIsChecked] = useState(checked);
+
   const handleChange = (e) => {
     setIsChecked(!isChecked);
     const updateTask = tasks.find((item) => item.id === e.target.id);
@@ -29,9 +30,10 @@ const CheckBox = ({ fontSize, checked, id }) => {
     const updatedDB = tasks.map((item) =>
       item.id === updateTask.id ? updateTask : item
     );
+    setShowClass(false);
     setTimeout(() => {
       setTasks(updatedDB);
-    }, 500);
+    }, 600);
   };
 
   return (
