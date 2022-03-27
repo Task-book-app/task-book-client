@@ -40,6 +40,22 @@ export function GlobalContext({ children }) {
       priority: "very important!",
       task: "Finish front end",
     },
+    {
+      category: "work",
+      completed: false,
+      date: "2022-03-22",
+      id: "035daaae-7f64-4a2b-a23s-7086b71d8543",
+      priority: "very important!",
+      task: "Finish task list",
+    },
+    {
+      category: "work",
+      completed: false,
+      date: "2022-03-22",
+      id: "035daaae-7f12-4a2b-a24f-7086b71d8543",
+      priority: "very important!",
+      task: "Learn GraphQL",
+    },
   ]);
   const [user, setUser] = useState({
     username: "username",

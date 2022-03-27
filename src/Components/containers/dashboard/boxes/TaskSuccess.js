@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../context/GlobalContext";
 import Success from "../../../presentational/Success";
-import H3 from "../../../presentational/typography/H3";
 
 const TaskSuccess = () => {
-  const { currentTheme } = useContext(appContext);
+  const { currentTheme, tasks } = useContext(appContext);
   const { css, theme } = useFela();
 
   const rules = () => ({
@@ -25,14 +24,19 @@ const TaskSuccess = () => {
   });
 
   const data = [
-    { status: "Created", quantity: 113 },
-    { status: "Completed", quantity: 97 },
-    { status: "Removed", quantity: 14 },
+    { status: "Created", quantity: tasks.length },
+    {
+      status: "Active",
+      quantity: tasks.filter((item) => item.completed === false).length,
+    },
+    {
+      status: "Completed",
+      quantity: tasks.filter((item) => item.completed === true).length,
+    },
   ];
 
   return (
     <div className={css(rules)}>
-      <H3 color={theme.colors.blue}>Success for the week</H3>
       <div className="container">
         {data.map((item) => (
           <Success
