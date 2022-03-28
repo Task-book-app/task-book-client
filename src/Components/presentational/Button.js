@@ -9,6 +9,7 @@ const Button = ({
   fontFamily,
   bg,
   disabled,
+  extend,
 }) => {
   const { css, theme } = useFela({ fontSize, width, fontFamily, bg });
 
@@ -38,7 +39,7 @@ const Button = ({
     <button
       type={type}
       onClick={event}
-      className={css(rule)}
+      className={css([rule, extend])}
       disabled={disabled}
     >
       {children}
