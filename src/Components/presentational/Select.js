@@ -12,9 +12,6 @@ const Select = ({ dropDownValues, onChange, value, setValue }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const { css, theme } = useFela({ currentTheme });
 
-  //   this state needs to be clened after submiting or cancel
-  // const [value, setValue] = useState("");
-
   const rules = () => ({
     paddingRight: "1rem",
     position: "relative",

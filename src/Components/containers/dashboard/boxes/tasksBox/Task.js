@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../../context/GlobalContext";
 import ButtonIcon from "../../../../presentational/ButtonIcon";
+import ButtonSmall from "../../../../presentational/ButtonSmall";
 import CheckBox from "../../../../presentational/CheckBox";
 import EditIcon from "../../../../presentational/icons/EditIcon";
 import TrashIcon from "../../../../presentational/icons/TrashIcon";
@@ -13,7 +14,6 @@ const rules = ({ currentTheme, itemHeight, transitionClass, checked }) => ({
   letterSpacing: "0.02em",
   transition: "height 0.6s ease-out, margin-top 0.6s",
 
-  cursor: "pointer",
   position: "relative",
 
   "&.show": {
@@ -65,6 +65,7 @@ const rules = ({ currentTheme, itemHeight, transitionClass, checked }) => ({
     },
     "&__2": {
       display: "flex",
+      alignItems: "center",
       transform: "translateX(6rem)",
       transition: "all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)",
 
@@ -72,6 +73,15 @@ const rules = ({ currentTheme, itemHeight, transitionClass, checked }) => ({
         marginRight: "1rem",
       },
     },
+  },
+
+  "& .input-update": {
+    backgroundColor: "transparent",
+    color: "inherit",
+    border: "none",
+    outline: "none",
+    fontStyle: "italic",
+    letterSpacing: "0.03em",
   },
 });
 
@@ -157,23 +167,28 @@ const Task = ({ task, checked, id }) => {
             {!showInput ? (
               <p>{task}</p>
             ) : (
-              <input
-                type="text"
-                autoFocus
-                value={updateTask}
-                onChange={(e) => setUpdateTask(e.target.value)}
-                onFocus={(e) => e.target.select()}
-              />
+              <>
+                <input
+                  className="input-update"
+                  type="text"
+                  autoFocus
+                  value={updateTask}
+                  onChange={(e) => setUpdateTask(e.target.value)}
+                  onFocus={(e) => e.target.select()}
+                />
+              </>
             )}
           </div>
-
           <div className="box__2">
-            {!checked ? (
+            {showInput && (
+              <ButtonSmall event={() => setShowInput(false)}>
+                cancel
+              </ButtonSmall>
+            )}
+            {!checked && (
               <ButtonIcon onClick={handleUpdateTask}>
                 <EditIcon fontSize={1.8} />
               </ButtonIcon>
-            ) : (
-              ""
             )}
             <ButtonIcon onClick={handleRemoveTask}>
               <TrashIcon fontSize={1.8} />
