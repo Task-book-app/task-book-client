@@ -13,16 +13,24 @@ import Profile from "./Components/containers/dashboard/boxes/profile/Profile";
 import Alert from "./Components/presentational/Alert";
 import { appContext } from "./context/GlobalContext";
 import { ModalProvider } from "./context/ModalProvider";
+import { useFela } from "react-fela";
 
 const App = () => {
-  const { alertMessage, alertSettings } = useContext(appContext);
+  const { alertMessage, alertSettings, currentTheme } = useContext(appContext);
   const [mountedComponent] = useDarkMode();
 
+  const { css, theme } = useFela();
+
+  const rules = () => ({
+    ...theme.darkModusLayout(currentTheme),
+  });
+
   if (!mountedComponent) return <div />;
+
   return (
     <>
       <GlobalStyles />
-      <div className="App">
+      <div className={css(rules)}>
         <Alert message={alertMessage} alertSettings={alertSettings} />
         <Routes>
           <Route path="/" element={<MainLayout />}>

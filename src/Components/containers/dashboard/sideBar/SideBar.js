@@ -16,12 +16,15 @@ const SideBar = () => {
     ...theme.darkModusBoxes(currentTheme),
     minHeight: "100%",
     padding: "2rem",
-    display: "flex",
+    display: "none",
     flexDirection: "column",
     overflow: "scroll",
     filter: "drop-shadow(0px 10px 25px rgba(29, 52, 54, 0.08))",
     "& > :not(:last-child)": {
       marginBottom: "6rem",
+    },
+    [theme.breakpoints.laptop]: {
+      display: "flex",
     },
   });
 

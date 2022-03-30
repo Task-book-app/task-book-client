@@ -19,12 +19,27 @@ const TimeAndDate = () => {
     },
     "& .container": {
       display: "flex",
-      justifyContent: "space-between",
-      "&__child": {
-        // flex: "1 1 auto",
+      justifyContent: "flex-start",
+      flexDirection: "column",
 
+      "& > :not(:last-child)": {
+        marginBottom: "1rem",
+      },
+
+      "&__child": {
+        width: "fit-content",
+        display: "flex",
+        flexDirection: "column",
         "& > :not(:last-child)": {
           marginBottom: ".5rem",
+        },
+      },
+
+      [theme.breakpoints.laptop_L]: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        "& > :not(:last-child)": {
+          marginBottom: "0",
         },
       },
     },

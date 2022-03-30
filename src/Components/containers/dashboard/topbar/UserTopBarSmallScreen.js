@@ -24,7 +24,7 @@ const rules = () => ({
   },
 });
 
-const UserTopBar = () => {
+const UserTopBarSmallScreen = () => {
   const { css, theme } = useFela();
 
   const { currentTheme, themeToggler, user } = useContext(appContext);
@@ -33,7 +33,6 @@ const UserTopBar = () => {
 
   return (
     <div className={css(rules)}>
-      <H4>{user.username}</H4>
       <Avatar picture={user.picture} />
       <ToogleDropDown
         showDropDown={showDropDown}
@@ -47,8 +46,8 @@ const UserTopBar = () => {
             </DropDownItem>
 
             {/* <DropDownItem title={"Settings"} link={"settings"}>
-              <GearIcon fontSize={1.2} />
-            </DropDownItem> */}
+          <GearIcon fontSize={1.2} />
+        </DropDownItem> */}
 
             <ButtonMenu
               padding="1.25rem 2rem"
@@ -88,4 +87,4 @@ const UserTopBar = () => {
   );
 };
 
-export default UserTopBar;
+export default UserTopBarSmallScreen;

@@ -6,6 +6,7 @@ import { longDate } from "../../helpers/functions";
 const rules = () => ({
   display: "flex",
   alignItems: "center",
+  justifyContent: "center",
   fontSize: "2.3rem",
   lineHeight: "3.4rem",
   letterSpacing: "0.02em",

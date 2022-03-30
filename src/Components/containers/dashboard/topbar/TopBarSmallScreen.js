@@ -9,16 +9,21 @@ import ToogleDarkMode from "../../../presentational/ToogleDarkMode";
 import Modal from "../../modal/Modal";
 import { modalContext } from "../../../../context/ModalProvider";
 import CreateTaskModal from "../../modal/CreateTaskModal";
+import Brand from "../../../presentational/Brand";
+import H3 from "../../../presentational/typography/H3";
+import UserTopBarSmallScreen from "./UserTopBarSmallScreen";
+import BurgerMenuIcon from "../../../presentational/icons/BurgerMenuIcon";
+import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 
-const TopBar = () => {
+const TopBarSmallScreen = () => {
   const { css, theme } = useFela();
 
   const rules = () => ({
-    display: "none",
+    display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     [theme.breakpoints.laptop]: {
-      display: "flex",
+      display: "none",
     },
   });
 
@@ -31,19 +36,19 @@ const TopBar = () => {
       <Modal
         component={<CreateTaskModal handleCloseModal={handleCloseModal} />}
       />
+      <BurgerMenuIcon fontSize={3.5} />
+      <SpiralLogoIcon fontSize={5} />
+      <Brand>
+        <H3 color={theme.colors.blue}>
+          Tasks
+          <br />
+          Book
+        </H3>
+      </Brand>
 
-      <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          transform={{ rotate: 45 }}
-          fontSize={"1.6rem"}
-        />
-        New task
-      </Button>
-      <ToogleDarkMode />
-      <UserTopBar />
+      <UserTopBarSmallScreen />
     </div>
   );
 };
 
-export default TopBar;
+export default TopBarSmallScreen;

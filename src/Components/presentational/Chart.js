@@ -27,7 +27,7 @@ const Chart = () => {
 
   return (
     <ResponsiveContainer width="100%" height={171}>
-      <LineChart data={data} margin={{ top: 25, left: -30, right: 15 }}>
+      <LineChart data={data} margin={{ top: 25, left: -30, right: 20 }}>
         <Line
           name="current week"
           type="monotone"

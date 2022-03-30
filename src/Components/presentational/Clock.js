@@ -3,32 +3,36 @@ import { useFela } from "react-fela";
 import ClockIcon from "./icons/ClockIcon";
 
 const rules = () => ({
-  display: "flex",
-  alignItems: "center",
-  fontSize: "2.3rem",
-  lineHeight: "3.4rem",
-  letterSpacing: "0.1em",
-  "& > :not(:last-child)": {
-    marginRight: "1.2rem",
+  position: "relative",
+  margin: "2rem 0",
+
+  "& .container": {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    bottom: "0",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    fontSize: "2.3rem",
+    lineHeight: "3.4rem",
+    letterSpacing: "0.1em",
+    "& > :not(:last-child)": {
+      marginRight: "1.2rem",
+    },
   },
 });
 
-const Clock = ({ time, setTime }) => {
-  // const [time, setTime] = useState(new Date().toLocaleTimeString());
-
+const Clock = ({ time }) => {
   const { css } = useFela();
-
-  // useEffect(() => {
-  //   const timeId = setInterval(
-  //     () => setTime(new Date().toLocaleTimeString()),
-  //     1000
-  //   );
-  // });
 
   return (
     <div className={css(rules)}>
-      <ClockIcon fontSize={2.3} />
-      <p>{time}</p>
+      <div className="container">
+        <ClockIcon fontSize={2.3} />
+        <p>{time}</p>
+      </div>
     </div>
   );
 };

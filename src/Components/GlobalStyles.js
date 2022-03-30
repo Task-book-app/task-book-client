@@ -3,7 +3,7 @@ import { bold, poppins, semi_bold } from "../fonts/Poppins/poppins";
 
 const GlobalStyles = () => {
   const { renderer, theme } = useFela();
-  const { laptop, desktop } = theme.breakpoints;
+  const { laptop } = theme.breakpoints;
 
   // font-family
   renderer.renderFont("Poppins", poppins);
@@ -32,12 +32,6 @@ const GlobalStyles = () => {
     ${[laptop]} {
         html{
           font-size: 62.5%;
-        }
-    }
-
-    ${[desktop]} {
-        html{
-           font-size: 75%;
         }
     }
 
