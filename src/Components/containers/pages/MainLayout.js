@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useFela } from "react-fela";
 import { Outlet } from "react-router-dom";
-import { appContext } from "../../../context/GlobalContext";
 
 const MainLayout = () => {
   const { css, theme } = useFela();
 
-  const { currentTheme } = useContext(appContext);
   const rules = () => ({
-    ...theme.darkModusLayout(currentTheme),
     margin: "0 auto",
     width: "100vw",
     maxWidth: "1440px",

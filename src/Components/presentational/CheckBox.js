@@ -17,7 +17,7 @@ const rules = () => ({
   },
 });
 
-const CheckBox = ({ callback, fontSize, checked }) => {
+const CheckBox = ({ callback, fontSize, checked, disabled }) => {
   const { css } = useFela();
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -30,6 +30,7 @@ const CheckBox = ({ callback, fontSize, checked }) => {
           callback(checked);
         }}
         checked={isChecked}
+        disabled={disabled}
       />
       {isChecked ? (
         <CheckBoxTrue fontSize={fontSize} />
