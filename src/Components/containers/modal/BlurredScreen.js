@@ -22,10 +22,14 @@ const rules = ({ showModal }) => ({
     },
 });
 
-const BlurredScreen = ({ children, showModal, fadeAnimation }) => {
+const BlurredScreen = ({ children, showModal, fadeAnimation, onClick }) => {
   const { css } = useFela({ showModal });
 
-  return <div className={css(rules, fadeAnimation)}>{children}</div>;
+  return (
+    <div className={css(rules, fadeAnimation)} onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 
 export default BlurredScreen;

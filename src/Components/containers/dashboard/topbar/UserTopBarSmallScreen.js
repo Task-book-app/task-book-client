@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { useFela } from "react-fela";
 import Avatar from "../../../presentational/Avatar";
 import ToogleDropDown from "../../../presentational/ToogleDropDown";
-import H4 from "../../../presentational/typography/H4";
 import DropDown from "../DropDown";
 import DropDownItem from "../../../presentational/DropDownItem";
 import ListContainer from "../ListContainer";
@@ -39,15 +38,11 @@ const UserTopBarSmallScreen = () => {
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
-        <DropDown>
+        <DropDown width={"14rem"}>
           <ListContainer marginBottom={0}>
             <DropDownItem title={"Profile"} link={"profile"}>
               <UserIcon fontSize={1.2} />
             </DropDownItem>
-
-            {/* <DropDownItem title={"Settings"} link={"settings"}>
-          <GearIcon fontSize={1.2} />
-        </DropDownItem> */}
 
             <ButtonMenu
               padding="1.25rem 2rem"
