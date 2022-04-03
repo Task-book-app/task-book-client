@@ -9,6 +9,7 @@ import ToogleDarkMode from "../../../presentational/ToogleDarkMode";
 import Modal from "../../modal/Modal";
 import { modalContext } from "../../../../context/ModalProvider";
 import CreateTaskModal from "../../modal/CreateTaskModal";
+import ModalSlide from "../../modal/ModalSlide";
 
 const TopBar = () => {
   const { css, theme } = useFela();
@@ -24,13 +25,16 @@ const TopBar = () => {
 
   // context to hook animations Modal, parent component is wrapped in the ModalProvider
   // ModalProvider contains the logic for displaying modal with animation
-  const { handleShowModal, handleCloseModal } = useContext(modalContext);
+  const { handleShowModal, handleCloseModal, slideAnimation } =
+    useContext(modalContext);
 
   return (
     <div className={css(rules)}>
-      <Modal
-        component={<CreateTaskModal handleCloseModal={handleCloseModal} />}
-      />
+      <Modal>
+        <ModalSlide slideAnimation={slideAnimation}>
+          <CreateTaskModal handleCloseModal={handleCloseModal} />
+        </ModalSlide>
+      </Modal>
 
       <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
         <FontAwesomeIcon

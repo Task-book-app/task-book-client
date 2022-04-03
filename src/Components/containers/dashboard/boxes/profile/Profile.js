@@ -9,10 +9,12 @@ import Avatar from "../../../../presentational/Avatar";
 import { modalContext } from "../../../../../context/ModalProvider";
 import Modal from "../../../modal/Modal";
 import UpdateProfileModal from "../../../modal/UpdateProfileModal";
+import ModalSlide from "../../../modal/ModalSlide";
 
 const Profile = () => {
   const { user } = useContext(appContext);
-  const { handleShowModal, handleCloseModal } = useContext(modalContext);
+  const { handleShowModal, handleCloseModal, slideAnimation } =
+    useContext(modalContext);
 
   const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela();
@@ -38,9 +40,11 @@ const Profile = () => {
 
   return (
     <div className={css(rules)}>
-      <Modal
-        component={<UpdateProfileModal handleCloseModal={handleCloseModal} />}
-      />
+      <Modal>
+        <ModalSlide slideAnimation={slideAnimation}>
+          <UpdateProfileModal handleCloseModal={handleCloseModal} />
+        </ModalSlide>
+      </Modal>
       <Avatar width={15} height={15} picture={user.picture} />
 
       <div className="info">

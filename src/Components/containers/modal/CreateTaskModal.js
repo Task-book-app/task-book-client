@@ -20,6 +20,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   const rules = () => ({
     minWidth: "50vw",
     fontSize: "1.4rem",
+
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     "& > :not(:last-child)": {

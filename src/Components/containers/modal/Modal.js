@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { modalContext } from "../../../context/ModalProvider";
 import BlurredScreen from "./BlurredScreen";
-import ModalSlide from "./ModalSlide";
 
-const Modal = ({ component }) => {
-  const { showModal, fadeAnimation, slideAnimation, handleCloseModal } =
+const Modal = ({ children }) => {
+  const { showModal, fadeAnimation, handleCloseModal } =
     useContext(modalContext);
 
   return (
@@ -16,7 +15,7 @@ const Modal = ({ component }) => {
         handleCloseModal();
       }}
     >
-      <ModalSlide slideAnimation={slideAnimation}>{component}</ModalSlide>
+      {children}
     </BlurredScreen>
   );
 };
