@@ -21,17 +21,20 @@ const rules = () => ({
   "& .brand": {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
+
     "& > :not(:last-child)": {
       marginRight: "1rem",
     },
   },
 });
 
-export const BrandSmall = () => {
+const BrandSmall = ({ onClick }) => {
   const { css, theme } = useFela();
+
   return (
     <div className={css(rules)}>
-      <BurgerMenu fontSize={3} />
+      <BurgerMenu fontSize={3} onClick={onClick} />
       <Link to="/dashboard">
         <div className="brand">
           <SpiralLogoIcon fontSize={4.5} />
@@ -45,3 +48,5 @@ export const BrandSmall = () => {
     </div>
   );
 };
+
+export default BrandSmall;

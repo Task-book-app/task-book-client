@@ -3,7 +3,10 @@ import React from "react";
 import { useFela } from "react-fela";
 import { modalContext } from "../../../../context/ModalProvider";
 import UserTopBarSmallScreen from "./UserTopBarSmallScreen";
-import { BrandSmall } from "./BrandSmall";
+import BrandSmall from "./BrandSmall";
+import Modal from "../../modal/Modal";
+import ModalSideBar from "../../modal/ModalSideBar";
+import SideBarSmallScreen from "../sideBar/SideBarSmallScreen";
 
 const TopBarSmallScreen = () => {
   const { css, theme } = useFela();
@@ -19,14 +22,20 @@ const TopBarSmallScreen = () => {
 
   // context to hook animations Modal, parent component is wrapped in the ModalProvider
   // ModalProvider contains the logic for displaying modal with animation
-  const { handleShowModal, handleCloseModal } = useContext(modalContext);
-
+  const { handleShowModal, handleCloseModal, sideBarAnimation } =
+    useContext(modalContext);
   return (
-    <div className={css(rules)}>
-      <BrandSmall />
-
-      <UserTopBarSmallScreen />
-    </div>
+    <>
+      <div className={css(rules)}>
+        <BrandSmall onClick={handleShowModal} />
+        <UserTopBarSmallScreen />
+        <Modal>
+          <ModalSideBar sideBarAnimation={sideBarAnimation}>
+            <SideBarSmallScreen handleCloseModal={handleCloseModal} />
+          </ModalSideBar>
+        </Modal>
+      </div>
+    </>
   );
 };
 

@@ -3,10 +3,8 @@ import { useFela } from "react-fela";
 
 const rules = ({ showModal }) => ({
   display: showModal,
-  justifyContent: "center",
-  alignItems: "center",
   position: "fixed",
-  width: "100%",
+  width: "100vw",
   height: "100vh",
   top: 0,
   left: 0,
