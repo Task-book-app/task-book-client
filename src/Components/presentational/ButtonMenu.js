@@ -18,6 +18,9 @@ const ButtonMenu = ({
   const { css, theme } = useFela({ padding, fontSize, hoverColor });
 
   const rules = ({ padding, fontSize, hoverColor }) => ({
+    backgroundColor: "unset",
+
+    border: "none",
     padding,
     cursor: "pointer",
     textDecoration: "none",
@@ -46,7 +49,7 @@ const ButtonMenu = ({
   });
 
   return (
-    <div
+    <button
       data-value={dataValue}
       name={name}
       className={css(rules)}
@@ -55,7 +58,7 @@ const ButtonMenu = ({
     >
       {children}
       {title}
-    </div>
+    </button>
   );
 };
 

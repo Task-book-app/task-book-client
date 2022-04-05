@@ -4,7 +4,7 @@ import ListContainer from "../ListContainer";
 import ButtonMenu from "../../../presentational/ButtonMenu";
 import LogOutIcon from "../../../presentational/icons/LogOutIcon";
 
-const LogOut = () => {
+const LogOut = ({ onClick = null }) => {
   const { css, theme } = useFela();
 
   const rules = () => ({
@@ -20,7 +20,7 @@ const LogOut = () => {
         <ButtonMenu
           fontSize={1.6}
           title="Log Out"
-          event={null}
+          event={onClick}
           hoverColor={theme.colors.danger}
           switchOffBg={true}
         >

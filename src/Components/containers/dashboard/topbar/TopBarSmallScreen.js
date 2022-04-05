@@ -7,6 +7,10 @@ import BrandSmall from "./BrandSmall";
 import Modal from "../../modal/Modal";
 import ModalSideBar from "../../modal/ModalSideBar";
 import SideBarSmallScreen from "../sideBar/SideBarSmallScreen";
+import BurgerMenu from "./BurgerMenu";
+import { Link } from "react-router-dom";
+import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
+import H3 from "../../../presentational/typography/H3";
 
 const TopBarSmallScreen = () => {
   const { css, theme } = useFela();
@@ -27,14 +31,26 @@ const TopBarSmallScreen = () => {
   return (
     <>
       <div className={css(rules)}>
-        <BrandSmall onClick={handleShowModal} />
+        <BrandSmall>
+          <BurgerMenu fontSize={3} onClick={handleShowModal} />
+          <Link to="/dashboard">
+            <div className="brand">
+              <SpiralLogoIcon fontSize={4.5} />
+              <H3 color={theme.colors.blue}>
+                Tasks
+                <br />
+                Book
+              </H3>
+            </div>
+          </Link>
+        </BrandSmall>
         <UserTopBarSmallScreen />
-        <Modal>
-          <ModalSideBar sideBarAnimation={sideBarAnimation}>
-            <SideBarSmallScreen handleCloseModal={handleCloseModal} />
-          </ModalSideBar>
-        </Modal>
       </div>
+      <Modal>
+        <ModalSideBar sideBarAnimation={sideBarAnimation}>
+          <SideBarSmallScreen handleCloseModal={handleCloseModal} />
+        </ModalSideBar>
+      </Modal>
     </>
   );
 };

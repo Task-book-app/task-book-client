@@ -23,6 +23,7 @@ const BurgerMenu = ({ onClick, fontSize }) => {
       boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",
     },
   });
+
   return (
     <button className={css(rules)} onClick={onClick}>
       <BurgerMenuIcon fontSize={fontSize} />
