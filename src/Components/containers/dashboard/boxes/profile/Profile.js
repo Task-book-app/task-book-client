@@ -39,34 +39,40 @@ const Profile = () => {
   });
 
   return (
-    <div className={css(rules)}>
+    <>
+      <div className={css(rules)}>
+        <Avatar width={15} height={15} picture={user.picture} />
+
+        <div className="info">
+          <ModalGroup gb={1}>
+            <Label htmlFor="username">Username</Label>
+            <Input
+              placeholder="username"
+              value={user.username}
+              disabled={true}
+            />
+          </ModalGroup>
+          <ModalGroup gb={1}>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              placeholder="email@address.com"
+              type="email"
+              value={user.email}
+              disabled={true}
+            />
+          </ModalGroup>
+
+          <Button width="auto" type="button" event={handleShowModal}>
+            Update profile
+          </Button>
+        </div>
+      </div>
       <Modal>
         <ModalSlide slideAnimation={slideAnimation}>
           <UpdateProfileModal handleCloseModal={handleCloseModal} />
         </ModalSlide>
       </Modal>
-      <Avatar width={15} height={15} picture={user.picture} />
-
-      <div className="info">
-        <ModalGroup gb={1}>
-          <Label htmlFor="username">Username</Label>
-          <Input placeholder="username" value={user.username} disabled={true} />
-        </ModalGroup>
-        <ModalGroup gb={1}>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            placeholder="email@address.com"
-            type="email"
-            value={user.email}
-            disabled={true}
-          />
-        </ModalGroup>
-
-        <Button width="auto" type="button" event={handleShowModal}>
-          Update profile
-        </Button>
-      </div>
-    </div>
+    </>
   );
 };
 

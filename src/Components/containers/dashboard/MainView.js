@@ -26,6 +26,8 @@ const MainView = () => {
     <div className={css(rules)}>
       <ModalProvider>
         <TopBar />
+      </ModalProvider>
+      <ModalProvider>
         <TopBarSmallScreen />
       </ModalProvider>
       <BoxesView />

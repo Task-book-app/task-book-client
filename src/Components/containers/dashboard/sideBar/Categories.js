@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "../../../presentational/ListItem";
 
-const Categories = () => {
+const Categories = ({ onClick = null }) => {
   const { css, theme } = useFela();
 
   const categories = () => ({
@@ -25,11 +25,36 @@ const Categories = () => {
     <div className={css(categories)}>
       <H2 color={theme.colors.blue}>Categories</H2>
       <ListContainer marginBottom={3}>
-        <ListItem title={"All"} link={"all"} fontIcon={faClipboard} />
-        <ListItem title={"Home"} link={"home"} fontIcon={faHome} />
-        <ListItem title={"Family"} link={"family"} fontIcon={faUserGroup} />
-        <ListItem title={"Work"} link={"work"} fontIcon={faSuitcase} />
-        <ListItem title={"Sports"} link={"sports"} fontIcon={faPersonRunning} />
+        <ListItem
+          onClick={onClick}
+          title={"All"}
+          link={"all"}
+          fontIcon={faClipboard}
+        />
+        <ListItem
+          onClick={onClick}
+          title={"Home"}
+          link={"home"}
+          fontIcon={faHome}
+        />
+        <ListItem
+          onClick={onClick}
+          title={"Family"}
+          link={"family"}
+          fontIcon={faUserGroup}
+        />
+        <ListItem
+          onClick={onClick}
+          title={"Work"}
+          link={"work"}
+          fontIcon={faSuitcase}
+        />
+        <ListItem
+          onClick={onClick}
+          title={"Sports"}
+          link={"sports"}
+          fontIcon={faPersonRunning}
+        />
         {/* <ListItem
           title={"Add"}
           link={"add"}

@@ -20,10 +20,6 @@ const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
     ...theme.darkModusBoxes(currentTheme),
   });
 
-  const handleDropDown = () => {
-    setShowDropDown(!showDropDown);
-  };
-
   const toggleButton = useRef(null);
 
   // function to catch click outside element
@@ -44,7 +40,11 @@ const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
   useOutsideClick(toggleButton);
 
   return (
-    <div ref={toggleButton} className={css(rules)} onClick={handleDropDown}>
+    <div
+      ref={toggleButton}
+      className={css(rules)}
+      onClick={() => setShowDropDown(!showDropDown)}
+    >
       <FontAwesomeIcon icon={faChevronDown} fontSize={"1.6rem"} />
     </div>
   );

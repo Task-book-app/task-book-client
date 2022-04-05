@@ -29,24 +29,25 @@ const TopBar = () => {
     useContext(modalContext);
 
   return (
-    <div className={css(rules)}>
+    <>
+      <div className={css(rules)}>
+        <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
+          <FontAwesomeIcon
+            icon={faCircleXmark}
+            transform={{ rotate: 45 }}
+            fontSize={"1.6rem"}
+          />
+          New task
+        </Button>
+        <ToogleDarkMode />
+        <UserTopBar />
+      </div>
       <Modal>
         <ModalSlide slideAnimation={slideAnimation}>
           <CreateTaskModal handleCloseModal={handleCloseModal} />
         </ModalSlide>
       </Modal>
-
-      <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          transform={{ rotate: 45 }}
-          fontSize={"1.6rem"}
-        />
-        New task
-      </Button>
-      <ToogleDarkMode />
-      <UserTopBar />
-    </div>
+    </>
   );
 };
 

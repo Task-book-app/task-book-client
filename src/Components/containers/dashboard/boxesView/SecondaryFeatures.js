@@ -6,18 +6,21 @@ import ProgressChart from "../boxes/ProgressChart";
 // import Statements from "../boxes/Statements";
 import TimeAndDate from "../boxes/TimeAndDate";
 
-const rules = () => ({
-  width: "47%",
-  display: "flex",
-  flexDirection: "column",
-
-  "& > :not(:last-child)": {
-    marginBottom: "3rem",
-  },
-});
-
 const SecondaryFeatures = () => {
-  const { css } = useFela();
+  const { css, theme } = useFela();
+  const rules = () => ({
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+
+    "& > :not(:last-child)": {
+      marginBottom: "3rem",
+    },
+
+    [theme.breakpoints.tablet]: {
+      width: "47%",
+    },
+  });
 
   return (
     <div className={css(rules)}>
