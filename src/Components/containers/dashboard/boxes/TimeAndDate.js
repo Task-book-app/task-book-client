@@ -9,6 +9,7 @@ import HeadingSmall from "../../../presentational/typography/HeadingSmall";
 const TimeAndDate = () => {
   const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela();
+
   const rules = () => ({
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
@@ -19,7 +20,8 @@ const TimeAndDate = () => {
     },
     "& .container": {
       display: "flex",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
+      // justifyContent: "flex-start",
       flexDirection: "column",
 
       "& > :not(:last-child)": {
@@ -34,10 +36,9 @@ const TimeAndDate = () => {
           marginBottom: ".5rem",
         },
       },
-
-      [theme.breakpoints.laptop_L]: {
+      [theme.breakpoints.mobile_L]: {
         flexDirection: "row",
-        justifyContent: "space-between",
+
         "& > :not(:last-child)": {
           marginBottom: "0",
         },

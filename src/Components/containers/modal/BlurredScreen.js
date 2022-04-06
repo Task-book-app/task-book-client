@@ -19,6 +19,7 @@ const rules = ({ showModal }) => ({
       background: "rgba(0, 0, 0, 0.3)",
     },
   "& .container": {
+    display: showModal,
     position: "relative",
     overflow: "auto",
     height: "100vh",

@@ -10,6 +10,7 @@ const ToogleDropDown = ({ showDropDown, setShowDropDown }) => {
 
   const rules = () => ({
     color: theme.colors.blue,
+    border: "1px solid " + theme.colors.blue,
     width: "2.4rem",
     height: "2.4rem",
     boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",

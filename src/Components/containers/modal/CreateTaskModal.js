@@ -18,13 +18,30 @@ const CreateTaskModal = ({ handleCloseModal }) => {
     useContext(appContext);
 
   const rules = () => ({
-    minWidth: "50vw",
+    minWidth: "90vw",
     fontSize: "1.4rem",
 
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     "& > :not(:last-child)": {
       marginBottom: "3rem",
+    },
+
+    [theme.breakpoints.laptop]: {
+      minWidth: "50vw",
+    },
+
+    "& .inputs-row": {
+      display: "none",
+      [theme.breakpoints.tablet]: {
+        display: "block",
+      },
+    },
+    "& .inputs-column": {
+      display: "block",
+      [theme.breakpoints.tablet]: {
+        display: "none",
+      },
     },
   });
 
@@ -127,37 +144,72 @@ const CreateTaskModal = ({ handleCloseModal }) => {
         />
       </ModalGroup>
 
-      <ModalGroup fd={"row"} gr={3}>
-        <ModalGroup gb={1}>
-          <Label htmlFor={"category"}>Category</Label>
-          <Select
-            dropDownValues={myCategories}
-            onChange={handleChange}
-            value={category}
-            setValue={setCategory}
-          />
-        </ModalGroup>
+      <div className="inputs-row">
+        <ModalGroup fd={"row"} gr={3}>
+          <ModalGroup gb={1}>
+            <Label htmlFor={"category"}>Category</Label>
+            <Select
+              dropDownValues={myCategories}
+              onChange={handleChange}
+              value={category}
+              setValue={setCategory}
+            />
+          </ModalGroup>
 
-        <ModalGroup gb={1}>
-          <Label htmlFor={"date"}>When?</Label>
-          <DatePicker
-            value={formValues.date}
-            name={"date"}
-            id={"date"}
-            onChange={handleChange}
-          />
-        </ModalGroup>
+          <ModalGroup gb={1}>
+            <Label htmlFor={"date"}>When?</Label>
+            <DatePicker
+              value={formValues.date}
+              name={"date"}
+              id={"date"}
+              onChange={handleChange}
+            />
+          </ModalGroup>
 
-        <ModalGroup gb={1}>
-          <Label htmlFor={"priority"}>Priority</Label>
-          <Select
-            dropDownValues={myPriorities}
-            onChange={handleChange}
-            value={priority}
-            setValue={setPriority}
-          />
+          <ModalGroup gb={1}>
+            <Label htmlFor={"priority"}>Priority</Label>
+            <Select
+              dropDownValues={myPriorities}
+              onChange={handleChange}
+              value={priority}
+              setValue={setPriority}
+            />
+          </ModalGroup>
         </ModalGroup>
-      </ModalGroup>
+      </div>
+      <div className="inputs-column">
+        <ModalGroup fd={"column"} gb={1}>
+          <ModalGroup gb={1}>
+            <Label htmlFor={"category"}>Category</Label>
+            <Select
+              dropDownValues={myCategories}
+              onChange={handleChange}
+              value={category}
+              setValue={setCategory}
+            />
+          </ModalGroup>
+
+          <ModalGroup gb={1}>
+            <Label htmlFor={"date"}>When?</Label>
+            <DatePicker
+              value={formValues.date}
+              name={"date"}
+              id={"date"}
+              onChange={handleChange}
+            />
+          </ModalGroup>
+
+          <ModalGroup gb={1}>
+            <Label htmlFor={"priority"}>Priority</Label>
+            <Select
+              dropDownValues={myPriorities}
+              onChange={handleChange}
+              value={priority}
+              setValue={setPriority}
+            />
+          </ModalGroup>
+        </ModalGroup>
+      </div>
 
       <ModalGroup fd={"row"} gr={3} jc="flex-end">
         <Button

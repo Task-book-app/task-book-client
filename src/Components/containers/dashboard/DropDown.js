@@ -20,6 +20,7 @@ const DropDown = ({ children, width, border }) => {
     transform: "translateY(100%)",
     bottom: 0,
     right: 0,
+    zIndex: 1000,
   });
 
   return <div className={css(rules)}>{children}</div>;
