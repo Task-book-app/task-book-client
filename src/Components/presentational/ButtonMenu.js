@@ -19,6 +19,7 @@ const ButtonMenu = ({
 
   const rules = ({ padding, fontSize, hoverColor }) => ({
     backgroundColor: "unset",
+    width: "100%",
 
     border: "none",
     padding,

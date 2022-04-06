@@ -40,7 +40,7 @@ const UserTopBar = () => {
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
-        <DropDown>
+        <DropDown border={"1px solid " + theme.colors.blue}>
           <ListContainer marginBottom={0}>
             <DropDownItem title={"Profile"} link={"profile"}>
               <UserIcon fontSize={1.2} />

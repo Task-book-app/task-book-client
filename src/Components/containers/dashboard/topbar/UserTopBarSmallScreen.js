@@ -38,7 +38,7 @@ const UserTopBarSmallScreen = () => {
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
-        <DropDown width={"14rem"}>
+        <DropDown width={"14rem"} border={"1px solid " + theme.colors.blue}>
           <ListContainer marginBottom={0}>
             <DropDownItem title={"Profile"} link={"profile"}>
               <UserIcon fontSize={1.2} />

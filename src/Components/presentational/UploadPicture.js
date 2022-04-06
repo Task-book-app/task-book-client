@@ -13,6 +13,10 @@ const UploadPicture = ({ avatarPreview, setAvatarPreview }) => {
     height: "auto",
     // display: "flex",
     // flexDirection: "column",
+    "& > *": {
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
     '& input[type="file"]': {
       display: "none",
     },

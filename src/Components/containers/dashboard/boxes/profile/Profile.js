@@ -23,8 +23,20 @@ const Profile = () => {
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     "& > :not(:last-child)": {
-      marginRight: "5rem",
+      marginRight: "auto",
+      marginLeft: "auto",
+      marginBottom: "2rem",
+    },
+
+    [theme.breakpoints.mobile_L]: {
+      flexDirection: "row",
+      "& > :not(:last-child)": {
+        marginRight: "5rem",
+        marginBottom: "0",
+      },
     },
     "& .info": {
       fontSize: "1.4rem",
@@ -40,6 +52,11 @@ const Profile = () => {
 
   return (
     <>
+      <Modal>
+        <ModalSlide slideAnimation={slideAnimation}>
+          <UpdateProfileModal handleCloseModal={handleCloseModal} />
+        </ModalSlide>
+      </Modal>
       <div className={css(rules)}>
         <Avatar width={15} height={15} picture={user.picture} />
 
@@ -62,16 +79,11 @@ const Profile = () => {
             />
           </ModalGroup>
 
-          <Button width="auto" type="button" event={handleShowModal}>
+          <Button type="button" event={handleShowModal}>
             Update profile
           </Button>
         </div>
       </div>
-      <Modal>
-        <ModalSlide slideAnimation={slideAnimation}>
-          <UpdateProfileModal handleCloseModal={handleCloseModal} />
-        </ModalSlide>
-      </Modal>
     </>
   );
 };

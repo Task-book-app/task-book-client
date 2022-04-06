@@ -30,15 +30,32 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
   };
 
   const rules = () => ({
-    minWidth: "50vw",
+    minWidth: "90vw",
     fontSize: "1.4rem",
 
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
     display: "flex",
+    flexDirection: "column",
     "& > :not(:last-child)": {
-      marginRight: "5rem",
+      marginBottom: "2rem",
     },
+
+    [theme.breakpoints.laptop]: {
+      minWidth: "50vw",
+    },
+
+    "& .content": {
+      display: "flex",
+      flexDirection: "column",
+      [theme.breakpoints.tablet]: {
+        flexDirection: "row",
+        "& > :not(:last-child)": {
+          marginRight: "5rem",
+        },
+      },
+    },
+
     "& .info": {
       fontSize: "1.4rem",
       lineHeight: "1.9rem",
@@ -85,54 +102,57 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
 
   return (
     <form className={css(rules)} onSubmit={handleSubmit}>
-      <div>
-        <UploadPicture
-          avatarPreview={avatarPreview}
-          setAvatarPreview={setAvatarPreview}
-        />
-      </div>
-      <div className="info">
-        <H3 color={theme.colors.blue}>Update your profile</H3>
-        <ModalGroup gb={1}>
-          <Label htmlFor="username">Username</Label>
-          <Input
-            placeholder="username"
-            onChange={handleChange}
-            value={updated.username}
-            name="username"
+      <H3 color={theme.colors.blue}>Update your profile</H3>
+      <div className="content">
+        <div className="avatar-update">
+          <UploadPicture
+            avatarPreview={avatarPreview}
+            setAvatarPreview={setAvatarPreview}
           />
-        </ModalGroup>
-        <ModalGroup gb={1}>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            placeholder="email@address.com"
-            onChange={handleChange}
-            type="email"
-            value={updated.email}
-            name="email"
-          />
-        </ModalGroup>
+        </div>
+        <div className="info">
+          {/* <H3 color={theme.colors.blue}>Update your profile</H3> */}
+          <ModalGroup gb={1}>
+            <Label htmlFor="username">Username</Label>
+            <Input
+              placeholder="username"
+              onChange={handleChange}
+              value={updated.username}
+              name="username"
+            />
+          </ModalGroup>
+          <ModalGroup gb={1}>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              placeholder="email@address.com"
+              onChange={handleChange}
+              type="email"
+              value={updated.email}
+              name="email"
+            />
+          </ModalGroup>
 
-        <ModalGroup fd={"row"} gr={3} jc="flex-end">
-          <Button
-            width={"auto"}
-            fontSize={1.6}
-            bg="danger"
-            type="button"
-            event={resetAndClose}
-            disabled={disable}
-          >
-            Cancel
-          </Button>
-          <Button
-            width={"auto"}
-            fontSize={1.6}
-            type="submit"
-            disabled={disable}
-          >
-            Save Changes
-          </Button>
-        </ModalGroup>
+          <ModalGroup fd={"column"} gb={2} jc="flex-end">
+            <Button
+              width={"auto"}
+              fontSize={1.4}
+              type="submit"
+              disabled={disable}
+            >
+              Save Changes
+            </Button>
+            <Button
+              width={"auto"}
+              fontSize={1.4}
+              bg="danger"
+              type="button"
+              event={resetAndClose}
+              disabled={disable}
+            >
+              Cancel
+            </Button>
+          </ModalGroup>
+        </div>
       </div>
     </form>
   );
