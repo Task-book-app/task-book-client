@@ -18,9 +18,9 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 
 ## Technologies:
 
-- React.js
-- Fela && React-Fela
-- Reacharts
+- [React](https://reactjs.org/)
+- [Fela && React-Fela](https://fela.js.org/)
+- [Recharts](https://recharts.org/en-US/)
 
 ### Notes:
 
