@@ -23,6 +23,10 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 - [Recharts](https://recharts.org/en-US/)
 - [Quotes Free API](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
 
+## View this proyect 👇
+
+- To the [tasks-book ](https://tasks-book-nine.vercel.app/)
+
 ### Notes:
 
 This is not the coplete project, it is just a Client side DEMO, I'm currently working on the server side for this app.
