@@ -11,12 +11,24 @@ const Footer = () => {
   const rules = () => ({
     marginTop: "2rem",
     fontSize: "1.2rem",
-    padding: "1.2rem",
+    padding: "1.5rem",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "column",
 
     ...theme.darkModusBoxes(currentTheme),
+
+    "& > :not(:last-child)": {
+      marginBottom: "4rem",
+    },
+
+    [theme.breakpoints.mobile_M]: {
+      flexDirection: "row",
+      "& > :not(:last-child)": {
+        marginBottom: 0,
+      },
+    },
 
     "& .design": {
       "& p": {
@@ -71,7 +83,7 @@ const Footer = () => {
         </p>
 
         <p>
-          and&nbsp;&nbsp;&nbsp;
+          &&&nbsp;&nbsp;&nbsp;
           <a
             href="https://www.figma.com/@DraxAtelier"
             rel="noreferrer"
@@ -83,7 +95,7 @@ const Footer = () => {
       </div>
       <div className="copyright">
         <p>Developed by Habid Badillo.</p>
-        <p>2022, All right reserved.</p>
+        <p>2022</p>
       </div>
       <ul className="external">
         <li>
