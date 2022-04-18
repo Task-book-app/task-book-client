@@ -16,11 +16,12 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 - Customize your profile by adding email, picture and username.
 - Completely responsive
 
-## Technologies:
+## Tools && Technologies:
 
 - [React](https://reactjs.org/)
 - [Fela && React-Fela](https://fela.js.org/)
 - [Recharts](https://recharts.org/en-US/)
+- [Quotes Free API](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
 
 ### Notes:
 
