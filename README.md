@@ -29,7 +29,7 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 
 ### Notes:
 
-This is not the coplete project, it is just a Client side DEMO, I'm currently working on the server side for this app.
+This is not the complete project, it is just a Client side DEMO, I'm currently working on the server side for this app.
 
 Design by [CupTeam](http://cupteam.com.ua/)
 &&
