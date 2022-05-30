@@ -1,5 +1,4 @@
 // import React from 'react'
-import Form from "./Form";
 import FormControl from "../../presentational/FormControl";
 import H1 from "../../presentational/typography/H1";
 import Icon from "../../presentational/Icon";
@@ -12,7 +11,7 @@ const Login = () => {
 
   return (
     <>
-      <Form>
+      <form className="form">
         <H1>Sign Into</H1>
         <H1>Your Account</H1>
         <FormControl mt={5}>
@@ -40,11 +39,9 @@ const Login = () => {
           </div>
         </FormControl>
         <FormControl mt={8}>
-          <Button type="button" fontFamily="Semi-bold">
-            Log In
-          </Button>
+          <Button fontFamily="Semi-bold">Log In</Button>
         </FormControl>
-      </Form>
+      </form>
     </>
   );
 };

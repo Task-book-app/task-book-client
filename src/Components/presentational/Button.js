@@ -8,7 +8,7 @@ const Button = ({
   width = "100%",
   fontFamily,
   bg,
-  disabled,
+  disabled = false,
   extend,
 }) => {
   const { css, theme } = useFela({ fontSize, width, fontFamily, bg });
