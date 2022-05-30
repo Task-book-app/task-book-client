@@ -7,18 +7,27 @@ import { RendererProvider, ThemeProvider } from "react-fela";
 import theme from "./felaConfig/theme";
 import { BrowserRouter } from "react-router-dom";
 import { createRenderer } from "fela";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const renderer = createRenderer();
 
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_API_BASE,
+  cache: new InMemoryCache(),
+  credentials: "include",
+});
+
 ReactDOM.render(
-  <BrowserRouter>
-    <RendererProvider renderer={renderer}>
-      <ThemeProvider theme={theme}>
-        <GlobalContext>
-          <App />
-        </GlobalContext>
-      </ThemeProvider>
-    </RendererProvider>
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <RendererProvider renderer={renderer}>
+        <ThemeProvider theme={theme}>
+          <GlobalContext>
+            <App />
+          </GlobalContext>
+        </ThemeProvider>
+      </RendererProvider>
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById("root")
 );
