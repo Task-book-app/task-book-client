@@ -46,8 +46,6 @@ const SignUp = () => {
         },
       });
       if (error) {
-        // setAlertMessage({ error });
-
         reset();
         throw new Error(error.message);
       }
