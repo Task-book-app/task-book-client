@@ -16,7 +16,8 @@ import { ModalProvider } from "./context/ModalProvider";
 import { useFela } from "react-fela";
 
 const App = () => {
-  const { alertMessage, alertSettings, currentTheme } = useContext(appContext);
+  const { alertMessage, alertSettings, currentTheme, user } =
+    useContext(appContext);
   const [mountedComponent] = useDarkMode();
 
   const { css, theme } = useFela();
@@ -33,8 +34,17 @@ const App = () => {
       <div className={css(rules)}>
         <Alert message={alertMessage} alertSettings={alertSettings} />
         <Routes>
-          {/* <Route path="/" element={<Navigate replace to="/dashboard" />}> */}
-          <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/"
+            element={
+              user.username ? (
+                <Navigate replace to="/dashboard" />
+              ) : (
+                <MainLayout />
+              )
+            }
+          >
+            {/* <Route path="/" element={<MainLayout />}> */}
             <Route element={<AuthLayout />}>
               <Route index element={<Login />} />
               <Route path="signup" element={<SignUp />} />

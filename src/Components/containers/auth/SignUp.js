@@ -7,6 +7,7 @@ import Button from "../../presentational/Button";
 import { useFela } from "react-fela";
 import { gql, useMutation } from "@apollo/client";
 import { appContext } from "../../../context/GlobalContext";
+import { useNavigate } from "react-router-dom";
 
 const REGISTER_USER = gql`
   mutation RegisterUser($email: String!, $password: String!) {
@@ -19,15 +20,35 @@ const REGISTER_USER = gql`
 `;
 
 const SignUp = () => {
-  const { setAlertMessage } = useContext(appContext);
+  const { setAlertMessage, setUser, user } = useContext(appContext);
   const { theme } = useFela();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
-  const [registerMutation, { loading, error, reset }] =
-    useMutation(REGISTER_USER);
+  const [registerMutation, { loading }] = useMutation(REGISTER_USER, {
+    onCompleted: (data) => {
+      // console.log("Data from register", data);
+      const { id, username, email } = data.register;
+      setUser({
+        id,
+        username,
+        email,
+        picture: "",
+      });
+      setFormData({
+        email: "",
+        password: "",
+      });
+      navigate("/dashboard");
+    },
+    onError: (error) => {
+      console.error("Error register", error);
+      setAlertMessage({ error });
+    },
+  });
 
   const getUserData = (e) => {
     setFormData({
@@ -36,22 +57,17 @@ const SignUp = () => {
     });
   };
 
-  const submitDataUser = async (e) => {
+  const submitDataUser = (e) => {
     e.preventDefault();
     try {
-      await registerMutation({
+      if (!formData.email || !formData.password)
+        throw new Error("Email and password must be provided");
+
+      registerMutation({
         variables: {
           email: formData.email,
           password: formData.password,
         },
-      });
-      if (error) {
-        reset();
-        throw new Error(error.message);
-      }
-      setFormData({
-        email: "",
-        password: "",
       });
       return;
     } catch (error) {
@@ -65,6 +81,8 @@ const SignUp = () => {
   //   setAlertMessage({ error });
   //   reset();
   // }
+
+  // console.log(user);
 
   return (
     <>
