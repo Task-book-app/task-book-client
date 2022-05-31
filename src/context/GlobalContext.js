@@ -10,8 +10,9 @@ export function GlobalContext({ children }) {
   const [alertMessage, setAlertMessage, alertSettings] = useAlert();
   const [tasks, setTasks] = useState([]);
   const [user, setUser] = useState({
-    username: "username",
-    email: "email@address.com",
+    id: "",
+    username: "",
+    email: "",
     picture: "",
   });
 

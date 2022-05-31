@@ -32,7 +32,7 @@ const useAlert = () => {
   });
 
   const setAlertMessage = (message) => {
-    console.log(message);
+    // console.log(message);
     if (message.error) {
       setMessage(message.error.message);
       setAlertSettings({
