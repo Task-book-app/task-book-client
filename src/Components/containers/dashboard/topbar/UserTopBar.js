@@ -27,9 +27,12 @@ const rules = () => ({
 const UserTopBar = () => {
   const { css, theme } = useFela();
 
-  const { currentTheme, themeToggler, user } = useContext(appContext);
+  const { currentTheme, themeToggler, user, logoutMutation } =
+    useContext(appContext);
 
   const [showDropDown, setShowDropDown] = useState(false);
+
+  if (!user) return <></>;
 
   return (
     <div className={css(rules)}>
@@ -76,7 +79,7 @@ const UserTopBar = () => {
               padding="1.25rem 2rem"
               fontSize={1.2}
               title="Log Out"
-              event={null}
+              event={logoutMutation}
               hoverColor={theme.colors.danger}
             >
               <LogOutIcon fontSize={1.2} />

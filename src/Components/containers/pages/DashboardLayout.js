@@ -22,7 +22,7 @@ const DashboardLayout = () => {
   });
   return (
     <>
-      {!user.email && <Navigate replace to="/" />}
+      {!user && <Navigate replace to="/" />}
 
       <div className={css(rules)}>
         <SideBar />

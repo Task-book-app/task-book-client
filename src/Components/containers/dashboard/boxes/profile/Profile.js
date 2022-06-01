@@ -50,6 +50,8 @@ const Profile = () => {
     },
   });
 
+  if (!user) return <></>;
+
   return (
     <>
       <Modal>

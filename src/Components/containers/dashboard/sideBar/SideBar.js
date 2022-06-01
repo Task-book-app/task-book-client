@@ -10,7 +10,8 @@ import LogOut from "./LogOut";
 const SideBar = () => {
   const { css, theme } = useFela();
 
-  const { currentTheme } = useContext(appContext);
+  const { currentTheme, logoutMutation } = useContext(appContext);
+
   const rules = () => ({
     width: "16%",
     ...theme.darkModusBoxes(currentTheme),
@@ -39,7 +40,7 @@ const SideBar = () => {
       </Brand>
       <Categories />
       {/* <Details /> */}
-      <LogOut />
+      <LogOut onClick={logoutMutation} />
     </div>
   );
 };

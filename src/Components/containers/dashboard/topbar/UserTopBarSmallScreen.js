@@ -26,9 +26,12 @@ const rules = () => ({
 const UserTopBarSmallScreen = () => {
   const { css, theme } = useFela();
 
-  const { currentTheme, themeToggler, user } = useContext(appContext);
+  const { currentTheme, themeToggler, user, logoutMutation } =
+    useContext(appContext);
 
   const [showDropDown, setShowDropDown] = useState(false);
+
+  if (!user) return <></>;
 
   return (
     <div className={css(rules)}>
@@ -48,7 +51,7 @@ const UserTopBarSmallScreen = () => {
               padding="1.25rem 2rem"
               fontSize={1.2}
               title="Settings"
-              event={null}
+              event={logoutMutation}
             >
               <GearIcon fontSize={1.2} />
             </ButtonMenu>
@@ -70,7 +73,7 @@ const UserTopBarSmallScreen = () => {
               padding="1.25rem 2rem"
               fontSize={1.2}
               title="Log Out"
-              event={null}
+              event={logoutMutation}
               hoverColor={theme.colors.danger}
             >
               <LogOutIcon fontSize={1.2} />

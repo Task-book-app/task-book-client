@@ -77,7 +77,7 @@ const SignUp = () => {
 
   return (
     <>
-      {user.email && <Navigate replace to="/dashboard" />}
+      {user && <Navigate replace to="/dashboard" />}
 
       <form className="form" onSubmit={submitDataUser}>
         <H1>Create</H1>

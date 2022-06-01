@@ -3,7 +3,7 @@ import AuthLayout from "./Components/containers/pages/AuthLayout";
 import SignUp from "./Components/containers/auth/SignUp";
 import Login from "./Components/containers/auth/Login";
 import H1 from "./Components/presentational/typography/H1";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./Components/containers/pages/DashboardLayout";
 import GlobalStyles from "./Components/GlobalStyles";
 import MainLayout from "./Components/containers/pages/MainLayout";
@@ -16,8 +16,7 @@ import { ModalProvider } from "./context/ModalProvider";
 import { useFela } from "react-fela";
 
 const App = () => {
-  const { alertMessage, alertSettings, currentTheme, user } =
-    useContext(appContext);
+  const { alertMessage, alertSettings, currentTheme } = useContext(appContext);
   const [mountedComponent] = useDarkMode();
 
   const { css, theme } = useFela();
