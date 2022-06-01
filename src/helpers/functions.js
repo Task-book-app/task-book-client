@@ -35,12 +35,12 @@ export const longDate = () => {
 };
 
 // later create another file for this function
-export const setStateQuote = async (setState) => {
+export const randomQuote = async () => {
   try {
     const res = await axios.get("https://type.fit/api/quotes");
     const quotes = res.data;
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    setState(randomQuote);
+    return randomQuote;
   } catch (error) {
     console.log(error);
   }

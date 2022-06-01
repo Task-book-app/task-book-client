@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../context/GlobalContext";
-import { setStateQuote } from "../../../../helpers/functions";
+import { randomQuote } from "../../../../helpers/functions";
 import H3 from "../../../presentational/typography/H3";
 
 const FactDay = () => {
@@ -43,7 +43,15 @@ const FactDay = () => {
   });
 
   useEffect(() => {
-    setStateQuote(setQuote);
+    let isSubscribed = true;
+    const getQuote = async () => {
+      const myQuote = await randomQuote();
+      if (isSubscribed) {
+        setQuote(myQuote);
+      }
+    };
+    getQuote().catch(console.error);
+    return () => (isSubscribed = false);
   }, []);
 
   return (

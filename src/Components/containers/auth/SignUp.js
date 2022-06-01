@@ -7,7 +7,7 @@ import Button from "../../presentational/Button";
 import { useFela } from "react-fela";
 import { gql, useMutation } from "@apollo/client";
 import { appContext } from "../../../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const REGISTER_USER = gql`
   mutation RegisterUser($email: String!, $password: String!) {
@@ -75,25 +75,9 @@ const SignUp = () => {
     }
   };
 
-  // if (loading) return <div>Submiting...</div>;
-  // console.log(error);
-  // if (error && error.message) {
-  //   setAlertMessage({ error });
-  //   reset();
-  // }
-
-  // console.log(user);
-
   return (
     <>
-      {/* {error &&
-        error.graphQLErrors.map(({ message, statusCode }, i) => (
-          <span key={i}>
-            Submission error!
-            <br /> {message} <br />
-            Status: {statusCode};
-          </span>
-        ))} */}
+      {user.email && <Navigate replace to="/dashboard" />}
 
       <form className="form" onSubmit={submitDataUser}>
         <H1>Create</H1>
