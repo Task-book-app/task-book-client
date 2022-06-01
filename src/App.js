@@ -34,16 +34,7 @@ const App = () => {
       <div className={css(rules)}>
         <Alert message={alertMessage} alertSettings={alertSettings} />
         <Routes>
-          <Route
-            path="/"
-            element={
-              user.username ? (
-                <Navigate replace to="/dashboard" />
-              ) : (
-                <MainLayout />
-              )
-            }
-          >
+          <Route path="/" element={<MainLayout />}>
             {/* <Route path="/" element={<MainLayout />}> */}
             <Route element={<AuthLayout />}>
               <Route index element={<Login />} />

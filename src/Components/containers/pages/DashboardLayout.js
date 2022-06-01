@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import SideBar from "../dashboard/sideBar/SideBar";
 import MainView from "../dashboard/MainView";
 import { useFela } from "react-fela";
 import Footer from "../dashboard/boxes/Footer";
+import { Navigate } from "react-router-dom";
+import { appContext } from "../../../context/GlobalContext";
 
 const DashboardLayout = () => {
+  const { user } = useContext(appContext);
   const { css, theme } = useFela();
   const rules = () => ({
     height: "100vh",
@@ -19,6 +22,8 @@ const DashboardLayout = () => {
   });
   return (
     <>
+      {!user.email && <Navigate replace to="/" />}
+
       <div className={css(rules)}>
         <SideBar />
         <MainView />

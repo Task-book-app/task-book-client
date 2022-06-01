@@ -49,7 +49,14 @@ const TimeAndDate = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
-    setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
+    let isSubscribed = true;
+
+    setInterval(() => {
+      if (isSubscribed) {
+        setTime(new Date().toLocaleTimeString());
+      }
+    }, 1000);
+    return () => (isSubscribed = false);
   });
 
   return (
