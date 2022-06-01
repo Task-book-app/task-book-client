@@ -12,7 +12,8 @@ import LogOut from "./LogOut";
 const SideBarSmallScreen = ({ handleCloseModal }) => {
   const { css, theme } = useFela();
 
-  const { currentTheme } = useContext(appContext);
+  const { currentTheme, logoutMutation } = useContext(appContext);
+
   const rules = () => ({
     ...theme.darkModusBoxes(currentTheme),
     minHeight: "100vh",
@@ -42,7 +43,12 @@ const SideBarSmallScreen = ({ handleCloseModal }) => {
         </Link>
       </BrandSmall>
       <Categories onClick={handleCloseModal} />
-      <LogOut onClick={handleCloseModal} />
+      <LogOut
+        onClick={() => {
+          handleCloseModal();
+          logoutMutation();
+        }}
+      />
     </div>
   );
 };
