@@ -51,7 +51,7 @@ const UploadPicture = ({ avatarPreview, setAvatarPreview }) => {
         name="picture-upload"
         id="picture-upload"
         accept="image/*"
-        onChange={(e) => avatarChange(e)}
+        onChange={avatarChange}
       />
       <Avatar width={15} height={15} picture={avatarPreview} />
       <div>Change Picture</div>

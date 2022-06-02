@@ -27,7 +27,7 @@ const Avatar = ({ width = 4.4, height = 4.4, picture }) => {
             ? picture
             : "https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
         }
-        alt="user"
+        alt="user avatar"
       />
     </div>
   );

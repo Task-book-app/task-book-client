@@ -16,6 +16,7 @@ const LOGIN_USER = gql`
       id
       username
       email
+      picture
     }
   }
 `;
@@ -33,12 +34,12 @@ const Login = () => {
 
   const [loginMutation] = useMutation(LOGIN_USER, {
     onCompleted: (data) => {
-      const { id, username, email } = data.login;
+      const { id, username, email, picture } = data.login;
       setUser({
         id,
         username,
         email,
-        picture: "",
+        picture: picture ? picture : "",
       });
       setFormData({
         email: "",

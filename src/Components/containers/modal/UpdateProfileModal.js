@@ -7,10 +7,22 @@ import Button from "../../presentational/Button";
 import { appContext } from "../../../context/GlobalContext";
 import UploadPicture from "../../presentational/UploadPicture";
 import H3 from "../../presentational/typography/H3";
+import { gql, useMutation } from "@apollo/client";
+
+const UPDATE_USER_INFO = gql`
+  mutation UpdateUser($username: String!, $email: String!, $picture: String!) {
+    updateUser(username: $username, email: $email, picture: $picture) {
+      username
+      email
+      picture
+    }
+  }
+`;
 
 const UpdateProfileModal = ({ handleCloseModal }) => {
   const { currentTheme, user, setUser, setAlertMessage } =
     useContext(appContext);
+
   const { css, theme } = useFela();
 
   const [disable, setDisable] = useState(false);
@@ -21,6 +33,17 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
   });
 
   const [avatarPreview, setAvatarPreview] = useState(user.picture);
+
+  const [updateUserMutation, { loading }] = useMutation(UPDATE_USER_INFO, {
+    onCompleted: (data) => {
+      setUser({ ...user, ...data.updateUser });
+      handleCloseModal();
+    },
+    onError: (error) => {
+      console.error(error);
+      setAlertMessage({ error });
+    },
+  });
 
   const disableForm = () => {
     setDisable(true);
@@ -72,7 +95,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     setUpdated({ ...updated, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (!updated.username) {
@@ -83,8 +106,22 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
         disableForm();
         throw new Error("Update email or cancel");
       }
-      setUser({ ...updated, picture: avatarPreview });
-      handleCloseModal();
+      if (
+        user.username === updated.username &&
+        user.email === updated.email &&
+        user.picture === avatarPreview
+      ) {
+        console.log("hola");
+        handleCloseModal();
+        return;
+      }
+      updateUserMutation({
+        variables: {
+          username: updated.username,
+          email: updated.email,
+          picture: avatarPreview,
+        },
+      });
     } catch (error) {
       setAlertMessage({ error });
     }
@@ -137,7 +174,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
               width={"auto"}
               fontSize={1.4}
               type="submit"
-              disabled={disable}
+              disabled={disable || loading}
             >
               Save Changes
             </Button>
@@ -147,7 +184,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
               bg="danger"
               type="button"
               event={resetAndClose}
-              disabled={disable}
+              disabled={disable || loading}
             >
               Cancel
             </Button>

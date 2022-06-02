@@ -12,6 +12,7 @@ const GET_VERIFY_USER = gql`
       id
       username
       email
+      picture
     }
   }
 `;
@@ -30,10 +31,6 @@ export function GlobalContext({ children }) {
   const [tasks, setTasks] = useState([]);
 
   const [user, setUser] = useState();
-  //{ id: "",
-  // username: "",
-  // email: "",
-  // picture: "",}
 
   const [logoutMutation] = useMutation(LOG_OUT, {
     onCompleted: (data) => {
@@ -51,10 +48,7 @@ export function GlobalContext({ children }) {
       return;
     }
     setUser({
-      id: data.verifyUser.id,
-      username: data.verifyUser.username,
-      email: data.verifyUser.email,
-      picture: "",
+      ...data.verifyUser,
     });
     return;
   }, [data, loading, error]);
