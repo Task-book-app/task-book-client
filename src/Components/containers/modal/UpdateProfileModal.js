@@ -25,33 +25,6 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
 
   const { css, theme } = useFela();
 
-  const [disable, setDisable] = useState(false);
-
-  const [updated, setUpdated] = useState({
-    username: user.username,
-    email: user.email,
-  });
-
-  const [avatarPreview, setAvatarPreview] = useState(user.picture);
-
-  const [updateUserMutation, { loading }] = useMutation(UPDATE_USER_INFO, {
-    onCompleted: (data) => {
-      setUser({ ...user, ...data.updateUser });
-      handleCloseModal();
-    },
-    onError: (error) => {
-      console.error(error);
-      setAlertMessage({ error });
-    },
-  });
-
-  const disableForm = () => {
-    setDisable(true);
-    setTimeout(() => {
-      setDisable(false);
-    }, 2500);
-  };
-
   const rules = () => ({
     minWidth: "90vw",
     fontSize: "1.4rem",
@@ -91,6 +64,35 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     },
   });
 
+  const [disable, setDisable] = useState(false);
+
+  const [updated, setUpdated] = useState({
+    username: user.username,
+    email: user.email,
+  });
+
+  const [avatarPreview, setAvatarPreview] = useState(user.picture);
+  // console.log(user);
+
+  const [updateUserMutation, { loading }] = useMutation(UPDATE_USER_INFO, {
+    onCompleted: (data) => {
+      // console.log(data);
+      setUser({ ...user, ...data.updateUser });
+      handleCloseModal();
+    },
+    onError: (error) => {
+      console.error(error);
+      setAlertMessage({ error });
+    },
+  });
+
+  const disableForm = () => {
+    setDisable(true);
+    setTimeout(() => {
+      setDisable(false);
+    }, 2500);
+  };
+
   const handleChange = (e) => {
     setUpdated({ ...updated, [e.target.name]: e.target.value });
   };
@@ -111,7 +113,6 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
         user.email === updated.email &&
         user.picture === avatarPreview
       ) {
-        console.log("hola");
         handleCloseModal();
         return;
       }
@@ -152,19 +153,19 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
           <ModalGroup gb={1}>
             <Label htmlFor="username">Username</Label>
             <Input
-              placeholder="username"
+              placeholder={user.username || "username"}
               onChange={handleChange}
-              value={updated.username}
+              // value={updated.username}
               name="username"
             />
           </ModalGroup>
           <ModalGroup gb={1}>
             <Label htmlFor="email">Email</Label>
             <Input
-              placeholder="email@address.com"
+              placeholder={user.email || "email@address.com"}
               onChange={handleChange}
               type="email"
-              value={updated.email}
+              // value={updated.email}
               name="email"
             />
           </ModalGroup>
