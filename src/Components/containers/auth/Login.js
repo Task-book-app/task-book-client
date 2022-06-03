@@ -39,7 +39,8 @@ const Login = () => {
         id,
         username,
         email,
-        picture: picture ? picture : "",
+        // picture: picture ? picture : "",
+        picture,
       });
       setFormData({
         email: "",

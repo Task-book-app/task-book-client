@@ -31,6 +31,7 @@ export function GlobalContext({ children }) {
   const [tasks, setTasks] = useState([]);
 
   const [user, setUser] = useState();
+  console.log(user);
 
   const [logoutMutation] = useMutation(LOG_OUT, {
     onCompleted: (data) => {

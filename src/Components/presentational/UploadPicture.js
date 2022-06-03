@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFela } from "react-fela";
+import { appContext } from "../../context/GlobalContext";
 import Avatar from "./Avatar";
 
 const UploadPicture = ({ avatarPreview, setAvatarPreview }) => {
+  const { user } = useContext(appContext);
   const { css, theme } = useFela();
 
   const rules = () => ({
@@ -53,7 +55,11 @@ const UploadPicture = ({ avatarPreview, setAvatarPreview }) => {
         accept="image/*"
         onChange={avatarChange}
       />
-      <Avatar width={15} height={15} picture={avatarPreview} />
+      <Avatar
+        width={15}
+        height={15}
+        picture={avatarPreview ? avatarPreview : user.picture}
+      />
       <div>Change Picture</div>
     </label>
   );
