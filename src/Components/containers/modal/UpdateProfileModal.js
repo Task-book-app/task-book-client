@@ -66,18 +66,23 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
 
   const [disable, setDisable] = useState(false);
 
-  const [updated, setUpdated] = useState({
-    username: user.username,
-    email: user.email,
-  });
+  // const [updated, setUpdated] = useState({
+  //   username: user.username,
+  //   email: user.email,
+  // });
+
+  const [email, setEmail] = useState(user.email);
+  const [username, setUsername] = useState(user.username);
 
   const [avatarPreview, setAvatarPreview] = useState(user.picture);
-  // console.log(user);
+  // console.log(avatarPreview);
 
   const [updateUserMutation, { loading }] = useMutation(UPDATE_USER_INFO, {
     onCompleted: (data) => {
       // console.log(data);
+
       setUser({ ...user, ...data.updateUser });
+      // setAvatarPreview();
       handleCloseModal();
     },
     onError: (error) => {
@@ -93,33 +98,33 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     }, 2500);
   };
 
-  const handleChange = (e) => {
-    setUpdated({ ...updated, [e.target.name]: e.target.value });
-  };
-
+  // const handleChange = (e) => {
+  //   setUpdated({ ...updated, [e.target.name]: e.target.value });
+  // };
+  console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!updated.username) {
+      if (!username) {
         disableForm();
         throw new Error("Update username or cancel");
       }
-      if (!updated.email) {
+      if (!email) {
         disableForm();
         throw new Error("Update email or cancel");
       }
       if (
-        user.username === updated.username &&
-        user.email === updated.email &&
+        user.username === username &&
+        user.email === email &&
         user.picture === avatarPreview
       ) {
-        handleCloseModal();
-        return;
+        console.log("not updating");
+        throw new Error("Nothing was updated, please Cancel");
       }
       updateUserMutation({
         variables: {
-          username: updated.username,
-          email: updated.email,
+          username: username,
+          email: email,
           picture: avatarPreview,
         },
       });
@@ -127,15 +132,14 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
       setAlertMessage({ error });
     }
   };
+  // console.log(avatarPreview);
 
   const resetAndClose = () => {
-    setUpdated({
-      username: user.username,
-      email: user.email,
-      picture: user.picture,
-    });
+    setUsername(user.username);
+    setEmail(user.email);
     setAvatarPreview(user.picture);
     handleCloseModal();
+    return;
   };
 
   return (
@@ -154,8 +158,10 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
             <Label htmlFor="username">Username</Label>
             <Input
               placeholder={user.username || "username"}
-              onChange={handleChange}
-              // value={updated.username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={username}
               name="username"
             />
           </ModalGroup>
@@ -163,9 +169,9 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
             <Label htmlFor="email">Email</Label>
             <Input
               placeholder={user.email || "email@address.com"}
-              onChange={handleChange}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
-              // value={updated.email}
+              value={email}
               name="email"
             />
           </ModalGroup>
