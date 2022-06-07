@@ -65,24 +65,14 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
   });
 
   const [disable, setDisable] = useState(false);
-
-  // const [updated, setUpdated] = useState({
-  //   username: user.username,
-  //   email: user.email,
-  // });
-
   const [email, setEmail] = useState(user.email);
   const [username, setUsername] = useState(user.username);
 
   const [avatarPreview, setAvatarPreview] = useState(user.picture);
-  // console.log(avatarPreview);
 
   const [updateUserMutation, { loading }] = useMutation(UPDATE_USER_INFO, {
     onCompleted: (data) => {
-      // console.log(data);
-
       setUser({ ...user, ...data.updateUser });
-      // setAvatarPreview();
       handleCloseModal();
     },
     onError: (error) => {
@@ -98,10 +88,6 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     }, 2500);
   };
 
-  // const handleChange = (e) => {
-  //   setUpdated({ ...updated, [e.target.name]: e.target.value });
-  // };
-  console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
