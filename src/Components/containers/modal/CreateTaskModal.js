@@ -10,6 +10,15 @@ import Select from "../../presentational/Select";
 import DatePicker from "../../presentational/DatePicker";
 import { today } from "../../../helpers/functions";
 import { v4 as uuidv4 } from "uuid";
+import { gql } from "@apollo/client";
+
+const NEW_TASK = gql`
+mutation NewTask($task: String!, $category: String!, $date: String!, $priority:Int!)
+createTask(task: $task, category: $category, date: $date, priority:$priority){
+  task
+  id
+}
+`;
 
 const CreateTaskModal = ({ handleCloseModal }) => {
   const { css, theme } = useFela();
@@ -47,10 +56,10 @@ const CreateTaskModal = ({ handleCloseModal }) => {
 
   const myCategories = ["Home", "Family", "Work", "Sports"];
   const myPriorities = [
-    "Very important!",
-    "Important",
-    "Medium",
-    "Not so important",
+    "1 Very important!",
+    "2 Important",
+    "3 Medium",
+    "4 Not so important",
   ];
 
   const [disable, setDisable] = useState(false);
@@ -63,7 +72,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   };
   // select states
   const [category, setCategory] = useState("");
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState(null);
 
   // date and task states
   const [formValues, setFormValues] = useState({
@@ -84,7 +93,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
       const data = {
         ...formValues,
         category: category.toLowerCase(),
-        priority: priority.toLowerCase(),
+        priority: Number(priority[0]),
         completed: false,
         id: uuidv4(),
       };
