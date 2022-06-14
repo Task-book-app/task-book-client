@@ -13,6 +13,12 @@ const GET_VERIFY_USER = gql`
       username
       email
       picture
+      userTasks {
+        id
+        task
+        category
+        completed
+      }
     }
   }
 `;
@@ -28,14 +34,15 @@ export function GlobalContext({ children }) {
   const { loading, error, data } = useQuery(GET_VERIFY_USER);
   const [currentTheme, themeToggler] = useDarkMode();
   const [alertMessage, setAlertMessage, alertSettings] = useAlert();
-  const [tasks, setTasks] = useState([]);
 
   const [user, setUser] = useState();
+  const [tasks, setTasks] = useState([]);
 
   const [logoutMutation] = useMutation(LOG_OUT, {
     onCompleted: (data) => {
       setUser();
       navigate("/");
+      setTasks([]);
       console.log(data);
     },
     onError: (error) => console.error("Error logout", error),
@@ -48,8 +55,12 @@ export function GlobalContext({ children }) {
       return;
     }
     setUser({
-      ...data.verifyUser,
+      id: data.verifyUser.id,
+      username: data.verifyUser.username,
+      email: data.verifyUser.email,
+      picture: data.verifyUser.picture,
     });
+    setTasks(data.verifyUser.userTasks);
     return;
   }, [data, loading, error]);
 
