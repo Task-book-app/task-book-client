@@ -129,7 +129,9 @@ const Task = ({ task, checked, id }) => {
   };
 
   const handleCheckBox = (checked) => {
+    console.log(checked);
     const updateTask = tasks.find((item) => item.id === id);
+    console.log(updateTask);
     updateTask.completed = checked;
     const updatedDB = tasks.map((item) =>
       item.id === updateTask.id ? updateTask : item
