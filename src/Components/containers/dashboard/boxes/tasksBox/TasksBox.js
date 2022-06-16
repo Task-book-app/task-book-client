@@ -8,7 +8,7 @@ import Task from "./Task";
 
 const TasksBox = () => {
   let { category } = useParams();
-  const { tasks } = useContext(appContext);
+  const { tasks, currentTheme } = useContext(appContext);
   const [activeTask, setActiveTask] = useState([]);
   const [completedTask, setCompletedTask] = useState([]);
 
@@ -44,7 +44,6 @@ const TasksBox = () => {
     // eslint-disable-next-line
   }, [category, tasks]);
 
-  const { currentTheme } = useContext(appContext);
   const { css, theme } = useFela();
 
   const rules = () => ({

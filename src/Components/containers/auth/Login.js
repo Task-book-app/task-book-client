@@ -17,12 +17,18 @@ const LOGIN_USER = gql`
       username
       email
       picture
+      userTasks {
+        id
+        task
+        category
+        completed
+      }
     }
   }
 `;
 
 const Login = () => {
-  const { user, setUser, setAlertMessage } = useContext(appContext);
+  const { user, setUser, setAlertMessage, setTasks } = useContext(appContext);
   const { theme } = useFela();
 
   const [formData, setFormData] = useState({
@@ -34,14 +40,14 @@ const Login = () => {
 
   const [loginMutation] = useMutation(LOGIN_USER, {
     onCompleted: (data) => {
-      const { id, username, email, picture } = data.login;
+      const { id, username, email, picture, userTasks } = data.login;
       setUser({
         id,
         username,
         email,
-        // picture: picture ? picture : "",
         picture,
       });
+      setTasks(userTasks);
       setFormData({
         email: "",
         password: "",

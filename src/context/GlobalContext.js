@@ -60,11 +60,12 @@ export function GlobalContext({ children }) {
       email: data.verifyUser.email,
       picture: data.verifyUser.picture,
     });
-    setTasks(data.verifyUser.userTasks);
+
+    setTasks(JSON.parse(JSON.stringify(data.verifyUser.userTasks)));
     return;
   }, [data, loading, error]);
 
-  if (loading) return "Loading...";
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <appContext.Provider

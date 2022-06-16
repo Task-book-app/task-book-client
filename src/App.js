@@ -14,6 +14,9 @@ import Alert from "./Components/presentational/Alert";
 import { appContext } from "./context/GlobalContext";
 import { ModalProvider } from "./context/ModalProvider";
 import { useFela } from "react-fela";
+import { refreshPageAtNewDay } from "./helpers/functions";
+
+refreshPageAtNewDay();
 
 const App = () => {
   const { alertMessage, alertSettings, currentTheme } = useContext(appContext);
