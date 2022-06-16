@@ -46,6 +46,23 @@ export const randomQuote = async () => {
   }
 };
 
+export const refreshPageAtNewDay = () => {
+  setInterval(() => {
+    let date = new Date();
+    let nowHour = date.getHours();
+    let nowMinuts = date.getMinutes();
+    let nowSeconds = date.getSeconds();
+
+    // console.log(
+    //   "Hour " + nowHour + " Minutes " + nowMinuts + " Secunds " + nowSeconds
+    // );
+
+    if (nowHour === 23 && nowMinuts === 59 && nowSeconds === 59) {
+      window.location.reload();
+    }
+  }, 1000);
+};
+
 // Date.prototype.getWeek = function () {
 //   let date = new Date(this.getTime());
 //   date.setHours(0, 0, 0, 0);

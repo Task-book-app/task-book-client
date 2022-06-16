@@ -1,3 +1,4 @@
+import { gql, useMutation } from "@apollo/client";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../../context/GlobalContext";
@@ -7,8 +8,33 @@ import CheckBox from "../../../../presentational/CheckBox";
 import EditIcon from "../../../../presentational/icons/EditIcon";
 import TrashIcon from "../../../../presentational/icons/TrashIcon";
 
+const COMPLETED_TASK = gql`
+  mutation CompletedTask($id: ID!, $completed: Boolean!) {
+    completedTask(id: $id, completed: $completed) {
+      id
+      completed
+    }
+  }
+`;
+
+const UPDATE_TASK = gql`
+  mutation UpdateTask($id: ID!, $task: String!) {
+    updateTask(id: $id, task: $task) {
+      id
+      task
+    }
+  }
+`;
+
+const DELETE_TASK = gql`
+  mutation DeleteTask($id: ID!) {
+    deleteTask(id: $id)
+  }
+`;
+
 const Task = ({ task, checked, id }) => {
-  const { currentTheme, tasks, setTasks } = useContext(appContext);
+  const { currentTheme, tasks, setTasks, setAlertMessage } =
+    useContext(appContext);
 
   const [itemHeight, setItemHeight] = useState(0);
   const [showClass, setShowClass] = useState(false);
@@ -16,6 +42,30 @@ const Task = ({ task, checked, id }) => {
   const [updateTask, setUpdateTask] = useState(task);
   const [showInput, setShowInput] = useState(false);
   const [disableCheckBox, setDisableCheckBox] = useState(false);
+
+  const [completeTask] = useMutation(COMPLETED_TASK, {
+    onError: (error) => {
+      console.error(error);
+      setAlertMessage({ error });
+    },
+  });
+
+  const [updateMutationTask] = useMutation(UPDATE_TASK, {
+    onError: (error) => {
+      console.error(error);
+      setAlertMessage({ error });
+    },
+  });
+
+  const [deleteMutationTask] = useMutation(DELETE_TASK, {
+    onCompleted: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.error(error);
+      setAlertMessage({ error });
+    },
+  });
 
   const { css, theme } = useFela();
 
@@ -129,9 +179,13 @@ const Task = ({ task, checked, id }) => {
   };
 
   const handleCheckBox = (checked) => {
-    console.log(checked);
+    completeTask({
+      variables: {
+        id,
+        completed: checked,
+      },
+    });
     const updateTask = tasks.find((item) => item.id === id);
-    console.log(updateTask);
     updateTask.completed = checked;
     const updatedDB = tasks.map((item) =>
       item.id === updateTask.id ? updateTask : item
@@ -140,18 +194,37 @@ const Task = ({ task, checked, id }) => {
   };
 
   const handleUpdateTask = () => {
-    setShowInput(!showInput);
-    if (showInput) {
-      const update = tasks.find((item) => item.id === id);
-      update.task = updateTask;
-      const updatedDB = tasks.map((item) =>
-        item.id === update.id ? update : item
-      );
-      setTasks(updatedDB);
+    try {
+      if (!updateTask) {
+        setUpdateTask(task);
+        throw new Error("Update the task or cancel");
+      }
+      setShowInput(!showInput);
+      if (showInput) {
+        updateMutationTask({
+          variables: {
+            id,
+            task: updateTask,
+          },
+        });
+        const update = tasks.find((item) => item.id === id);
+        update.task = updateTask;
+        const updatedDB = tasks.map((item) =>
+          item.id === update.id ? update : item
+        );
+        setTasks(updatedDB);
+      }
+    } catch (error) {
+      setAlertMessage({ error });
     }
   };
 
   const handleRemoveTask = () => {
+    deleteMutationTask({
+      variables: {
+        id,
+      },
+    });
     const filteredDB = tasks.filter((item) => item.id !== id);
     updateData(filteredDB);
   };
