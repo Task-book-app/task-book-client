@@ -39,6 +39,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [loginMutation] = useMutation(LOGIN_USER, {
+    variables: {
+      email: formData.email,
+      password: formData.password,
+    },
     onCompleted: (data) => {
       const { id, username, email, picture, userTasks } = data.login;
       setUser({
@@ -73,12 +77,7 @@ const Login = () => {
       if (!formData.email || !formData.password)
         throw new Error("Email and password must be provided");
 
-      loginMutation({
-        variables: {
-          email: formData.email,
-          password: formData.password,
-        },
-      });
+      loginMutation();
       return;
     } catch (error) {
       setAlertMessage({ error });

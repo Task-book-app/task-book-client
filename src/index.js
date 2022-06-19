@@ -15,6 +15,8 @@ const client = new ApolloClient({
   uri: process.env.REACT_APP_API_BASE,
   cache: new InMemoryCache(),
   credentials: "include",
+  name: "Tasks Book App",
+  version: "1",
 });
 
 ReactDOM.render(

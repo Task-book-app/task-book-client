@@ -28,7 +28,12 @@ const UPDATE_TASK = gql`
 
 const DELETE_TASK = gql`
   mutation DeleteTask($id: ID!) {
-    deleteTask(id: $id)
+    deleteTask(id: $id) {
+      id
+      category
+      completed
+      task
+    }
   }
 `;
 
@@ -44,6 +49,15 @@ const Task = ({ task, checked, id }) => {
   const [disableCheckBox, setDisableCheckBox] = useState(false);
 
   const [completeTask] = useMutation(COMPLETED_TASK, {
+    onCompleted: (data) => {
+      const { id, completed } = data.completedTask;
+      const updateTask = tasks.find((item) => item.id === id);
+      updateTask.completed = completed;
+      const updatedDB = tasks.map((item) =>
+        item.id === updateTask.id ? updateTask : item
+      );
+      updateData(updatedDB);
+    },
     onError: (error) => {
       console.error(error);
       setAlertMessage({ error });
@@ -59,7 +73,7 @@ const Task = ({ task, checked, id }) => {
 
   const [deleteMutationTask] = useMutation(DELETE_TASK, {
     onCompleted: (data) => {
-      console.log(data);
+      updateData(data.deleteTask);
     },
     onError: (error) => {
       console.error(error);
@@ -157,7 +171,6 @@ const Task = ({ task, checked, id }) => {
 
   useEffect(() => {
     setTransitionClass("opacity 1s ease-out");
-
     setTimeout(() => {
       setShowClass(true);
     }, 15);
@@ -166,7 +179,9 @@ const Task = ({ task, checked, id }) => {
   useEffect(() => {
     if (showClass) {
       setItemHeight(itemRef.current.clientHeight);
+      return;
     }
+    setItemHeight(0);
   }, [showClass]);
 
   const updateData = (data) => {
@@ -185,12 +200,6 @@ const Task = ({ task, checked, id }) => {
         completed: checked,
       },
     });
-    const updateTask = tasks.find((item) => item.id === id);
-    updateTask.completed = checked;
-    const updatedDB = tasks.map((item) =>
-      item.id === updateTask.id ? updateTask : item
-    );
-    updateData(updatedDB);
   };
 
   const handleUpdateTask = () => {
@@ -225,8 +234,6 @@ const Task = ({ task, checked, id }) => {
         id,
       },
     });
-    const filteredDB = tasks.filter((item) => item.id !== id);
-    updateData(filteredDB);
   };
 
   return (
