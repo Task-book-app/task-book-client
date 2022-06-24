@@ -1,4 +1,4 @@
-import { gql, useMutation } from "@apollo/client";
+import { gql, useMutation, useApolloClient } from "@apollo/client";
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAlert from "../Components/hooks/useAlert";
@@ -31,7 +31,7 @@ const LOG_OUT = gql`
 
 export function GlobalContext({ children }) {
   const navigate = useNavigate();
-
+  const client = useApolloClient();
   const [currentTheme, themeToggler] = useDarkMode();
   const [alertMessage, setAlertMessage, alertSettings] = useAlert();
 
@@ -59,6 +59,9 @@ export function GlobalContext({ children }) {
     onCompleted: (data) => {
       setUser();
       setTasks([]);
+      // client.cache.evict({ id: "TaskType" });
+      client.cache.evict({ id: "ROOT_MUTATION" });
+      client.cache.gc();
       navigate("/");
       console.log(data);
     },
@@ -69,7 +72,7 @@ export function GlobalContext({ children }) {
     verifyLoggedUser();
     // eslint-disable-next-line
   }, []);
-
+  console.log(tasks);
   if (loading) return <h1>Loading...</h1>;
 
   return (
