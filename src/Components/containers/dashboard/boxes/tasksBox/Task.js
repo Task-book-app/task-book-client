@@ -30,9 +30,9 @@ const DELETE_TASK = gql`
   mutation DeleteTask($id: ID!) {
     deleteTask(id: $id) {
       id
-      category
-      completed
       task
+      completed
+      category
     }
   }
 `;
@@ -75,6 +75,7 @@ const Task = ({ task, checked, id }) => {
     onCompleted: (data) => {
       updateData(data.deleteTask);
     },
+    // refetchQueries: [{ query: TASKS_LIST }],
     onError: (error) => {
       console.error(error);
       setAlertMessage({ error });

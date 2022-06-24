@@ -12,29 +12,49 @@ import {
 import { appContext } from "../../context/GlobalContext";
 
 const Chart = () => {
-  const { currentTheme } = useContext(appContext);
+  const { currentTheme, tasks } = useContext(appContext);
   const { theme } = useFela();
 
+  const numOfTasks = (taskDB) => {
+    const categories = ["home", "family", "work", "sports"];
+    const categoriesInDB = [];
+    let objOfOcurrencies = {};
+    taskDB.forEach((task) => {
+      categoriesInDB.push(task.category);
+    });
+
+    categories.forEach((category) => {
+      objOfOcurrencies[category] = 0;
+    });
+
+    for (let element of categoriesInDB) {
+      if (objOfOcurrencies[element]) {
+        objOfOcurrencies[element] += 1;
+      } else {
+        objOfOcurrencies[element] = 1;
+      }
+    }
+    return objOfOcurrencies;
+  };
+
+  const numToChart = numOfTasks(tasks);
+
   const data = [
-    { name: "Monday", abbr: "Mon", cw: 1, lw: 1, amt: 15 },
-    { name: "Tuesday", abbr: "Tue", cw: 3, lw: 3, amt: 15 },
-    { name: "Wednesday", abbr: "Wed", cw: 5, lw: 5, amt: 15 },
-    { name: "Thursday", abbr: "Thu", cw: 6, lw: 7, amt: 15 },
-    { name: "Friday", abbr: "Fri", cw: 8, lw: 9, amt: 15 },
-    { name: "Saturday", abbr: "Sat", cw: 10, lw: 11, amt: 15 },
-    { name: "Sunday", abbr: "Sun", cw: 12, lw: 12, amt: 15 },
+    { name: "Home", quantity: numToChart.home, amt: 15 },
+    { name: "Family", quantity: numToChart.family, amt: 15 },
+    { name: "Work", quantity: numToChart.work, amt: 15 },
+    { name: "Sports", quantity: numToChart.sports, amt: 15 },
   ];
 
   return (
     <ResponsiveContainer width="100%" height={171}>
       <LineChart data={data} margin={{ top: 25, left: -30, right: 20 }}>
         <Line
-          name="current week"
+          name="created"
           type="monotone"
-          dataKey="cw"
+          dataKey="quantity"
           stroke="#8884d8"
         />
-        <Line name="last week" type="monotone" dataKey="lw" stroke="#82ca9d" />
         <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="name" />
         <YAxis type="number" tickCount={4} dataKey="amt" />
