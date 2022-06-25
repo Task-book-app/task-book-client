@@ -72,7 +72,7 @@ export function GlobalContext({ children }) {
     verifyLoggedUser();
     // eslint-disable-next-line
   }, []);
-  console.log(tasks);
+
   if (loading) return <h1>Loading...</h1>;
 
   return (

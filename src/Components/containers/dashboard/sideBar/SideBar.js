@@ -4,7 +4,7 @@ import { appContext } from "../../../../context/GlobalContext";
 import Brand from "../../../presentational/Brand";
 import H3 from "../../../presentational/typography/H3";
 import Categories from "./Categories";
-import Details from "./Details";
+// import Details from "./Details";
 import LogOut from "./LogOut";
 
 const SideBar = () => {
@@ -39,7 +39,7 @@ const SideBar = () => {
         </H3>
       </Brand>
       <Categories />
-      <Details />
+      {/* <Details /> */}
       <LogOut onClick={logoutMutation} />
     </div>
   );
