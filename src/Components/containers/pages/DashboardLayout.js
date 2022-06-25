@@ -10,6 +10,7 @@ const DashboardLayout = () => {
   const { user } = useContext(appContext);
   const { css, theme } = useFela();
   const rules = () => ({
+    margin: "auto",
     height: "100vh",
     maxHeight: "900px",
 

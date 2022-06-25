@@ -6,7 +6,7 @@ import H4 from "../../../presentational/typography/H4";
 import DropDown from "../DropDown";
 import DropDownItem from "../../../presentational/DropDownItem";
 import ListContainer from "../ListContainer";
-import GearIcon from "../../../presentational/icons/GearIcon";
+// import GearIcon from "../../../presentational/icons/GearIcon";
 import LogOutIcon from "../../../presentational/icons/LogOutIcon";
 import ButtonMenu from "../../../presentational/ButtonMenu";
 import SunIcon from "../../../presentational/icons/SunIcon";
@@ -53,14 +53,14 @@ const UserTopBar = () => {
               <GearIcon fontSize={1.2} />
             </DropDownItem> */}
 
-            <ButtonMenu
+            {/* <ButtonMenu
               padding="1.25rem 2rem"
               fontSize={1.2}
               title="Settings"
               event={null}
             >
               <GearIcon fontSize={1.2} />
-            </ButtonMenu>
+            </ButtonMenu> */}
 
             <ButtonMenu
               padding="1.25rem 2rem"
