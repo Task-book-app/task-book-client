@@ -55,7 +55,7 @@ export function GlobalContext({ children }) {
     },
   });
 
-  const [logoutMutation] = useMutation(LOG_OUT, {
+  const [logoutMutation, logoutResult] = useMutation(LOG_OUT, {
     onCompleted: (data) => {
       setUser();
       setTasks([]);
@@ -74,6 +74,8 @@ export function GlobalContext({ children }) {
   }, []);
 
   if (loading) return <h1>Loading...</h1>;
+
+  if (logoutResult.loading) return <h1>loggin you out...</h1>;
 
   return (
     <appContext.Provider
