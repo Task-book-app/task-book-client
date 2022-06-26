@@ -38,7 +38,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const [loginMutation] = useMutation(LOGIN_USER, {
+  const [loginMutation, { loading }] = useMutation(LOGIN_USER, {
     variables: {
       email: formData.email,
       password: formData.password,
@@ -64,6 +64,15 @@ const Login = () => {
     },
   });
 
+  const [disable, setDisable] = useState(false);
+
+  const disableForm = () => {
+    setDisable(true);
+    setTimeout(() => {
+      setDisable(false);
+    }, 2500);
+  };
+
   const getUserData = (e) => {
     setFormData({
       ...formData,
@@ -74,8 +83,10 @@ const Login = () => {
   const submitDataUser = (e) => {
     e.preventDefault();
     try {
-      if (!formData.email || !formData.password)
+      if (!formData.email || !formData.password) {
+        disableForm();
         throw new Error("Email and password must be provided");
+      }
 
       loginMutation();
       return;
@@ -83,6 +94,10 @@ const Login = () => {
       setAlertMessage({ error });
     }
   };
+
+  // if (loading) {
+  //   disableForm();
+  // }
 
   return (
     <>
@@ -119,8 +134,11 @@ const Login = () => {
             />
           </div>
         </FormControl>
+        {loading ? "loading..." : ""}
         <FormControl mt={8}>
-          <Button fontFamily="Semi-bold">Log In</Button>
+          <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
+            Log In
+          </Button>
         </FormControl>
       </form>
     </>
