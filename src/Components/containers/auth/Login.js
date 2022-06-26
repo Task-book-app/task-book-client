@@ -134,11 +134,14 @@ const Login = () => {
             />
           </div>
         </FormControl>
-        {loading ? "loading..." : ""}
         <FormControl mt={8}>
-          <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
-            Log In
-          </Button>
+          {loading ? (
+            <h1>loading...</h1>
+          ) : (
+            <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
+              Log In
+            </Button>
+          )}
         </FormControl>
       </form>
     </>

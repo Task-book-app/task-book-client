@@ -125,11 +125,14 @@ const SignUp = () => {
             />
           </div>
         </FormControl>
-        {loading ? "loading..." : ""}
         <FormControl mt={8}>
-          <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
-            Sign Up
-          </Button>
+          {loading ? (
+            <h1>loading...</h1>
+          ) : (
+            <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
+              Sign Up
+            </Button>
+          )}
         </FormControl>
       </form>
     </>
