@@ -1,6 +1,13 @@
 import React, { useContext } from "react";
 import { useFela } from "react-fela";
-import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import {
+  Bar,
+  BarChart,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
 import { appContext } from "../../context/GlobalContext";
 import {
   faHome,
@@ -39,30 +46,24 @@ const Chart = () => {
   const data = [
     {
       name: "Home",
-      quantity: numToChart.home,
-      uv: numToChart.home,
-      pv: 15,
+      tasks: numToChart.home,
       amt: 15,
     },
     {
       name: "Family",
-      quantity: numToChart.family,
-      uv: numToChart.family,
-      pv: 15,
+      tasks: numToChart.family,
       amt: 15,
     },
     {
       name: "Work",
       quantity: numToChart.work,
-      uv: numToChart.work,
-      pv: 15,
+      tasks: numToChart.work,
       amt: 15,
     },
     {
       name: "Sports",
       quantity: numToChart.sports,
-      uv: numToChart.sports,
-      pv: 15,
+      tasks: numToChart.sports,
       amt: 15,
     },
   ];
@@ -89,7 +90,6 @@ const Chart = () => {
     return (
       <FontAwesomeIcon
         icon={path}
-        // fontSize="1.5rem"
         x={x - 7.5}
         y={y + 4}
         fill="inherit"
@@ -99,30 +99,36 @@ const Chart = () => {
     );
   };
 
-  const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
-    return (
-      <text
-        x={x + width / 2}
-        y={y}
-        fill={currentTheme === "light" ? "#222831" : "#fafafa"}
-        textAnchor="middle"
-        dy={-6}
-      >{`Tasks: ${value}`}</text>
-    );
-  };
-
   return (
     <>
       <ResponsiveContainer width="100%" height={171}>
         <BarChart margin={{ top: 30, left: -30, right: 20 }} data={data}>
           <XAxis dataKey="name" tick={renderCustomAxisTick} />
-          <YAxis />
-          <Bar
-            dataKey="uv"
-            barSize={30}
-            fill={theme.colors.blue}
-            label={renderCustomBarLabel}
+          <YAxis
+            domain={[0, 10]}
+            ticks={[0, 2, 4, 6, 8, 10]}
+            allowDecimals={false}
           />
+          <Tooltip
+            wrapperStyle={{
+              borderRadius: "0.8rem",
+            }}
+            contentStyle={{
+              ...theme.darkModusBoxes(currentTheme),
+              border: `1px solid ${theme.colors.blue}`,
+
+              borderRadius: "0.8rem",
+              color: theme.colors.blue,
+              fontSize: "1.3rem",
+            }}
+            itemStyle={{
+              color: currentTheme === "light" ? "#222831" : "#fafafa",
+              fontSize: "1.2rem",
+            }}
+            cursor={false}
+          />
+
+          <Bar dataKey="tasks" barSize={30} fill={theme.colors.blue} />
         </BarChart>
       </ResponsiveContainer>
     </>
