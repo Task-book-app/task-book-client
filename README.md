@@ -2,13 +2,12 @@
 
 ## Overview
 
-Tasks Book was created to keep polishing my **REACT** skills. Using for first time **FELA** to style my components.
+Tasks Book was created to keep polishing my **REACT** skills. Using for first time **FELA** to style my components, and **Apollo-Client** to fetch the express-graphql server.
 
 ## Features:
 
 - Add new task
 - Mark task as completed / uncompleted
-- Set task priority
 - Edit task
 - Delete task
 - Light / Dark modus
@@ -19,17 +18,16 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 ## Tools && Technologies:
 
 - [React](https://reactjs.org/)
+
 - [Fela && React-Fela](https://fela.js.org/)
 - [Recharts](https://recharts.org/en-US/)
 - [Quotes Free API](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
+- [FontAwesome](https://fontawesome.com/)
+- [Apollo-Client](https://www.apollographql.com/docs/react/)
 
 ## View this proyect 👇
 
 - To the [tasks-book ](https://tasks-book-nine.vercel.app/)
-
-### Notes:
-
-This is not the complete project, it is just a Client side DEMO, I'm currently working on the server side for this app.
 
 Design by [CupTeam](http://cupteam.com.ua/)
 &&
