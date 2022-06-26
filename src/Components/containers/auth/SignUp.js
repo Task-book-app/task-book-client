@@ -50,6 +50,15 @@ const SignUp = () => {
     },
   });
 
+  const [disable, setDisable] = useState(false);
+
+  const disableForm = () => {
+    setDisable(true);
+    setTimeout(() => {
+      setDisable(false);
+    }, 2500);
+  };
+
   const getUserData = (e) => {
     setFormData({
       ...formData,
@@ -60,8 +69,10 @@ const SignUp = () => {
   const submitDataUser = (e) => {
     e.preventDefault();
     try {
-      if (!formData.email || !formData.password)
+      if (!formData.email || !formData.password) {
+        disableForm();
         throw new Error("Email and password must be provided");
+      }
 
       registerMutation({
         variables: {
@@ -74,6 +85,10 @@ const SignUp = () => {
       setAlertMessage({ error });
     }
   };
+
+  // if (loading) {
+  //   disableForm();
+  // }
 
   return (
     <>
@@ -112,7 +127,7 @@ const SignUp = () => {
         </FormControl>
         {loading ? "loading..." : ""}
         <FormControl mt={8}>
-          <Button type="submit" fontFamily="Semi-bold">
+          <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
             Sign Up
           </Button>
         </FormControl>
