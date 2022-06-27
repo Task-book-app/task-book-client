@@ -2,6 +2,7 @@
 import { useContext, useState } from "react";
 import FormControl from "../../presentational/FormControl";
 import H1 from "../../presentational/typography/H1";
+import H2 from "../../presentational/typography/H2";
 import Icon from "../../presentational/Icon";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../presentational/Button";
@@ -95,16 +96,12 @@ const Login = () => {
     }
   };
 
-  // if (loading) {
-  //   disableForm();
-  // }
-
   return (
     <>
       {user && <Navigate replace to="/dashboard" />}
 
       <form onSubmit={submitDataUser} className="form">
-        <H1>Sign In</H1>
+        <H1>Log In</H1>
         <H1>Your Account</H1>
         <FormControl mt={5}>
           <label htmlFor="email">E-mail</label>
@@ -117,6 +114,7 @@ const Login = () => {
               value={formData.email}
               onChange={getUserData}
               placeholder="name@example.com"
+              disabled={loading ? true : false}
             />
           </div>
         </FormControl>
@@ -131,12 +129,13 @@ const Login = () => {
               value={formData.password}
               onChange={getUserData}
               placeholder="Enter your password"
+              disabled={loading ? true : false}
             />
           </div>
         </FormControl>
         <FormControl mt={8}>
           {loading ? (
-            <h1>loading...</h1>
+            <H2 textAlign="center">loading...</H2>
           ) : (
             <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
               Log In

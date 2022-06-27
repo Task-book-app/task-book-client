@@ -35,7 +35,7 @@ const theme = {
 
     greyLight: "#bebebe",
 
-    danger: "#f05454;",
+    danger: "#f05454",
   },
 
   // gradients
