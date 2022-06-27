@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import FormControl from "../../presentational/FormControl";
 import H1 from "../../presentational/typography/H1";
+import H2 from "../../presentational/typography/H2";
 import Icon from "../../presentational/Icon";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../presentational/Button";
@@ -86,10 +87,6 @@ const SignUp = () => {
     }
   };
 
-  // if (loading) {
-  //   disableForm();
-  // }
-
   return (
     <>
       {user && <Navigate replace to="/dashboard" />}
@@ -108,6 +105,7 @@ const SignUp = () => {
               value={formData.email}
               onChange={getUserData}
               placeholder="name@example.com"
+              disabled={loading ? true : false}
             />
           </div>
         </FormControl>
@@ -122,15 +120,16 @@ const SignUp = () => {
               value={formData.password}
               onChange={getUserData}
               placeholder="Enter your password"
+              disabled={loading ? true : false}
             />
           </div>
         </FormControl>
         <FormControl mt={8}>
           {loading ? (
-            <h1>loading...</h1>
+            <H2 textAlign="center">loading...</H2>
           ) : (
             <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
-              Sign Up
+              Log In
             </Button>
           )}
         </FormControl>

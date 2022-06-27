@@ -5,7 +5,6 @@ import Login from "./Components/containers/auth/Login";
 import H1 from "./Components/presentational/typography/H1";
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./Components/containers/pages/DashboardLayout";
-import GlobalStyles from "./Components/GlobalStyles";
 import MainLayout from "./Components/containers/pages/MainLayout";
 import useDarkMode from "./Components/hooks/useDarkMode";
 import TasksBox from "./Components/containers/dashboard/boxes/tasksBox/TasksBox";
@@ -32,7 +31,6 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyles />
       <div className={css(rules)}>
         <Alert message={alertMessage} alertSettings={alertSettings} />
         <Routes>

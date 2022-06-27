@@ -1,7 +1,8 @@
 // import React from 'react'
 import { useFela } from "react-fela";
 
-const rules = ({ color }) => ({
+const rules = ({ color, textAlign }) => ({
+  textAlign,
   color,
   fontFamily: "Semi-bold",
   fontSize: "2.4rem",
@@ -9,8 +10,8 @@ const rules = ({ color }) => ({
   letterSpacing: "0.03rem",
 });
 
-const H2 = ({ color, children }) => {
-  const { css } = useFela({ color });
+const H2 = ({ color, children, textAlign }) => {
+  const { css } = useFela({ color, textAlign });
 
   return <h2 className={css(rules)}>{children}</h2>;
 };

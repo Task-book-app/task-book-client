@@ -1,15 +1,15 @@
 // import React from 'react'
 import { useFela } from "react-fela";
 
-const rule = ({ color }) => ({
+const rule = ({ color, fontSize }) => ({
   color,
   fontFamily: "Poppins-Bold",
-  fontSize: "3rem",
+  fontSize: fontSize ? `${fontSize}rem` : "3rem",
   lineHeight: "4.8rem",
 });
 
-const H1 = ({ children, color }) => {
-  const { css } = useFela({ color });
+const H1 = ({ children, color, fontSize }) => {
+  const { css } = useFela({ color, fontSize });
 
   return <h1 className={css(rule)}>{children}</h1>;
 };

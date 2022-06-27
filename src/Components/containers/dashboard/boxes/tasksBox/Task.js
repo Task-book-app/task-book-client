@@ -7,6 +7,8 @@ import ButtonSmall from "../../../../presentational/ButtonSmall";
 import CheckBox from "../../../../presentational/CheckBox";
 import EditIcon from "../../../../presentational/icons/EditIcon";
 import TrashIcon from "../../../../presentational/icons/TrashIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const COMPLETED_TASK = gql`
   mutation CompletedTask($id: ID!, $completed: Boolean!) {
@@ -48,7 +50,7 @@ const Task = ({ task, checked, id }) => {
   const [showInput, setShowInput] = useState(false);
   const [disableCheckBox, setDisableCheckBox] = useState(false);
 
-  const [completeTask] = useMutation(COMPLETED_TASK, {
+  const [completeTask, { loading }] = useMutation(COMPLETED_TASK, {
     onCompleted: (data) => {
       const { id, completed } = data.completedTask;
       const updateTask = tasks.find((item) => item.id === id);
@@ -71,7 +73,7 @@ const Task = ({ task, checked, id }) => {
     },
   });
 
-  const [deleteMutationTask] = useMutation(DELETE_TASK, {
+  const [deleteMutationTask, deleteResult] = useMutation(DELETE_TASK, {
     onCompleted: (data) => {
       updateData(data.deleteTask);
     },
@@ -245,12 +247,16 @@ const Task = ({ task, checked, id }) => {
           ref={itemRef}
         >
           <div className={"box__1"}>
-            <CheckBox
-              fontSize={1.8}
-              checked={checked}
-              callback={(checked) => handleCheckBox(checked)}
-              disabled={disableCheckBox}
-            />
+            {loading ? (
+              <CheckBox fontSize={1.8} checked={!checked} disabled={true} />
+            ) : (
+              <CheckBox
+                fontSize={1.8}
+                checked={checked}
+                callback={(checked) => handleCheckBox(checked)}
+                disabled={disableCheckBox}
+              />
+            )}
             {!showInput ? (
               <p>{task}</p>
             ) : (
@@ -277,9 +283,18 @@ const Task = ({ task, checked, id }) => {
                 <EditIcon fontSize={1.8} />
               </ButtonIcon>
             )}
-            <ButtonIcon onClick={handleRemoveTask}>
-              <TrashIcon fontSize={1.8} />
-            </ButtonIcon>
+
+            {deleteResult.loading ? (
+              <FontAwesomeIcon
+                icon={faCircleNotch}
+                color={theme.colors.danger}
+                className="fa-spin fa-1x"
+              />
+            ) : (
+              <ButtonIcon onClick={handleRemoveTask}>
+                <TrashIcon fontSize={1.8} />
+              </ButtonIcon>
+            )}
           </div>
         </div>
       </div>

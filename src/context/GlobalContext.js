@@ -1,6 +1,8 @@
 import { gql, useMutation, useApolloClient } from "@apollo/client";
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingPage from "../Components/containers/pages/LoadingPage";
+import GlobalStyles from "../Components/GlobalStyles";
 import useAlert from "../Components/hooks/useAlert";
 import useDarkMode from "../Components/hooks/useDarkMode";
 
@@ -57,9 +59,9 @@ export function GlobalContext({ children }) {
 
   const [logoutMutation, logoutResult] = useMutation(LOG_OUT, {
     onCompleted: (data) => {
+      // client.cache.evict({ id: "TaskType" });
       setUser();
       setTasks([]);
-      // client.cache.evict({ id: "TaskType" });
       client.cache.evict({ id: "ROOT_MUTATION" });
       client.cache.gc();
       navigate("/");
@@ -73,9 +75,26 @@ export function GlobalContext({ children }) {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) {
+    return (
+      <>
+        <GlobalStyles />
+        <LoadingPage currentTheme={currentTheme} text={"Loading . . ."} />
+      </>
+    );
+  }
 
-  if (logoutResult.loading) return <h1>loggin you out...</h1>;
+  if (logoutResult.loading) {
+    return (
+      <>
+        <GlobalStyles />
+        <LoadingPage
+          currentTheme={currentTheme}
+          text={"Logging you Out . . ."}
+        />
+      </>
+    );
+  }
 
   return (
     <appContext.Provider
@@ -92,6 +111,7 @@ export function GlobalContext({ children }) {
         logoutMutation,
       }}
     >
+      <GlobalStyles />
       {children}
     </appContext.Provider>
   );
