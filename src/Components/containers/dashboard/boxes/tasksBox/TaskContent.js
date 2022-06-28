@@ -177,9 +177,6 @@ const TaskContent = ({
         id,
       },
     });
-
-    const updateDB = tasks.filter((item) => item.id !== id);
-    updateData(updateDB);
   };
 
   return (
