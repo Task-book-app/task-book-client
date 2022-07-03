@@ -65,7 +65,6 @@ const FormControl = ({
     paddingLeft: `${pl}rem`,
     paddingRight: `${pr}rem`,
     padding: px ? `0 ${px}rem` : py ? `${py}rem 0` : `${p}rem`,
-    // display: 'flex',
 
     "& label": {
       marginLeft: marginModal ? marginModal : "4.7rem",

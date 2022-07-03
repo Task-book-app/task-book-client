@@ -9,6 +9,7 @@ import { useFela } from "react-fela";
 import { gql, useMutation } from "@apollo/client";
 import { appContext } from "../../../context/GlobalContext";
 import { Navigate, useNavigate } from "react-router-dom";
+import ShowHidePassword from "../../presentational/ShowHidePassword";
 
 const REGISTER_USER = gql`
   mutation RegisterUser($email: String!, $password: String!) {
@@ -27,6 +28,9 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const [registerMutation, { loading }] = useMutation(REGISTER_USER, {
@@ -87,6 +91,10 @@ const SignUp = () => {
     }
   };
 
+  const handleShowPassword = (checked) => {
+    setShowPassword(checked);
+  };
+
   return (
     <>
       {user && <Navigate replace to="/dashboard" />}
@@ -114,7 +122,7 @@ const SignUp = () => {
           <div>
             <Icon color={theme.colors.blue} fontIcon={faLock} />
             <input
-              type="password"
+              type={!showPassword ? "password" : "text"}
               name="password"
               id="password"
               value={formData.password}
@@ -123,6 +131,12 @@ const SignUp = () => {
               disabled={loading ? true : false}
             />
           </div>
+        </FormControl>
+
+        <FormControl mt={1} ml={-1} display="flex">
+          <ShowHidePassword
+            callback={(checked) => handleShowPassword(checked)}
+          />
         </FormControl>
         <FormControl mt={8}>
           {loading ? (
