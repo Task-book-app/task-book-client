@@ -30,7 +30,7 @@ const CheckBox = ({ callback, fontSize, checked, disabled }) => {
           callback(checked);
         }}
         checked={isChecked}
-        disabled={disabled}
+        disabled={disabled ? disabled : false}
       />
       {isChecked ? (
         <CheckBoxTrue fontSize={fontSize} />
