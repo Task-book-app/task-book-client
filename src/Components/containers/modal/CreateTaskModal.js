@@ -10,6 +10,8 @@ import Select from "../../presentational/Select";
 // import DatePicker from "../../presentational/DatePicker";
 // import { today } from "../../../helpers/functions";
 import { gql, useMutation } from "@apollo/client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const NEW_TASK = gql`
   mutation NewTask($task: String!, $category: String!, $completed: Boolean!) {
@@ -28,7 +30,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   const { setAlertMessage, tasks, setTasks, currentTheme } =
     useContext(appContext);
 
-  const [createNewTask] = useMutation(NEW_TASK, {
+  const [createNewTask, { loading }] = useMutation(NEW_TASK, {
     onCompleted: (data) => {
       setTasks([...tasks, data.createTask]);
 
@@ -250,7 +252,17 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           Cancel
         </Button>
         <Button width={"auto"} fontSize={1.6} type="submit" disabled={disable}>
-          Add
+          {loading ? (
+            <FontAwesomeIcon
+              style={{
+                margin: "auto",
+              }}
+              icon={faCircleNotch}
+              className="fa-spin fa-1x"
+            />
+          ) : (
+            "Add"
+          )}
         </Button>
       </ModalGroup>
     </form>

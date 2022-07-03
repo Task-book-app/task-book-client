@@ -8,6 +8,8 @@ import { appContext } from "../../../context/GlobalContext";
 import UploadPicture from "../../presentational/UploadPicture";
 import H3 from "../../presentational/typography/H3";
 import { gql, useMutation } from "@apollo/client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const UPDATE_USER_INFO = gql`
   mutation UpdateUser($username: String!, $email: String!, $picture: String!) {
@@ -169,7 +171,17 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
               type="submit"
               disabled={disable || loading}
             >
-              Save Changes
+              {disable || loading ? (
+                <FontAwesomeIcon
+                  style={{
+                    margin: "auto",
+                  }}
+                  icon={faCircleNotch}
+                  className="fa-spin fa-1x"
+                />
+              ) : (
+                "Save Changes"
+              )}
             </Button>
             <Button
               width={"auto"}
