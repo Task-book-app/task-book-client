@@ -2,7 +2,7 @@
 
 ## Overview
 
-Tasks Book was created to keep polishing my **REACT** skills. Using for first time **FELA** to style my components, and **Apollo-Client** to fetch the express-graphql server.
+Tasks Book was created to keep polishing my **REACT** skills. Using for first time **FELA** to style components, and **Apollo-Client** to fetch the express-graphql server.
 
 ## Features:
 
