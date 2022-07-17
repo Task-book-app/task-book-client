@@ -32,7 +32,7 @@ const Footer = () => {
 
     "& .design": {
       "& p": {
-        "& a": { transition: "all" },
+        "& a": { transition: "all", color: "currentColor" },
         "& a:visited": {
           color: "currentColor",
         },
@@ -72,6 +72,7 @@ const Footer = () => {
       },
     },
   });
+
   return (
     <footer className={css(rules)}>
       <div className="design">
