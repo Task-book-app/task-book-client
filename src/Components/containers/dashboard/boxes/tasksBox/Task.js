@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-
 import TaskContent from "./TaskContent";
 import { appContext } from "../../../../../context/GlobalContext";
 

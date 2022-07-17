@@ -23,6 +23,7 @@ const LOGIN_USER = gql`
         id
         task
         category
+        priority
         completed
       }
     }

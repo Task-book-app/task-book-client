@@ -19,6 +19,7 @@ const GET_VERIFY_USER = gql`
         id
         task
         category
+        priority
         completed
       }
     }
@@ -83,7 +84,6 @@ export function GlobalContext({ children }) {
       </>
     );
   }
-
   if (logoutResult.loading) {
     return (
       <>
