@@ -17,22 +17,29 @@ const TasksBox = () => {
   }
 
   const tasksToDisplay = (data) => {
+    const byPriority = data.map((item) => {
+      if (!item.priority) {
+        item.priority = 5;
+      }
+      return item;
+    });
+
     if (category === "all") {
-      return data;
+      return byPriority;
     }
-    return data.filter(
+    const categoriceTasks = byPriority.filter(
       (item) => item.category.toLowerCase() === category.toLowerCase()
     );
+    return categoriceTasks;
   };
 
   const divideByStatus = () => {
-    const active = tasksToDisplay(tasks).filter(
-      (item) => item.completed === false
-    );
-
-    const completed = tasksToDisplay(tasks).filter(
-      (item) => item.completed === true
-    );
+    const active = tasksToDisplay(tasks)
+      .filter((item) => item.completed === false)
+      .sort((a, b) => a.priority - b.priority);
+    const completed = tasksToDisplay(tasks)
+      .filter((item) => item.completed === true)
+      .sort((a, b) => a.priority - b.priority);
     setActiveTask(active);
     setCompletedTask(completed);
     return;
@@ -40,7 +47,6 @@ const TasksBox = () => {
 
   useEffect(() => {
     divideByStatus();
-    return;
     // eslint-disable-next-line
   }, [category, tasks]);
 

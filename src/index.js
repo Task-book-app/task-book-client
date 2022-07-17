@@ -10,7 +10,7 @@ import { createRenderer } from "fela";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const renderer = createRenderer();
-console.log(process.env.REACT_APP_API_BASE);
+// console.log(process.env.REACT_APP_API_BASE);
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_API_BASE,

@@ -14,11 +14,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const NEW_TASK = gql`
-  mutation NewTask($task: String!, $category: String!, $completed: Boolean!) {
-    createTask(task: $task, category: $category, completed: $completed) {
+  mutation NewTask(
+    $task: String!
+    $category: String!
+    $priority: Int!
+    $completed: Boolean!
+  ) {
+    createTask(
+      task: $task
+      category: $category
+      priority: $priority
+      completed: $completed
+    ) {
       id
       task
       category
+      priority
       completed
     }
   }
@@ -35,7 +46,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
       setTasks([...tasks, data.createTask]);
 
       setCategory("");
-      // setPriority("");
+      setPriority("");
       setFormValues({
         task: "",
         // date: today(),
@@ -77,12 +88,12 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   });
 
   const myCategories = ["Home", "Family", "Work", "Sports"];
-  // const myPriorities = [
-  //   "1 Very important!",
-  //   "2 Important",
-  //   "3 Medium",
-  //   "4 Not so important",
-  // ];
+  const myPriorities = [
+    "1 Very important!",
+    "2 Important",
+    "3 Medium",
+    "4 Not so important",
+  ];
 
   const [disable, setDisable] = useState(false);
 
@@ -94,7 +105,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   };
   // select states
   const [category, setCategory] = useState("");
-  // const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("");
 
   // date and task states
   const [formValues, setFormValues] = useState({
@@ -115,7 +126,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
       const data = {
         ...formValues,
         category,
-        // priority: Number(priority[0]),
+        priority: Number(priority[0]),
         completed: false,
       };
 
@@ -128,10 +139,10 @@ const CreateTaskModal = ({ handleCloseModal }) => {
         disableForm();
         throw new Error("Please select a category");
       }
-      // if (!data.priority) {
-      //   disableForm();
-      //   throw new Error("Please select a priority");
-      // }
+      if (!data.priority) {
+        disableForm();
+        throw new Error("Please select a priority");
+      }
 
       // console.log(data);
       // setTasks([...tasks, data]);
@@ -140,7 +151,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           task: formValues.task,
           // date: formValues.date,
           category: category.toLowerCase(),
-          // priority: Number(priority[0]),
+          priority: data.priority,
           completed: false,
         },
       });
@@ -151,7 +162,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
 
   const resetAndClose = () => {
     setCategory("");
-    // setPriority("");
+    setPriority("");
     setFormValues({
       task: "",
       // date: today(),
@@ -175,7 +186,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
         />
       </ModalGroup>
 
-      <ModalGroup gb={1}>
+      {/* <ModalGroup gb={1}>
         <Label htmlFor={"category"}>Category</Label>
         <Select
           dropDownValues={myCategories}
@@ -183,10 +194,11 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           value={category}
           setValue={setCategory}
         />
-      </ModalGroup>
-      {/* <div className="inputs-row">
+      </ModalGroup> */}
+
+      <div className="inputs-row">
         <ModalGroup fd={"row"} gr={3}>
-          <ModalGroup gb={1}>
+          {/* <ModalGroup gb={1}>
             <Label htmlFor={"date"}>When?</Label>
             <DatePicker
               value={formValues.date}
@@ -194,7 +206,16 @@ const CreateTaskModal = ({ handleCloseModal }) => {
               id={"date"}
               onChange={handleChange}
             />
-          </ModalGroup>{" "}
+          </ModalGroup>{" "} */}
+          <ModalGroup gb={1}>
+            <Label htmlFor={"category"}>Category</Label>
+            <Select
+              dropDownValues={myCategories}
+              onChange={handleChange}
+              value={category}
+              setValue={setCategory}
+            />
+          </ModalGroup>
           <ModalGroup gb={1}>
             <Label htmlFor={"priority"}>Priority</Label>
             <Select
@@ -205,8 +226,8 @@ const CreateTaskModal = ({ handleCloseModal }) => {
             />
           </ModalGroup>
         </ModalGroup>
-      </div> */}
-      {/* <div className="inputs-column">
+      </div>
+      <div className="inputs-column">
         <ModalGroup fd={"column"} gb={1}>
           <ModalGroup gb={1}>
             <Label htmlFor={"category"}>Category</Label>
@@ -218,7 +239,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
             />
           </ModalGroup>
 
-          <ModalGroup gb={1}>
+          {/* <ModalGroup gb={1}>
             <Label htmlFor={"date"}>When?</Label>
             <DatePicker
               value={formValues.date}
@@ -226,7 +247,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
               id={"date"}
               onChange={handleChange}
             />
-          </ModalGroup>
+          </ModalGroup>  */}
 
           <ModalGroup gb={1}>
             <Label htmlFor={"priority"}>Priority</Label>
@@ -238,7 +259,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
             />
           </ModalGroup>
         </ModalGroup>
-      </div> */}
+      </div>
 
       <ModalGroup fd={"row"} gr={3} jc="flex-end">
         <Button

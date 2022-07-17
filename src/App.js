@@ -25,6 +25,11 @@ const App = () => {
 
   const rules = () => ({
     ...theme.darkModusLayout(currentTheme),
+    height: "100vh",
+    "& .container": {
+      height: "auto",
+      backgroundColor: "inherit",
+    },
   });
 
   if (!mountedComponent) return <div />;
@@ -32,40 +37,42 @@ const App = () => {
   return (
     <>
       <div className={css(rules)}>
-        <Alert message={alertMessage} alertSettings={alertSettings} />
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            {/* <Route path="/" element={<MainLayout />}> */}
-            <Route element={<AuthLayout />}>
-              <Route index element={<Login />} />
-              <Route path="signup" element={<SignUp />} />
+        <div className="container">
+          <Alert message={alertMessage} alertSettings={alertSettings} />
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              {/* <Route path="/" element={<MainLayout />}> */}
+              <Route element={<AuthLayout />}>
+                <Route index element={<Login />} />
+                <Route path="signup" element={<SignUp />} />
+              </Route>
+
+              <Route
+                path="*"
+                element={
+                  <main>
+                    <H1 color={"purple"}>Not Found</H1>
+                  </main>
+                }
+              />
             </Route>
 
-            <Route
-              path="*"
-              element={
-                <main>
-                  <H1 color={"purple"}>Not Found</H1>
-                </main>
-              }
-            />
-          </Route>
-
-          <Route path="dashboard" element={<DashboardLayout />}>
-            <Route index element={<TasksBox />} />
-            <Route path="task" element={<TasksBox />}>
-              <Route path=":category" element={<TasksBox />} />
+            <Route path="dashboard" element={<DashboardLayout />}>
+              <Route index element={<TasksBox />} />
+              <Route path="task" element={<TasksBox />}>
+                <Route path=":category" element={<TasksBox />} />
+              </Route>
+              <Route
+                path="profile"
+                element={
+                  <ModalProvider>
+                    <Profile />
+                  </ModalProvider>
+                }
+              />
             </Route>
-            <Route
-              path="profile"
-              element={
-                <ModalProvider>
-                  <Profile />
-                </ModalProvider>
-              }
-            />
-          </Route>
-        </Routes>
+          </Routes>
+        </div>
       </div>
     </>
   );
