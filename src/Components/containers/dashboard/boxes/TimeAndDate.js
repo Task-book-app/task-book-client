@@ -13,7 +13,7 @@ const TimeAndDate = () => {
   const rules = () => ({
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
-    display: "flex",
+    display: "none",
     flexDirection: "column",
     "& > :not(:last-child)": {
       marginBottom: "2rem",
@@ -43,6 +43,10 @@ const TimeAndDate = () => {
           marginBottom: "0",
         },
       },
+    },
+
+    [theme.breakpoints.tablet]: {
+      display: "flex",
     },
   });
 

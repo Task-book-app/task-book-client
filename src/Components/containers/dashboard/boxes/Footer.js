@@ -1,23 +1,19 @@
-import React, { useContext } from "react";
 import { useFela } from "react-fela";
-import { appContext } from "../../../../context/GlobalContext";
 import BrowserWebPage from "../../../presentational/icons/BrowserWebPage";
 import GitHubIcon from "../../../presentational/icons/GitHubIcon";
 import LinkedinIcon from "../../../presentational/icons/LinkedinIcon";
 
 const Footer = () => {
   const { css, theme } = useFela();
-  const { currentTheme } = useContext(appContext);
+
   const rules = () => ({
-    marginTop: "2rem",
+    marginTop: "4rem",
     fontSize: "1.2rem",
-    padding: "1.5rem",
+    padding: "1.5rem 0",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "column",
-
-    ...theme.darkModusBoxes(currentTheme),
 
     "& > :not(:last-child)": {
       marginBottom: "4rem",

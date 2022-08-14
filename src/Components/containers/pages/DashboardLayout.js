@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import SideBar from "../dashboard/sideBar/SideBar";
 import MainView from "../dashboard/MainView";
 import { useFela } from "react-fela";
-import Footer from "../dashboard/boxes/Footer";
 import { Navigate } from "react-router-dom";
 import { appContext } from "../../../context/GlobalContext";
 
@@ -29,7 +28,6 @@ const DashboardLayout = () => {
         <SideBar />
         <MainView />
       </div>
-      <Footer />
     </>
   );
 };
