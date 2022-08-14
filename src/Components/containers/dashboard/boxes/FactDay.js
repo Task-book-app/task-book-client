@@ -40,6 +40,10 @@ const FactDay = () => {
     "& .figcaption": {
       textAlign: "end",
     },
+    "& h3": { display: "none" },
+    [theme.breakpoints.tablet]: {
+      "& h3": { display: "block" },
+    },
   });
 
   useEffect(() => {
