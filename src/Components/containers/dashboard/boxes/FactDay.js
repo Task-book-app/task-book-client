@@ -54,23 +54,27 @@ const FactDay = () => {
         setQuote(myQuote);
       }
     };
-    getQuote().catch(console.error);
+    getQuote().catch((error) => setQuote(error));
     return () => (isSubscribed = false);
   }, []);
 
-  return (
-    <div className={css(rules)}>
-      <H3 color={theme.colors.blue}>Quote of the day</H3>
-      <figure className="figure">
-        <blockquote className="blockquote">
-          <q>{quote.text}</q>
-        </blockquote>
-        <figcaption className="figcaption">
-          <b>- {!quote.author ? "anonymous" : quote.author}</b>
-        </figcaption>
-      </figure>
-    </div>
-  );
+  if (!quote) {
+    return <></>;
+  } else {
+    return (
+      <div className={css(rules)}>
+        <H3 color={theme.colors.blue}>Quote of the day</H3>
+        <figure className="figure">
+          <blockquote className="blockquote">
+            <q>{quote.text}</q>
+          </blockquote>
+          <figcaption className="figcaption">
+            <b>- {!quote.author ? "anonymous" : quote.author}</b>
+          </figcaption>
+        </figure>
+      </div>
+    );
+  }
 };
 
 export default FactDay;
