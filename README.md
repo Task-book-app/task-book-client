@@ -6,14 +6,15 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 
 ## Features:
 
-- Add new task
-- Mark task as completed / uncompleted
-- Edit task
-- Delete task
-- Light / Dark modus
-- Divide your tasks by categories
+- Create your own profile with with an easy authentication.
 - Customize your profile by adding email, picture and username.
-- Completely responsive
+- Add and organice your daily tasks.
+- Mark task as completed / uncompleted.
+- Edit task.
+- Delete task.
+- Divide your tasks by categories.
+- Light / Dark modus layout.
+- Full responsiveness, (available in all screen devices).
 
 ## Tools && Technologies:
 
@@ -28,6 +29,8 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 ## View this proyect 👇
 
 - To the [tasks-book ](https://tasks-book-nine.vercel.app/)
+
+<img src="./src/images/dashboard.png" width="70%"/>
 
 Design by [CupTeam](http://cupteam.com.ua/)
 &&
