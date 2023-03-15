@@ -6,7 +6,7 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 
 ## Features:
 
-- Create your own profile with with an easy authentication.
+- Create your own profile with an easy authentication.
 - Customize your profile by adding email, picture and username.
 - Add and organice your daily tasks.
 - Mark task as completed / uncompleted.
