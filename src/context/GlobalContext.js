@@ -5,6 +5,7 @@ import LoadingPage from "../Components/containers/pages/LoadingPage";
 import GlobalStyles from "../Components/GlobalStyles";
 import useAlert from "../Components/hooks/useAlert";
 import useDarkMode from "../Components/hooks/useDarkMode";
+import axios from "axios";
 
 export const appContext = createContext();
 
@@ -40,6 +41,8 @@ export function GlobalContext({ children }) {
 
   const [user, setUser] = useState();
   const [tasks, setTasks] = useState([]);
+  const [quotesArray, setQuotesArray] = useState([]);
+  const [errorFetchQuote, setErrorFetchQuote] = useState();
 
   const [verifyLoggedUser, { loading }] = useMutation(GET_VERIFY_USER, {
     onCompleted: (data) => {
@@ -72,9 +75,29 @@ export function GlobalContext({ children }) {
   });
 
   useEffect(() => {
+    let isSubscribed = true;
     verifyLoggedUser();
+    const randomQuote = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.quotable.io/quotes/random?limit=50"
+        );
+        console.log(response);
+        const quotes = response.data;
+        if (isSubscribed) {
+          setQuotesArray([...quotes]);
+        }
+      } catch (error) {
+        console.log(error);
+        setErrorFetchQuote(error);
+      }
+    };
+    randomQuote();
+    return () => (isSubscribed = false);
     // eslint-disable-next-line
   }, []);
+
+  console.log("soy el GlobalContext");
 
   if (loading) {
     return (
@@ -109,6 +132,8 @@ export function GlobalContext({ children }) {
         user,
         setUser,
         logoutMutation,
+        errorFetchQuote,
+        quotesArray,
       }}
     >
       <GlobalStyles />
