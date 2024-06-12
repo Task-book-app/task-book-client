@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 
 export const today = () => {
   const date = new Date();
@@ -35,16 +35,16 @@ export const longDate = () => {
 };
 
 // later create another file for this function
-export const randomQuote = async () => {
-  try {
-    const res = await axios.get("https://type.fit/api/quotes");
-    const quotes = res.data;
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    return randomQuote;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const randomQuote = async () => {
+//   try {
+//     const res = await axios.get("https://api.quotable.io/random");
+//     const quote = res.data;
+//     // console.log(quote);
+//     return quote;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export const refreshPageAtNewDay = () => {
   setInterval(() => {

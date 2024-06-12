@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../context/GlobalContext";
-import { randomQuote } from "../../../../helpers/functions";
 import H3 from "../../../presentational/typography/H3";
 
 const FactDay = () => {
-  const { currentTheme } = useContext(appContext);
-
-  const [quote, setQuote] = useState({});
+  const { currentTheme, errorFetchQuote, quotesArray } = useContext(appContext);
 
   const { css, theme } = useFela();
 
@@ -45,20 +42,11 @@ const FactDay = () => {
       "& h3": { display: "block" },
     },
   });
+  console.log(quotesArray);
+  const quoteElement =
+    quotesArray[Math.floor(Math.random() * quotesArray.length)];
 
-  useEffect(() => {
-    let isSubscribed = true;
-    const getQuote = async () => {
-      const myQuote = await randomQuote();
-      if (isSubscribed) {
-        setQuote(myQuote);
-      }
-    };
-    getQuote().catch((error) => setQuote(error));
-    return () => (isSubscribed = false);
-  }, []);
-
-  if (!quote) {
+  if (errorFetchQuote || !quoteElement) {
     return <></>;
   } else {
     return (
@@ -66,10 +54,10 @@ const FactDay = () => {
         <H3 color={theme.colors.blue}>Quote of the day</H3>
         <figure className="figure">
           <blockquote className="blockquote">
-            <q>{quote.text}</q>
+            <q>{quoteElement.content}</q>
           </blockquote>
           <figcaption className="figcaption">
-            <b>- {!quote.author ? "anonymous" : quote.author}</b>
+            <b>- {quoteElement.author}</b>
           </figcaption>
         </figure>
       </div>
