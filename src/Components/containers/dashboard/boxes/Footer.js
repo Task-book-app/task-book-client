@@ -91,7 +91,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="copyright">
-        <p>Developed by Habid Badillo.</p>
+        <p>Developed by Habid B. Espinosa</p>
         <p>2024</p>
       </div>
       <ul className="external">
