@@ -43,6 +43,7 @@ export function GlobalContext({ children }) {
   const [tasks, setTasks] = useState([]);
   const [quotesArray, setQuotesArray] = useState([]);
   const [errorFetchQuote, setErrorFetchQuote] = useState();
+  console.log(user);
 
   const [verifyLoggedUser, { loading }] = useMutation(GET_VERIFY_USER, {
     onCompleted: (data) => {
@@ -92,6 +93,9 @@ export function GlobalContext({ children }) {
       }
     };
     randomQuote();
+    if (user) {
+      console.log("hello");
+    }
     return () => (isSubscribed = false);
     // eslint-disable-next-line
   }, []);

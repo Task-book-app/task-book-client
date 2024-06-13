@@ -50,18 +50,18 @@ const TimeAndDate = () => {
     },
   });
 
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB"));
 
   useEffect(() => {
     let isSubscribed = true;
 
     setInterval(() => {
       if (isSubscribed) {
-        setTime(new Date().toLocaleTimeString());
+        setTime(new Date().toLocaleTimeString("en-GB"));
       }
     }, 1000);
     return () => (isSubscribed = false);
-  });
+  }, []);
 
   return (
     <div className={css(rules)}>
@@ -73,7 +73,7 @@ const TimeAndDate = () => {
         </div>
         <div className="container__child">
           <HeadingSmall>Today</HeadingSmall>
-          <DateToday time={time} setTime={setTime} />
+          <DateToday />
         </div>
       </div>
     </div>

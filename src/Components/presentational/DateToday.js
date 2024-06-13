@@ -15,16 +15,14 @@ const rules = () => ({
   },
 });
 
-const DateToday = ({ time }) => {
+const DateToday = () => {
   const { css } = useFela();
 
   const [date, setDate] = useState(longDate());
 
   useEffect(() => {
-    if (time === "00:00:00") {
-      setDate(longDate());
-    }
-  }, [time]);
+    setDate(longDate());
+  }, []);
 
   return (
     <div className={css(rules)}>
