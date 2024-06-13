@@ -92,7 +92,7 @@ const Footer = () => {
       </div>
       <div className="copyright">
         <p>Developed by Habid Badillo.</p>
-        <p>2022</p>
+        <p>2024</p>
       </div>
       <ul className="external">
         <li>

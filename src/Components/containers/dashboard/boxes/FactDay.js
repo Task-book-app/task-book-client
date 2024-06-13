@@ -42,7 +42,7 @@ const FactDay = () => {
       "& h3": { display: "block" },
     },
   });
-  console.log(quotesArray);
+
   const quoteElement =
     quotesArray[Math.floor(Math.random() * quotesArray.length)];
 
