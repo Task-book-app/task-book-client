@@ -82,7 +82,6 @@ export function GlobalContext({ children }) {
         const response = await axios.get(
           "https://api.quotable.io/quotes/random?limit=50"
         );
-        console.log(response);
         const quotes = response.data;
         if (isSubscribed) {
           setQuotesArray([...quotes]);
@@ -96,8 +95,6 @@ export function GlobalContext({ children }) {
     return () => (isSubscribed = false);
     // eslint-disable-next-line
   }, []);
-
-  console.log("soy el GlobalContext");
 
   if (loading) {
     return (

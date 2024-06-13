@@ -22,7 +22,7 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 
 - [Fela && React-Fela](https://fela.js.org/)
 - [Recharts](https://recharts.org/en-US/)
-- [Quotes Free API](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373)
+- [Quotable (Quotations API) Copyright © 2019 Luke Peavey](https://github.com/lukePeavey/quotable?tab=readme-ov-file)
 - [FontAwesome](https://fontawesome.com/)
 - [Apollo-Client](https://www.apollographql.com/docs/react/)
 
