@@ -4,7 +4,7 @@ import { appContext } from "../../../../context/GlobalContext";
 import H3 from "../../../presentational/typography/H3";
 
 const FactDay = () => {
-  const { currentTheme, errorFetchQuote, quotesArray } = useContext(appContext);
+  const { currentTheme, errorFetchQuote, quote } = useContext(appContext);
 
   const { css, theme } = useFela();
 
@@ -43,10 +43,7 @@ const FactDay = () => {
     },
   });
 
-  const quoteElement =
-    quotesArray[Math.floor(Math.random() * quotesArray.length)];
-
-  if (errorFetchQuote || !quoteElement) {
+  if (errorFetchQuote || !quote) {
     return <></>;
   } else {
     return (
@@ -54,10 +51,10 @@ const FactDay = () => {
         <H3 color={theme.colors.blue}>Quote of the day</H3>
         <figure className="figure">
           <blockquote className="blockquote">
-            <q>{quoteElement.content}</q>
+            <q>{quote.content}</q>
           </blockquote>
           <figcaption className="figcaption">
-            <b>- {quoteElement.author}</b>
+            <b>- {quote.author}</b>
           </figcaption>
         </figure>
       </div>
