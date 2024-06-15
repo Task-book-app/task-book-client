@@ -7,8 +7,6 @@ import useAlert from "../Components/hooks/useAlert";
 import useDarkMode from "../Components/hooks/useDarkMode";
 import axios from "axios";
 
-export const appContext = createContext();
-
 const GET_VERIFY_USER = gql`
   mutation VerifyLoggedUser {
     verifyUser {
@@ -33,6 +31,8 @@ const LOG_OUT = gql`
   }
 `;
 
+export const appContext = createContext();
+
 export function GlobalContext({ children }) {
   const navigate = useNavigate();
   const client = useApolloClient();
@@ -41,7 +41,7 @@ export function GlobalContext({ children }) {
 
   const [user, setUser] = useState();
   const [tasks, setTasks] = useState([]);
-  const [quotesArray, setQuotesArray] = useState([]);
+  const [quote, setQuote] = useState();
   const [errorFetchQuote, setErrorFetchQuote] = useState();
 
   const [verifyLoggedUser, { loading }] = useMutation(GET_VERIFY_USER, {
@@ -82,9 +82,12 @@ export function GlobalContext({ children }) {
         const response = await axios.get(
           "https://api.quotable.io/quotes/random?limit=50"
         );
-        const quotes = response.data;
+
+        const apiQuotable =
+          response.data[Math.floor(Math.random() * response.data.length)];
+
         if (isSubscribed) {
-          setQuotesArray([...quotes]);
+          setQuote(apiQuotable);
         }
       } catch (error) {
         console.log(error);
@@ -130,7 +133,7 @@ export function GlobalContext({ children }) {
         setUser,
         logoutMutation,
         errorFetchQuote,
-        quotesArray,
+        quote,
       }}
     >
       <GlobalStyles />
