@@ -1,11 +1,7 @@
 # Tasks Book
-
-## Overview
-
 A web-based task management application designed to help users organize and prioritize their daily tasks efficiently
 
 ## Features:
-
 - Create and custimize a userprofile.
 - Mark task as completed / uncompleted.
 - Edit task.
@@ -15,7 +11,6 @@ A web-based task management application designed to help users organize and prio
 - Full responsiveness, (available in all screen devices).
 
 ## Tools && Technologies:
-
 - [React](https://reactjs.org/)
 - [Fela && React-Fela](https://fela.js.org/)
 - [Recharts](https://recharts.org/en-US/)
@@ -24,7 +19,6 @@ A web-based task management application designed to help users organize and prio
 - [Apollo-Client](https://www.apollographql.com/docs/react/)
 
 ## View this proyect 👇
-
 - To the [tasks-book ](https://tasks-book-nine.vercel.app/)
 
 <img src="./src/images/dashboard.png" width="70%"/>
