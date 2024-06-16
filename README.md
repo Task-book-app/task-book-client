@@ -2,13 +2,11 @@
 
 ## Overview
 
-Tasks Book was created to keep polishing my **REACT** skills. Using for first time **FELA** to style components, and **Apollo-Client** to fetch the express-graphql server.
+A web-based task management application designed to help users organize and prioritize their daily tasks efficiently
 
 ## Features:
 
-- Create your own profile with an easy authentication.
-- Customize your profile by adding email, picture and username.
-- Add and organice your daily tasks.
+- Create and custimize a userprofile.
 - Mark task as completed / uncompleted.
 - Edit task.
 - Delete task.
@@ -19,7 +17,6 @@ Tasks Book was created to keep polishing my **REACT** skills. Using for first ti
 ## Tools && Technologies:
 
 - [React](https://reactjs.org/)
-
 - [Fela && React-Fela](https://fela.js.org/)
 - [Recharts](https://recharts.org/en-US/)
 - [Quotable (Quotations API) Copyright © 2019 Luke Peavey](https://github.com/lukePeavey/quotable?tab=readme-ov-file)
