@@ -8,13 +8,20 @@ import Categories from "./Categories";
 import LogOut from "./LogOut";
 
 const SideBar = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      colors: { blue },
+      darkModusBoxes,
+      breakpoints: { laptop },
+    },
+  } = useFela();
 
   const { currentTheme, logoutMutation } = useContext(appContext);
 
   const rules = () => ({
     width: "16%",
-    ...theme.darkModusBoxes(currentTheme),
+    ...darkModusBoxes(currentTheme),
     minHeight: "100%",
     padding: "2rem",
     display: "none",
@@ -24,7 +31,7 @@ const SideBar = () => {
     "& > :not(:last-child)": {
       marginBottom: "6rem",
     },
-    [theme.breakpoints.laptop]: {
+    [laptop]: {
       display: "flex",
     },
   });
@@ -32,7 +39,7 @@ const SideBar = () => {
   return (
     <div className={css(rules)}>
       <Brand>
-        <H3 color={theme.colors.blue}>
+        <H3 color={blue}>
           Tasks
           <br />
           Book

@@ -10,9 +10,6 @@ const Auth = () => {
       breakpoints: { mobile_L, tablet, laptop, laptop_L },
     },
   } = useFela();
-  // const { theme } = useFela();
-  // console.log(mobile_L, tablet, laptop, laptop_L);
-  // const { mobile_L, tablet, laptop, laptop_L } = theme.breakpoints;
 
   // breakpoints for Brand component
   const brandBp = {
@@ -39,6 +36,7 @@ const Auth = () => {
           className={({ isActive }) =>
             isActive ? "activeLink" : "inactiveLink"
           }
+          end
         >
           Log In
         </NavLink>

@@ -1,31 +1,40 @@
-import React from "react";
+import { useContext } from "react";
 import { useFela } from "react-fela";
-import { Outlet } from "react-router-dom";
+import useDarkMode from "../../hooks/useDarkMode";
+import { appContext } from "../../../context/GlobalContext";
+import AppLayout from "./AppLayout";
+import Alert from "../../presentational/Alert";
 
 const MainLayout = () => {
+  const { alertMessage, alertSettings, currentTheme } = useContext(appContext);
+
+  const [mountedComponent] = useDarkMode();
+
   const {
     css,
-    theme: {
-      breakpoints: { desktop },
-    },
+    theme: { darkModusLayout },
   } = useFela();
 
   const rules = () => ({
-    margin: "0 auto",
-    width: "100vw",
-    maxWidth: "1440px",
-    minHeight: "100vh",
-
-    [desktop]: {
-      maxWidth: "1600px",
-      maxHeight: "992px",
+    ...darkModusLayout(currentTheme),
+    height: "100vh",
+    "& .container": {
+      height: "auto",
+      backgroundColor: "inherit",
     },
   });
 
+  if (!mountedComponent) return <div />;
+
   return (
-    <div className={css(rules)}>
-      <Outlet />
-    </div>
+    <>
+      <Alert message={alertMessage} alertSettings={alertSettings} />
+      <div className={css(rules)}>
+        <div className="container">
+          <AppLayout />
+        </div>
+      </div>
+    </>
   );
 };
 

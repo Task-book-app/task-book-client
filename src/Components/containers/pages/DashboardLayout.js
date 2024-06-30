@@ -7,7 +7,13 @@ import { appContext } from "../../../context/GlobalContext";
 
 const DashboardLayout = () => {
   const { user } = useContext(appContext);
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { desktop },
+    },
+  } = useFela();
+
   const rules = () => ({
     margin: "auto",
     height: "100vh",
@@ -15,14 +21,15 @@ const DashboardLayout = () => {
 
     display: "flex",
 
-    [theme.breakpoints.desktop]: {
+    [desktop]: {
       maxWidth: "1600px",
       maxHeight: "992px",
     },
   });
+
   return (
     <>
-      {!user && <Navigate replace to="/" />}
+      {!user && <Navigate replace to="/auth" />}
 
       <div className={css(rules)}>
         <SideBar />
