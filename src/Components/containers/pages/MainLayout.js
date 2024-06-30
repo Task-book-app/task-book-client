@@ -3,7 +3,12 @@ import { useFela } from "react-fela";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { desktop },
+    },
+  } = useFela();
 
   const rules = () => ({
     margin: "0 auto",
@@ -11,7 +16,7 @@ const MainLayout = () => {
     maxWidth: "1440px",
     minHeight: "100vh",
 
-    [theme.breakpoints.desktop]: {
+    [desktop]: {
       maxWidth: "1600px",
       maxHeight: "992px",
     },

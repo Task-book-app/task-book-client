@@ -2,8 +2,7 @@ import { useFela } from "react-fela";
 import { bold, poppins, semi_bold } from "../fonts/Poppins/poppins";
 
 const GlobalStyles = () => {
-  const { renderer, theme } = useFela();
-  const { laptop } = theme.breakpoints;
+  const { renderer } = useFela();
 
   // font-family
   renderer.renderFont("Poppins", poppins);
@@ -29,7 +28,7 @@ const GlobalStyles = () => {
         font-family: "Poppins";
     }
 
-    ${[laptop]} {
+    @media only screen and (min-width: 64em) {
         html{
           font-size: 62.5%;
         }

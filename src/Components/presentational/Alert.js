@@ -2,21 +2,26 @@ import React from "react";
 import { useFela } from "react-fela";
 
 const Alert = ({ message, alertSettings }) => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      colors: { danger, whiteText },
+    },
+  } = useFela();
 
   const rules = () => ({
     display: alertSettings.showAlert,
     padding: "1rem 3rem",
     fontSize: "2rem",
     borderRadius: "0.8rem",
-    backgroundColor: theme.colors.danger,
+    backgroundColor: danger,
     position: "absolute",
     top: "10rem",
     left: "50%",
 
     transform: "translate(-50%, 0)",
 
-    color: theme.colors.whiteText,
+    color: whiteText,
     zIndex: 20000,
   });
 

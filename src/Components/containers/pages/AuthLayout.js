@@ -4,10 +4,11 @@ import Auth from "../auth/Auth";
 import { useFela } from "react-fela";
 
 const AuthLayout = () => {
-  const { theme } = useFela();
-
-  const { mobile_L, tablet, laptop } = theme.breakpoints;
-
+  const {
+    theme: {
+      breakpoints: { mobile_L, tablet, laptop },
+    },
+  } = useFela();
   // const layoutRules = () => ({
   //   margin: '0 auto',
   //   padding: '2rem 0',
