@@ -5,9 +5,14 @@ import { Outlet } from "react-router-dom";
 import { useFela } from "react-fela";
 
 const Auth = () => {
-  const { theme } = useFela();
-
-  const { mobile_L, tablet, laptop, laptop_L } = theme.breakpoints;
+  const {
+    theme: {
+      breakpoints: { mobile_L, tablet, laptop, laptop_L },
+    },
+  } = useFela();
+  // const { theme } = useFela();
+  // console.log(mobile_L, tablet, laptop, laptop_L);
+  // const { mobile_L, tablet, laptop, laptop_L } = theme.breakpoints;
 
   // breakpoints for Brand component
   const brandBp = {
@@ -30,7 +35,7 @@ const Auth = () => {
     <div className="auth">
       <Brand position="absolute" right="1.5rem" top="1rem" bp={brandBp}>
         <NavLink
-          to="/"
+          to="/auth"
           className={({ isActive }) =>
             isActive ? "activeLink" : "inactiveLink"
           }
@@ -38,7 +43,7 @@ const Auth = () => {
           Log In
         </NavLink>
         <NavLink
-          to="/signup"
+          to="/auth/signup"
           className={({ isActive }) =>
             isActive ? "activeLink" : "inactiveLink"
           }

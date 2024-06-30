@@ -38,6 +38,7 @@ const Profile = () => {
         marginBottom: "0",
       },
     },
+
     "& .info": {
       fontSize: "1.4rem",
       lineHeight: "1.9rem",
