@@ -11,8 +11,8 @@ const SideBar = () => {
   const {
     css,
     theme: {
-      colors: { blue },
       darkModusBoxes,
+      colors: { blue },
       breakpoints: { laptop },
     },
   } = useFela();

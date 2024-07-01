@@ -2,8 +2,13 @@ import SpiralBackground from "../../presentational/SpiralBackground";
 import CircleBg from "../../presentational/CircleBg";
 import Auth from "../auth/Auth";
 import { useFela } from "react-fela";
+import { useContext } from "react";
+import { appContext } from "../../../context/GlobalContext";
+import { Navigate } from "react-router-dom";
 
 const AuthLayout = () => {
+  const { user } = useContext(appContext);
+
   const {
     theme: {
       breakpoints: { mobile_L, tablet, laptop },
@@ -74,12 +79,18 @@ const AuthLayout = () => {
   };
 
   return (
-    <div className="auth-layout">
-      <SpiralBackground styles={bigImagerules} />
-      <SpiralBackground styles={smallImageRules} />
-      <CircleBg />
-      <Auth />
-    </div>
+    <>
+      {user ? (
+        <Navigate replace to="/dashboard" />
+      ) : (
+        <div className="auth-layout">
+          <SpiralBackground styles={bigImagerules} />
+          <SpiralBackground styles={smallImageRules} />
+          <CircleBg />
+          <Auth />
+        </div>
+      )}
+    </>
   );
 };
 

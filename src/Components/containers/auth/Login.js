@@ -7,7 +7,7 @@ import Icon from "../../presentational/Icon";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../presentational/Button";
 import { useFela } from "react-fela";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { appContext } from "../../../context/GlobalContext";
 import { gql, useMutation } from "@apollo/client";
 import ShowHidePassword from "../../presentational/ShowHidePassword";
@@ -31,7 +31,7 @@ const LOGIN_USER = gql`
 `;
 
 const Login = () => {
-  const { user, setUser, setAlertMessage, setTasks } = useContext(appContext);
+  const { setUser, setAlertMessage, setTasks } = useContext(appContext);
   const { theme } = useFela();
 
   const [formData, setFormData] = useState({
@@ -106,8 +106,6 @@ const Login = () => {
 
   return (
     <>
-      {user && <Navigate replace to="/dashboard" />}
-
       <form onSubmit={submitDataUser} className="form">
         <H1>Log In</H1>
         <H1>Your Account</H1>

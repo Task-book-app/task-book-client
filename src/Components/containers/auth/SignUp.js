@@ -8,7 +8,7 @@ import Button from "../../presentational/Button";
 import { useFela } from "react-fela";
 import { gql, useMutation } from "@apollo/client";
 import { appContext } from "../../../context/GlobalContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ShowHidePassword from "../../presentational/ShowHidePassword";
 
 const REGISTER_USER = gql`
@@ -22,7 +22,7 @@ const REGISTER_USER = gql`
 `;
 
 const SignUp = () => {
-  const { setAlertMessage, setUser, user } = useContext(appContext);
+  const { setAlertMessage, setUser } = useContext(appContext);
   const { theme } = useFela();
   const [formData, setFormData] = useState({
     email: "",
@@ -97,8 +97,6 @@ const SignUp = () => {
 
   return (
     <>
-      {user && <Navigate replace to="/dashboard" />}
-
       <form className="form" onSubmit={submitDataUser}>
         <H1>Create</H1>
         <H1>Your Account</H1>

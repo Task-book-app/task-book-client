@@ -98,7 +98,6 @@ export function GlobalContext({ children }) {
     return () => (isSubscribed = false);
     // eslint-disable-next-line
   }, []);
-  console.log(user);
 
   if (loading) {
     return (

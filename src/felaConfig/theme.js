@@ -1,21 +1,11 @@
-// Breakpoints
-const bp = {
-  mobile_M: "23.4375em", // 375px
-  mobile_L: "26.5625em", // 425px
-  tablet: "48em", // 768px
-  laptop: "64em", // 1024px
-  laptop_L: "90em", // 1440px
-  desktop: "100em", // 1600px
-};
-
 const theme = {
   breakpoints: {
-    mobile_M: `@media only screen and (min-width: ${bp.mobile_M})`, // 375px
-    mobile_L: `@media only screen and (min-width: ${bp.mobile_L})`, // 425px
-    tablet: `@media only screen and (min-width: ${bp.tablet})`, // 768px
-    laptop: `@media only screen and (min-width: ${bp.laptop})`, // 1024px
-    laptop_L: `@media only screen and (min-width: ${bp.laptop_L})`, // 1440px
-    desktop: `@media only screen and (min-width: ${bp.desktop})`, // 1600px
+    mobile_M: `@media only screen and (min-width: 23.4375em)`, // 375px
+    mobile_L: `@media only screen and (min-width: 26.5625em)`, // 425px
+    tablet: `@media only screen and (min-width: 48em)`, // 768px
+    laptop: `@media only screen and (min-width: 64em)`, // 1024px
+    laptop_L: `@media only screen and (min-width: 90em)`, // 1440px
+    desktop: `@media only screen and (min-width: 100em)`, // 1600px
   },
 
   //  colors
@@ -110,6 +100,12 @@ const theme = {
         : { backgroundColor: "#222831" };
 
     return { color: "#0aa7bd", ...currentModus };
+  },
+
+  getMediaQuery: (longMediaQuery) => {
+    const regex = /\(([^)]+)\)/;
+    const match = longMediaQuery.match(regex);
+    return match ? match[0] : null;
   },
 };
 
