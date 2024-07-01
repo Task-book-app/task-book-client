@@ -3,9 +3,13 @@ import { useFela } from "react-fela";
 import SpiralBackground from "./SpiralBackground";
 
 const Brand = ({ children, position, right, top, bp }) => {
-  const { css, theme } = useFela();
-
-  const { laptop } = theme.breakpoints;
+  const {
+    css,
+    theme: {
+      colors: { blue },
+      breakpoints: { laptop },
+    },
+  } = useFela();
 
   const rulesBrandContainer = () => ({
     zIndex: "1",
@@ -45,7 +49,7 @@ const Brand = ({ children, position, right, top, bp }) => {
         fontSize: "1.8rem",
       },
       ":hover": {
-        color: theme.colors.blue,
+        color: blue,
       },
     },
   });

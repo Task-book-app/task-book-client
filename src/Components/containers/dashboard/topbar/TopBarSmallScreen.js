@@ -13,17 +13,22 @@ import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import H3 from "../../../presentational/typography/H3";
 
 const TopBarSmallScreen = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { laptop },
+      colors: { blue },
+    },
+  } = useFela();
 
   const rules = () => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    [theme.breakpoints.laptop]: {
+    [laptop]: {
       display: "none",
     },
   });
-
   // context to hook animations Modal, parent component is wrapped in the ModalProvider
   // ModalProvider contains the logic for displaying modal with animation
   const { handleShowModal, handleCloseModal, sideBarAnimation } =
@@ -36,7 +41,7 @@ const TopBarSmallScreen = () => {
           <Link to="/dashboard">
             <div className="brand">
               <SpiralLogoIcon fontSize={4.5} />
-              <H3 color={theme.colors.blue}>
+              <H3 color={blue}>
                 Tasks
                 <br />
                 Book

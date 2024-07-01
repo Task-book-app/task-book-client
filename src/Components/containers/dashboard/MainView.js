@@ -7,7 +7,12 @@ import TopBar from "./topbar/TopBar";
 import TopBarSmallScreen from "./topbar/TopBarSmallScreen";
 
 const MainView = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { laptop_L },
+    },
+  } = useFela();
 
   const rules = () => ({
     width: "84%",
@@ -18,7 +23,7 @@ const MainView = () => {
     display: "flex",
     flexDirection: "column",
 
-    [theme.breakpoints.laptop_L]: {
+    [laptop_L]: {
       padding: "2rem 7rem",
     },
   });

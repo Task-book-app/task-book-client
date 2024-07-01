@@ -12,13 +12,18 @@ import CreateTaskModal from "../../modal/CreateTaskModal";
 import ModalSlide from "../../modal/ModalSlide";
 
 const TopBar = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { laptop },
+    },
+  } = useFela();
 
   const rules = () => ({
     display: "none",
     justifyContent: "space-between",
     alignItems: "center",
-    [theme.breakpoints.laptop]: {
+    [laptop]: {
       display: "flex",
     },
   });

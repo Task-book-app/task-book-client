@@ -1,10 +1,8 @@
-// import React from 'react';
 import "./sass/main.scss";
 import ReactDOM from "react-dom";
 import { GlobalContext } from "./context/GlobalContext";
 import { RendererProvider, ThemeProvider } from "react-fela";
 import theme from "./felaConfig/theme";
-// import { BrowserRouter } from "react-router-dom";
 import { createRenderer } from "fela";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App";
@@ -22,7 +20,6 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    {/* <BrowserRouter> */}
     <RendererProvider renderer={renderer}>
       <ThemeProvider theme={theme}>
         <GlobalContext>
@@ -30,7 +27,6 @@ ReactDOM.render(
         </GlobalContext>
       </ThemeProvider>
     </RendererProvider>
-    {/* </BrowserRouter> */}
   </ApolloProvider>,
   document.getElementById("root")
 );

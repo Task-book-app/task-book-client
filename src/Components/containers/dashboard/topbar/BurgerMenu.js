@@ -19,7 +19,7 @@ const BurgerMenu = ({ onClick, fontSize }) => {
       cursor: "pointer",
     },
     "&:active": {
-      backgroundColor: currentTheme === "light" ? "#ffffff" : "#2c3440",
+      backgroundColor: currentTheme === "light" ? "#ffffff" : "#24454a",
       boxShadow: "0px 10px 25px rgba(29, 52, 54, 0.08)",
     },
   });
