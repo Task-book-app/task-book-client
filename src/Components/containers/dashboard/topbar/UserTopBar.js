@@ -13,6 +13,7 @@ import SunIcon from "../../../presentational/icons/SunIcon";
 import MoonIcon from "../../../presentational/icons/MoonIcon";
 import UserIcon from "../../../presentational/icons/UserIcon";
 import { appContext } from "../../../../context/GlobalContext";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
 const rules = () => ({
   position: "relative",
@@ -25,7 +26,16 @@ const rules = () => ({
 });
 
 const UserTopBar = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      colors: { danger, blue },
+      breakpoints: { tablet },
+      getMediaQuery,
+    },
+  } = useFela();
+
+  const tabletScreenListener = useMediaQuery(getMediaQuery(tablet));
 
   const { currentTheme, themeToggler, user, logoutMutation } =
     useContext(appContext);
@@ -36,16 +46,16 @@ const UserTopBar = () => {
 
   return (
     <div className={css(rules)}>
-      <H4>{user.username}</H4>
+      {tabletScreenListener && <H4>{user.username}</H4>}
       <Avatar picture={user.picture} />
       <ToogleDropDown
         showDropDown={showDropDown}
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
-        <DropDown border={"1px solid " + theme.colors.blue}>
+        <DropDown width={"14rem"} border={"1px solid " + blue}>
           <ListContainer marginBottom={0}>
-            <DropDownItem title={"Profile"} link={"profile"}>
+            <DropDownItem title={"Profile"} link="/dashboard/profile">
               <UserIcon fontSize={1.2} />
             </DropDownItem>
 
@@ -80,7 +90,7 @@ const UserTopBar = () => {
               fontSize={1.2}
               title="Log Out"
               event={logoutMutation}
-              hoverColor={theme.colors.danger}
+              hoverColor={danger}
             >
               <LogOutIcon fontSize={1.2} />
             </ButtonMenu>
