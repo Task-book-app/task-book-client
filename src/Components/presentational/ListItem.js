@@ -37,7 +37,7 @@ const ListItem = ({
     },
   });
 
-  const activeSideBar = {
+  const activeItemSideBar = {
     color: theme.colors.blue,
 
     ":after": {
@@ -58,7 +58,7 @@ const ListItem = ({
     },
   };
 
-  const inactiveSideBar = {
+  const inactiveItemSideBar = {
     color: "inherit",
     transition: "all linear",
     ":link": {
@@ -78,7 +78,7 @@ const ListItem = ({
         onClick={onClick}
         to={`task/${link}`}
         className={({ isActive }) =>
-          css(rules, isActive ? activeSideBar : inactiveSideBar)
+          css(rules, isActive ? activeItemSideBar : inactiveItemSideBar)
         }
       >
         <Icon fontIcon={fontIcon} />

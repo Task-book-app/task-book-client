@@ -5,6 +5,7 @@ import { useFela } from "react-fela";
 import { useContext } from "react";
 import { appContext } from "../../../context/GlobalContext";
 import { Navigate } from "react-router-dom";
+import TopBarHome from "../dashboard/topbar/TopBarHome";
 
 const AuthLayout = () => {
   const { user } = useContext(appContext);
@@ -83,12 +84,15 @@ const AuthLayout = () => {
       {user ? (
         <Navigate replace to="/dashboard" />
       ) : (
-        <div className="auth-layout">
-          <SpiralBackground styles={bigImagerules} />
-          <SpiralBackground styles={smallImageRules} />
-          <CircleBg />
-          <Auth />
-        </div>
+        <>
+          <TopBarHome />
+          <div className="auth-layout">
+            <SpiralBackground styles={bigImagerules} />
+            <SpiralBackground styles={smallImageRules} />
+            <CircleBg />
+            <Auth />
+          </div>
+        </>
       )}
     </>
   );

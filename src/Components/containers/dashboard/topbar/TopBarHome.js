@@ -4,7 +4,7 @@ import Brand from "../../../presentational/Brand";
 import H3 from "../../../presentational/typography/H3";
 import BrandSmall from "./BrandSmall";
 import BurgerMenu from "./BurgerMenu";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
@@ -14,30 +14,73 @@ const TopBarHome = ({ modus }) => {
     theme: {
       shadows: { boxShadow_3 },
       colors: { blue },
-      breakpoints: { laptop },
+      breakpoints: { tablet, laptop },
       darkModusBoxes,
       getMediaQuery,
     },
   } = useFela();
 
-  const mediaQueryListener = useMediaQuery(getMediaQuery(laptop));
+  const tabletScreenListener = useMediaQuery(getMediaQuery(tablet));
 
   const rules = () => ({
     ...darkModusBoxes(modus),
     boxShadow: boxShadow_3,
-    padding: "1rem",
+    padding: "2rem 2rem",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "& a": {
+      textDecoration: "none",
+    },
+    "& .navToAuth": {
+      fontSize: "2rem",
+      "& a": {
+        textDecoration: "none",
+        ":active": {
+          textDecoration: "none",
+        },
+        ":hover": {
+          color: blue,
+        },
+        [laptop]: { fontSize: "2rem" },
+      },
+      "& > *": { marginRight: "4rem" },
+    },
   });
   return (
     <>
       <div className={css(rules)}>
-        {mediaQueryListener ? (
-          <Brand>
-            <H3 color={blue}>
-              Tasks
-              <br />
-              Book
-            </H3>
-          </Brand>
+        {tabletScreenListener ? (
+          <>
+            <Link to="/dashboard">
+              <Brand>
+                <H3 color={blue}>
+                  Tasks
+                  <br />
+                  Book
+                </H3>
+              </Brand>
+            </Link>
+            <div className="navToAuth">
+              <NavLink
+                to="/auth"
+                className={({ isActive }) =>
+                  isActive ? "activeLink" : "inactiveLink"
+                }
+                end
+              >
+                Log In
+              </NavLink>
+              <NavLink
+                to="/auth/signup"
+                className={({ isActive }) =>
+                  isActive ? "activeLink" : "inactiveLink"
+                }
+              >
+                Sign Up
+              </NavLink>
+            </div>
+          </>
         ) : (
           <BrandSmall>
             <BurgerMenu

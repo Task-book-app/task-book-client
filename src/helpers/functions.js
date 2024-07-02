@@ -22,27 +22,3 @@ export const longDate = () => {
 
   return `${month} ${day}, ${year}`;
 };
-
-export const refreshPageAtNewDay = () => {
-  setInterval(() => {
-    let date = new Date();
-    let nowHour = date.getHours();
-    let nowMinuts = date.getMinutes();
-    let nowSeconds = date.getSeconds();
-
-    // console.log(
-    //   "Hour " + nowHour + " Minutes " + nowMinuts + " Secunds " + nowSeconds
-    // );
-
-    if (nowHour === 23 && nowMinuts === 59 && nowSeconds === 59) {
-      window.location.reload();
-    }
-  }, 1000);
-};
-
-// export const getMediaQuery = (longMediaQuery) => {
-//   const regex = /\(([^)]+)\)/;
-//   const match = longMediaQuery.match(regex);
-//   return match ? match[0] : null;
-// };
-// console.log(getMediaQuery(`@media only screen and (min-width: 64em)`));

@@ -1,4 +1,3 @@
-// import React from 'react'
 import Brand from "../../presentational/Brand";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
