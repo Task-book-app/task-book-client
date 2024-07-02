@@ -14,6 +14,8 @@ const Brand = ({ children, position, right, top, bp }) => {
   const rulesBrandContainer = () => ({
     zIndex: "1",
     display: "flex",
+    flex: "0 0 auto",
+    "& > *": { flex: "0 0 auto" },
     position,
     right,
     top,
