@@ -21,12 +21,15 @@ const rules = () => ({
 });
 
 const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: { darkModusDropDown },
+  } = useFela();
 
   const { currentTheme } = useContext(appContext);
 
   const rulesActive = () => ({
-    ...theme.darkModusDropDown(currentTheme),
+    ...darkModusDropDown(currentTheme),
   });
 
   const rulesInactive = () => ({
@@ -36,7 +39,7 @@ const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
     },
 
     ":hover": {
-      ...theme.darkModusDropDown(currentTheme),
+      ...darkModusDropDown(currentTheme),
     },
   });
 

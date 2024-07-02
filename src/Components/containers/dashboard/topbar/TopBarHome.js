@@ -7,8 +7,10 @@ import BurgerMenu from "./BurgerMenu";
 import { Link, NavLink } from "react-router-dom";
 import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import Avatar from "../../../presentational/Avatar";
+import UserTopBar from "./UserTopBar";
 
-const TopBarHome = ({ modus }) => {
+const TopBarHome = ({ modus, user }) => {
   const {
     css,
     theme: {
@@ -61,25 +63,27 @@ const TopBarHome = ({ modus }) => {
                 </H3>
               </Brand>
             </Link>
-            <div className="navToAuth">
-              <NavLink
-                to="/auth"
-                className={({ isActive }) =>
-                  isActive ? "activeLink" : "inactiveLink"
-                }
-                end
-              >
-                Log In
-              </NavLink>
-              <NavLink
-                to="/auth/signup"
-                className={({ isActive }) =>
-                  isActive ? "activeLink" : "inactiveLink"
-                }
-              >
-                Sign Up
-              </NavLink>
-            </div>
+            {!user && (
+              <div className="navToAuth">
+                <NavLink
+                  to="/auth"
+                  className={({ isActive }) =>
+                    isActive ? "activeLink" : "inactiveLink"
+                  }
+                  end
+                >
+                  Log In
+                </NavLink>
+                <NavLink
+                  to="/auth/signup"
+                  className={({ isActive }) =>
+                    isActive ? "activeLink" : "inactiveLink"
+                  }
+                >
+                  Sign Up
+                </NavLink>
+              </div>
+            )}
           </>
         ) : (
           <BrandSmall>
@@ -99,6 +103,8 @@ const TopBarHome = ({ modus }) => {
             </Link>
           </BrandSmall>
         )}
+        {/* {user && <Avatar picture={user.picture} />} */}
+        {user && <UserTopBar />}
       </div>
     </>
   );
