@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFela } from "react-fela";
 import Brand from "../../../presentational/Brand";
 import H3 from "../../../presentational/typography/H3";
-import BrandSmall from "./BrandSmall";
-import BurgerMenu from "./BurgerMenu";
 import { Link, NavLink } from "react-router-dom";
-import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import UserTopBar from "./UserTopBar";
+import ToogleDropDown from "../../../presentational/ToogleDropDown";
+import DropDown from "../DropDown";
+import ListContainer from "../ListContainer";
+import DropDownItem from "../../../presentational/DropDownItem";
+import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons/faUserPlus";
 
 const TopBarHome = ({ modus, user }) => {
+  // toogles the dropdown for sign up and log in.
+  const [showDropDown, setShowDropDown] = useState(false);
+
   const {
     css,
     theme: {
@@ -25,6 +31,7 @@ const TopBarHome = ({ modus, user }) => {
 
   const rules = () => ({
     ...darkModusBoxes(modus),
+    position: "relative",
     boxShadow: boxShadow_3,
     padding: "2rem 2rem",
     display: "flex",
@@ -51,17 +58,17 @@ const TopBarHome = ({ modus, user }) => {
   return (
     <>
       <div className={css(rules)}>
+        <Link to="/">
+          <Brand>
+            <H3 color={blue}>
+              Tasks
+              <br />
+              Book
+            </H3>
+          </Brand>
+        </Link>
         {tabletScreenListener ? (
           <>
-            <Link to="/">
-              <Brand>
-                <H3 color={blue}>
-                  Tasks
-                  <br />
-                  Book
-                </H3>
-              </Brand>
-            </Link>
             {!user && (
               <div className="navToAuth">
                 <NavLink
@@ -85,24 +92,36 @@ const TopBarHome = ({ modus, user }) => {
             )}
           </>
         ) : (
-          <BrandSmall>
-            <BurgerMenu
-              fontSize={3}
-              //   onClick={handleShowModal}
-            />
-            <Link to="/dashboard">
-              <div className="brand">
-                <SpiralLogoIcon fontSize={4.5} />
-                <H3 color={blue}>
-                  Tasks
-                  <br />
-                  Book
-                </H3>
-              </div>
-            </Link>
-          </BrandSmall>
+          <>
+            {!user && (
+              <>
+                <ToogleDropDown
+                  width={"6rem"}
+                  height={"6rem"}
+                  fontSize={"4rem"}
+                  showDropDown={showDropDown}
+                  setShowDropDown={setShowDropDown}
+                />
+                {showDropDown && (
+                  <DropDown width={"17rem"} border={"1px solid " + blue}>
+                    <ListContainer marginBottom={0}>
+                      <DropDownItem
+                        title={"Sign Up"}
+                        link="/auth/signup"
+                        icon={faUserPlus}
+                      />
+                      <DropDownItem
+                        title={"Log In"}
+                        link="/auth"
+                        icon={faKey}
+                      />
+                    </ListContainer>
+                  </DropDown>
+                )}
+              </>
+            )}
+          </>
         )}
-        {/* {user && <Avatar picture={user.picture} />} */}
         {user && <UserTopBar />}
       </div>
     </>
