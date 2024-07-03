@@ -3,7 +3,13 @@ import { useFela } from "react-fela";
 import { appContext } from "../../../context/GlobalContext";
 
 const DropDown = ({ children, width, border }) => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      shadows: { boxShadow_3 },
+      darkModusBoxes,
+    },
+  } = useFela();
   const { currentTheme } = useContext(appContext);
 
   const rules = () => ({
@@ -12,10 +18,10 @@ const DropDown = ({ children, width, border }) => {
     padding: "1rem 0",
     position: "absolute",
 
-    boxShadow: theme.shadows.boxShadow_3,
+    boxShadow: boxShadow_3,
     borderRadius: "1rem",
 
-    ...theme.darkModusBoxes(currentTheme),
+    ...darkModusBoxes(currentTheme),
 
     transform: "translateY(100%)",
     bottom: 0,

@@ -5,14 +5,18 @@ import Footer from "./boxes/Footer";
 import BoxesView from "./boxesView/BoxesView";
 import TopBar from "./topbar/TopBar";
 import TopBarSmallScreen from "./topbar/TopBarSmallScreen";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const MainView = () => {
   const {
     css,
     theme: {
-      breakpoints: { laptop_L },
+      breakpoints: { laptop, laptop_L },
+      getMediaQuery,
     },
   } = useFela();
+
+  const laptopScreenListener = useMediaQuery(getMediaQuery(laptop));
 
   const rules = () => ({
     width: "84%",
@@ -30,12 +34,15 @@ const MainView = () => {
 
   return (
     <div className={css(rules)}>
-      <ModalProvider>
-        <TopBar />
-      </ModalProvider>
-      <ModalProvider>
-        <TopBarSmallScreen />
-      </ModalProvider>
+      {laptopScreenListener ? (
+        <ModalProvider>
+          <TopBar />
+        </ModalProvider>
+      ) : (
+        <ModalProvider>
+          <TopBarSmallScreen />
+        </ModalProvider>
+      )}
       <BoxesView />
       <Footer />
     </div>

@@ -12,12 +12,13 @@ const rules = () => ({
   display: "flex",
   alignItems: "center",
 
-  fontSize: "1.2rem",
-  lineHeight: "1.5rem",
+  fontSize: "1.6rem",
+  lineHeight: "2rem",
+  // lineHeight: "1.5rem",
 
-  "& > :first-child": {
-    marginRight: "1rem",
-  },
+  // "& > :first-child": {
+  //   marginRight: "1rem",
+  // },
 });
 
 const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
@@ -53,8 +54,10 @@ const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
         className={({ isActive }) =>
           css(isActive ? activeCombined : inactiveCombined)
         }
+        end
       >
-        {icon ? <FontAwesomeIcon icon={icon} /> : children}
+        {/* <FontAwesomeIcon icon={icon} fixedWidth pull="left" /> */}
+        {icon ? <FontAwesomeIcon icon={icon} fixedWidth /> : children}
         {title}
       </NavLink>
     </li>

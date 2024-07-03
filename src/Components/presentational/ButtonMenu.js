@@ -29,8 +29,10 @@ const ButtonMenu = ({
     display: "flex",
     alignItems: "center",
 
+    fontFamily: "inherit",
     fontSize: `${fontSize}rem`,
-    lineHeight: "1.5rem",
+    // lineHeight: "1.5rem",
+    lineHeight: "2rem",
 
     "& > :first-child": {
       marginRight: "1rem",

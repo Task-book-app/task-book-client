@@ -7,7 +7,6 @@ import BurgerMenu from "./BurgerMenu";
 import { Link, NavLink } from "react-router-dom";
 import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import Avatar from "../../../presentational/Avatar";
 import UserTopBar from "./UserTopBar";
 
 const TopBarHome = ({ modus, user }) => {
@@ -54,7 +53,7 @@ const TopBarHome = ({ modus, user }) => {
       <div className={css(rules)}>
         {tabletScreenListener ? (
           <>
-            <Link to="/dashboard">
+            <Link to="/">
               <Brand>
                 <H3 color={blue}>
                   Tasks
