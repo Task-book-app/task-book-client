@@ -6,17 +6,16 @@ import H4 from "../../../presentational/typography/H4";
 import DropDown from "../DropDown";
 import DropDownItem from "../../../presentational/DropDownItem";
 import ListContainer from "../ListContainer";
-// import GearIcon from "../../../presentational/icons/GearIcon";
-import LogOutIcon from "../../../presentational/icons/LogOutIcon";
 import ButtonMenu from "../../../presentational/ButtonMenu";
-import SunIcon from "../../../presentational/icons/SunIcon";
-import MoonIcon from "../../../presentational/icons/MoonIcon";
-import UserIcon from "../../../presentational/icons/UserIcon";
 import { appContext } from "../../../../context/GlobalContext";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import { faTableColumns } from "@fortawesome/free-solid-svg-icons/faTableColumns";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
-// import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
+import { faSun } from "@fortawesome/free-solid-svg-icons/faSun";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
+import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 
 const rules = () => ({
   position: "relative",
@@ -52,44 +51,27 @@ const UserTopBar = () => {
       {tabletScreenListener && <H4>{user.username}</H4>}
       <Avatar picture={user.picture} />
       <ToogleDropDown
+        width={"3rem"}
+        height={"3rem"}
+        fontSize={"2rem"}
         showDropDown={showDropDown}
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
         <DropDown width={"17rem"} border={"1px solid " + blue}>
           <ListContainer marginBottom={0}>
+            <DropDownItem title={"Home"} link="/" icon={faHome} />
             <DropDownItem
               title={"Dashboard"}
               link="/dashboard"
               icon={faTableColumns}
             />
-            {/* <DropDownItem
-              title={"Profile"}
-              link="/dashboard/profile"
-              icon={faUser}
-            /> */}
+
             <DropDownItem
               title={"Profile"}
               link="/dashboard/profile"
               icon={faUser}
             />
-            <DropDownItem title={"Profile"} link="/dashboard/profile">
-              {/* <UserIcon fontSize={1.2} /> */}
-              <UserIcon />
-            </DropDownItem>
-
-            {/* <DropDownItem title={"Settings"} link={"settings"}>
-              <GearIcon fontSize={1.2} />
-            </DropDownItem> */}
-
-            {/* <ButtonMenu
-              padding="1.25rem 2rem"
-              fontSize={1.2}
-              title="Settings"
-              event={null}
-            >
-              <GearIcon fontSize={1.2} />
-            </ButtonMenu> */}
 
             <ButtonMenu
               padding="1.25rem 2rem"
@@ -98,13 +80,9 @@ const UserTopBar = () => {
               event={themeToggler}
             >
               {currentTheme === "light" ? (
-                <MoonIcon
-                // fontSize={1.2}
-                />
+                <FontAwesomeIcon icon={faMoon} fixedWidth pull="left" />
               ) : (
-                <SunIcon
-                // fontSize={1.2}
-                />
+                <FontAwesomeIcon icon={faSun} fixedWidth pull="left" />
               )}
             </ButtonMenu>
 
@@ -115,8 +93,10 @@ const UserTopBar = () => {
               event={logoutMutation}
               hoverColor={danger}
             >
-              <LogOutIcon
-              // fontSize={1.2}
+              <FontAwesomeIcon
+                icon={faRightFromBracket}
+                fixedWidth
+                pull="left"
               />
             </ButtonMenu>
           </ListContainer>

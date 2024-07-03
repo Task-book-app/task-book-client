@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { appContext } from "../../context/GlobalContext";
 import {
-  faHome,
+  faBroom,
   faUserGroup,
   faSuitcase,
   faPersonRunning,
@@ -22,7 +22,7 @@ const Chart = () => {
   const { theme } = useFela();
 
   const numOfTasks = (taskDB) => {
-    const categories = ["home", "family", "work", "sports"];
+    const categories = ["housework", "family", "work", "sports"];
 
     const categoriesInDB = taskDB.map((item) => {
       return item.category;
@@ -45,8 +45,8 @@ const Chart = () => {
 
   const data = [
     {
-      name: "Home",
-      tasks: numToChart.home,
+      name: "Housework",
+      tasks: numToChart.housework,
       amt: 15,
     },
     {
@@ -71,8 +71,8 @@ const Chart = () => {
   const renderCustomAxisTick = ({ x, y, payload }) => {
     let path = "";
     switch (payload.value.toLowerCase()) {
-      case "home":
-        path = faHome;
+      case "housework":
+        path = faBroom;
         break;
       case "family":
         path = faUserGroup;
@@ -93,8 +93,8 @@ const Chart = () => {
         x={x - 7.5}
         y={y + 4}
         fill="inherit"
-        width={15}
-        height={15}
+        width={20}
+        height={20}
       />
     );
   };

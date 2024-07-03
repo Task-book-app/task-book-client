@@ -87,7 +87,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
     },
   });
 
-  const myCategories = ["Home", "Family", "Work", "Sports"];
+  const myCategories = ["Housework", "Family", "Work", "Sports"];
   const myPriorities = [
     "1 Very important!",
     "2 Important",

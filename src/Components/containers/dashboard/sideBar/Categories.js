@@ -4,7 +4,7 @@ import { useFela } from "react-fela";
 import ListContainer from "../ListContainer";
 import {
   faClipboard,
-  faHome,
+  faBroom,
   faUserGroup,
   faSuitcase,
   faPersonRunning,
@@ -33,9 +33,9 @@ const Categories = ({ onClick = null }) => {
         />
         <ListItem
           onClick={onClick}
-          title={"Home"}
-          link={"home"}
-          fontIcon={faHome}
+          title={"Housework"}
+          link={"housework"}
+          fontIcon={faBroom}
         />
         <ListItem
           onClick={onClick}

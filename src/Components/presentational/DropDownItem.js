@@ -13,12 +13,12 @@ const rules = () => ({
   alignItems: "center",
 
   fontSize: "1.6rem",
-  lineHeight: "2rem",
+  // lineHeight: "2rem",
   // lineHeight: "1.5rem",
 
-  // "& > :first-child": {
-  //   marginRight: "1rem",
-  // },
+  "& > :first-child": {
+    marginRight: "1rem",
+  },
 });
 
 const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
@@ -56,8 +56,11 @@ const DropDownItem = ({ children, title = "", icon = "", link = "" }) => {
         }
         end
       >
-        {/* <FontAwesomeIcon icon={icon} fixedWidth pull="left" /> */}
-        {icon ? <FontAwesomeIcon icon={icon} fixedWidth /> : children}
+        {icon ? (
+          <FontAwesomeIcon icon={icon} fixedWidth pull="left" />
+        ) : (
+          children
+        )}
         {title}
       </NavLink>
     </li>
