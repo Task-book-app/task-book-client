@@ -33,10 +33,11 @@ const TopBarHome = ({ modus, user }) => {
     ...darkModusBoxes(modus),
     position: "relative",
     boxShadow: boxShadow_3,
-    padding: "2rem 2rem",
+    padding: "1rem 2rem",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    [laptop]: { padding: "2rem 2rem" },
     "& a": {
       textDecoration: "none",
     },
