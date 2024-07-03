@@ -2,7 +2,6 @@ import { useContext } from "react";
 import React from "react";
 import { useFela } from "react-fela";
 import { modalContext } from "../../../../context/ModalProvider";
-import UserTopBarSmallScreen from "./UserTopBarSmallScreen";
 import BrandSmall from "./BrandSmall";
 import Modal from "../../modal/Modal";
 import ModalSideBar from "../../modal/ModalSideBar";
@@ -11,6 +10,7 @@ import BurgerMenu from "./BurgerMenu";
 import { Link } from "react-router-dom";
 import SpiralLogoIcon from "../../../presentational/icons/SpiralLogoIcon";
 import H3 from "../../../presentational/typography/H3";
+import UserTopBar from "./UserTopBar";
 
 const TopBarSmallScreen = () => {
   const {
@@ -49,7 +49,7 @@ const TopBarSmallScreen = () => {
             </div>
           </Link>
         </BrandSmall>
-        <UserTopBarSmallScreen />
+        <UserTopBar />
       </div>
       <Modal>
         <ModalSideBar sideBarAnimation={sideBarAnimation}>
