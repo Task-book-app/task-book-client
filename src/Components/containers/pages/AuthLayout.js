@@ -6,61 +6,42 @@ import { useContext } from "react";
 import { appContext } from "../../../context/GlobalContext";
 import { Navigate } from "react-router-dom";
 import TopBarHome from "../dashboard/topbar/TopBarHome";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const AuthLayout = () => {
   const { user } = useContext(appContext);
 
   const {
+    css,
     theme: {
       breakpoints: { mobile_L, tablet, laptop },
+      getMediaQuery,
     },
   } = useFela();
-  // const layoutRules = () => ({
-  //   margin: '0 auto',
-  //   padding: '2rem 0',
-  //   minHeight: '100vh',
-  //   width: '100%',
-  //   maxHeight: '900px',
-  //   maxWidth: '1440px',
-  //   overflow: 'hidden',
-  //   position: 'relative',
-  //   ...theme.centerFlex,
-  //   [mobile_L]: {
-  //     "@media (orientation: 'landscape' )": {
-  //       padding: '8rem 0',
-  //     }
-  //   },
-  //   [laptop]: {
-  //     paddingTop: '0',
-  //     paddingBottom: '0',
-  //     paddingRight: '8rem',
-  //     justifyContent: 'flex-end',
-  //   },
-  //   [desktop]: {
-  //     paddingRight: '10rem',
-  //     maxWidth: '1600px',
-  //     maxHeight: '992px',
-  //   }
-  // })
+
+  const laptopScreen = useMediaQuery(getMediaQuery(laptop));
 
   const bigImagerules = {
     position: "absolute",
     width: "160%",
     left: "-100%",
+
     [mobile_L]: {
-      width: "180%",
-      left: "-120%",
+      width: "150%",
+      left: "-80%",
     },
     [tablet]: {
-      width: "140%",
-      left: "-90%",
-      bottom: "-10%",
+      width: "120%",
+      left: "-50%",
+      bottom: "-14%",
     },
-    [laptop]: {
-      width: "95%",
-      left: "-25%",
-      bottom: "-25%",
-    },
+  };
+
+  const laptopBigImagerules = {
+    position: "absolute",
+    width: "72%",
+    left: "-8%",
+    bottom: "-14%",
   };
 
   const smallImageRules = {
@@ -72,27 +53,36 @@ const AuthLayout = () => {
       bottom: "-20%",
     },
     [laptop]: {
-      display: "block",
       width: "25%",
       right: "-10%",
       bottom: "-5%",
     },
   };
 
+  const containerLayout = () => ({
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  });
+
   return (
     <>
       {user ? (
         <Navigate replace to="/dashboard" />
       ) : (
-        <>
+        <div className={css(containerLayout)}>
           <TopBarHome />
           <div className="auth-layout">
-            <SpiralBackground styles={bigImagerules} />
+            {laptopScreen ? (
+              <SpiralBackground styles={laptopBigImagerules} />
+            ) : (
+              <SpiralBackground styles={bigImagerules} />
+            )}
             <SpiralBackground styles={smallImageRules} />
             <CircleBg />
             <Auth />
           </div>
-        </>
+        </div>
       )}
     </>
   );

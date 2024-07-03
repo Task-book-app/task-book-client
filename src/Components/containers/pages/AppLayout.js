@@ -15,7 +15,7 @@ const AppLayout = () => {
     width: "100vw",
     maxWidth: "1440px",
     minHeight: "100vh",
-
+    display: "",
     [desktop]: {
       maxWidth: "1600px",
       maxHeight: "992px",

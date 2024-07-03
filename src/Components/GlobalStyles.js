@@ -26,6 +26,7 @@ const GlobalStyles = () => {
     html {
         font-size: 50%;
         font-family: "Poppins";
+        background-color: #222831;
     }
 
     @media only screen and (min-width: 64em) {
