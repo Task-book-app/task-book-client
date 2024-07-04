@@ -9,7 +9,7 @@ import TopBarHome from "../dashboard/topbar/TopBarHome";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const AuthLayout = () => {
-  const { user } = useContext(appContext);
+  const { user, currentTheme } = useContext(appContext);
 
   const {
     css,
@@ -68,10 +68,10 @@ const AuthLayout = () => {
   return (
     <>
       {user ? (
-        <Navigate replace to="/dashboard" />
+        <Navigate replace to="/dashboard" user={user} />
       ) : (
         <div className={css(containerLayout)}>
-          <TopBarHome />
+          <TopBarHome modus={currentTheme} />
           <div className="auth-layout">
             {laptopScreen ? (
               <SpiralBackground styles={laptopBigImagerules} />

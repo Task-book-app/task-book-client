@@ -1,8 +1,37 @@
 import { useFela } from "react-fela";
 import { bold, poppins, semi_bold } from "../fonts/Poppins/poppins";
 
+// const lightTheme = `
+//   *,
+//   *::after,
+//   *::before {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: inherit;
+//   }
+
+//   html {
+//       font-size: 50%;
+//       font-family: "Poppins";
+//       background-color: #fafafa;
+//   }
+
+//   @media only screen and (min-width: 64em) {
+//       html{
+//         font-size: 62.5%;
+//       }
+//   }
+
+//   body{
+//     box-sizing: border-box;
+//   }
+// `;
+
 const GlobalStyles = () => {
-  const { renderer } = useFela();
+  const {
+    renderer,
+    // staticStyle
+  } = useFela();
 
   // font-family
   renderer.renderFont("Poppins", poppins);
@@ -13,32 +42,7 @@ const GlobalStyles = () => {
     fontWeight: "semi-bold",
   });
 
-  // Global Styles
-  renderer.renderStatic(`
-    *,
-    *::after,
-    *::before {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-    }
-
-    html {
-        font-size: 50%;
-        font-family: "Poppins";
-        background-color: #222831;
-    }
-
-    @media only screen and (min-width: 64em) {
-        html{
-          font-size: 62.5%;
-        }
-    }
-
-    body{
-      box-sizing: border-box;
-    }
-`);
+  // staticStyle(lightTheme);
 
   return null;
 };

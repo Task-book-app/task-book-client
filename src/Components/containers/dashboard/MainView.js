@@ -7,12 +7,13 @@ import TopBar from "./topbar/TopBar";
 import TopBarSmallScreen from "./topbar/TopBarSmallScreen";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-const MainView = () => {
+const MainView = ({ currentTheme }) => {
   const {
     css,
     theme: {
       breakpoints: { laptop, laptop_L },
       getMediaQuery,
+      scrollBarStyles,
     },
   } = useFela();
 
@@ -26,7 +27,7 @@ const MainView = () => {
     overflowY: "scroll",
     display: "flex",
     flexDirection: "column",
-
+    ...scrollBarStyles(currentTheme),
     [laptop_L]: {
       padding: "2rem 7rem",
     },

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useFela } from "react-fela";
 import useDarkMode from "../../hooks/useDarkMode";
 import { appContext } from "../../../context/GlobalContext";
@@ -12,7 +12,10 @@ const MainLayout = () => {
 
   const {
     css,
-    theme: { darkModusLayout },
+    theme: {
+      darkModusLayout,
+      colors: { bg_dark, bg_light },
+    },
   } = useFela();
 
   const rules = () => ({
@@ -23,6 +26,15 @@ const MainLayout = () => {
       backgroundColor: "inherit",
     },
   });
+
+  useEffect(() => {
+    currentTheme === "light"
+      ? document.documentElement.style.setProperty("--main-bg-color", bg_light)
+      : document.documentElement.style.setProperty("--main-bg-color", bg_dark);
+    return () => {
+      document.documentElement.style.removeProperty("--main-bg-color");
+    };
+  }, [currentTheme, bg_dark, bg_light]);
 
   if (!mountedComponent) return <div />;
 

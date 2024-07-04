@@ -6,8 +6,10 @@ import theme from "./felaConfig/theme";
 import { createRenderer } from "fela";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App";
+import prefixer from "fela-plugin-prefixer";
+import webPreset from "fela-preset-web";
 
-const renderer = createRenderer();
+const renderer = createRenderer({ plugins: [...webPreset, prefixer()] });
 // console.log(process.env.REACT_APP_API_BASE);
 
 const client = new ApolloClient({
