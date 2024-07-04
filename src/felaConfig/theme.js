@@ -102,6 +102,26 @@ const theme = {
     return { color: "#0aa7bd", ...currentModus };
   },
 
+  scrollBarStyles: (modus) => {
+    const backgroundScrollbar = modus === "light" ? "#ffffff" : "#2c3440";
+
+    return {
+      scrollbarWidth: "thin", //Firefox, Chrome,
+      scrollbarColor: `#0aa7bd ${backgroundScrollbar}`, //Firefox, Chrome,
+      "::-webkit-scrollbar": {
+        width: "10px",
+      },
+      "::-webkit-scrollbar-track": {
+        background: backgroundScrollbar,
+      },
+
+      "::-webkit-scrollbar-thumb": {
+        background: "linear-gradient(90.17deg, #09A7BC 0.19%, #2EC0EE 99.77%)",
+        borderRadius: "50px",
+      },
+    };
+  },
+
   getMediaQuery: (longMediaQuery) => {
     const regex = /\(([^)]+)\)/;
     const match = longMediaQuery.match(regex);

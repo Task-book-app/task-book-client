@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import { appContext } from "../../../context/GlobalContext";
 
 const DashboardLayout = () => {
-  const { user } = useContext(appContext);
+  const { user, currentTheme, logoutMutation } = useContext(appContext);
   const {
     css,
     theme: {
@@ -32,8 +32,8 @@ const DashboardLayout = () => {
       {!user && <Navigate replace to="/auth" />}
 
       <div className={css(rules)}>
-        <SideBar />
-        <MainView />
+        <SideBar currentTheme={currentTheme} logoutMutation={logoutMutation} />
+        <MainView currentTheme={currentTheme} />
       </div>
     </>
   );

@@ -1,23 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useFela } from "react-fela";
-import { appContext } from "../../../../context/GlobalContext";
 import Brand from "../../../presentational/Brand";
 import H3 from "../../../presentational/typography/H3";
 import Categories from "./Categories";
 // import Details from "./Details";
 import LogOut from "./LogOut";
 
-const SideBar = () => {
+const SideBar = ({ currentTheme, logoutMutation }) => {
   const {
     css,
     theme: {
       darkModusBoxes,
+      scrollBarStyles,
       colors: { blue },
       breakpoints: { laptop },
     },
   } = useFela();
-
-  const { currentTheme, logoutMutation } = useContext(appContext);
 
   const rules = () => ({
     width: "16%",
@@ -26,7 +24,9 @@ const SideBar = () => {
     padding: "2rem",
     display: "none",
     flexDirection: "column",
-    overflow: "scroll",
+    overflowX: "scroll",
+    ...scrollBarStyles(currentTheme),
+
     filter: "drop-shadow(0px 10px 25px rgba(29, 52, 54, 0.08))",
     "& > :not(:last-child)": {
       marginBottom: "6rem",

@@ -102,7 +102,7 @@ export function GlobalContext({ children }) {
   if (loading) {
     return (
       <>
-        <GlobalStyles />
+        <GlobalStyles currentTheme={currentTheme} />
         <LoadingPage currentTheme={currentTheme} text={"Loading . . ."} />
       </>
     );
@@ -110,7 +110,7 @@ export function GlobalContext({ children }) {
   if (logoutResult.loading) {
     return (
       <>
-        <GlobalStyles />
+        <GlobalStyles currentTheme={currentTheme} />
         <LoadingPage
           currentTheme={currentTheme}
           text={"Logging you Out . . ."}
@@ -136,7 +136,7 @@ export function GlobalContext({ children }) {
         quote,
       }}
     >
-      <GlobalStyles />
+      <GlobalStyles currentTheme={currentTheme} />
       {children}
     </appContext.Provider>
   );
