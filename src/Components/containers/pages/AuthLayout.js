@@ -5,7 +5,7 @@ import { useFela } from "react-fela";
 import { useContext } from "react";
 import { appContext } from "../../../context/GlobalContext";
 import { Navigate } from "react-router-dom";
-import TopBarHome from "../dashboard/topbar/TopBarHome";
+import TopBarHome from "../home/TopBarHome";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const AuthLayout = () => {
