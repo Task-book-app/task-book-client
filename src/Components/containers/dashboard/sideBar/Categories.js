@@ -25,36 +25,11 @@ const Categories = ({ onClick = null }) => {
     <div className={css(categories)}>
       <H2 color={theme.colors.blue}>Categories</H2>
       <ListContainer marginBottom={3}>
-        <ListItem
-          onClick={onClick}
-          title={"All"}
-          link={"all"}
-          fontIcon={faClipboard}
-        />
-        <ListItem
-          onClick={onClick}
-          title={"Housework"}
-          link={"housework"}
-          fontIcon={faBroom}
-        />
-        <ListItem
-          onClick={onClick}
-          title={"Family"}
-          link={"family"}
-          fontIcon={faUserGroup}
-        />
-        <ListItem
-          onClick={onClick}
-          title={"Work"}
-          link={"work"}
-          fontIcon={faSuitcase}
-        />
-        <ListItem
-          onClick={onClick}
-          title={"Sports"}
-          link={"sports"}
-          fontIcon={faPersonRunning}
-        />
+        <ListItem title={"All"} link={"all"} fontIcon={faClipboard} />
+        <ListItem title={"Housework"} link={"housework"} fontIcon={faBroom} />
+        <ListItem title={"Family"} link={"family"} fontIcon={faUserGroup} />
+        <ListItem title={"Work"} link={"work"} fontIcon={faSuitcase} />
+        <ListItem title={"Sports"} link={"sports"} fontIcon={faPersonRunning} />
         {/* <ListItem
           title={"Add"}
           link={"add"}

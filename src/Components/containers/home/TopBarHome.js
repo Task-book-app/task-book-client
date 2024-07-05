@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useFela } from "react-fela";
-import Brand from "../../../presentational/Brand";
-import H3 from "../../../presentational/typography/H3";
+import Brand from "../../presentational/Brand";
+import H3 from "../../presentational/typography/H3";
 import { Link, NavLink } from "react-router-dom";
-import useMediaQuery from "../../../hooks/useMediaQuery";
-import UserTopBar from "./UserTopBar";
-import ToogleDropDown from "../../../presentational/ToogleDropDown";
-import DropDown from "../DropDown";
-import ListContainer from "../ListContainer";
-import DropDownItem from "../../../presentational/DropDownItem";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import UserTopBar from "../dashboard/topbar/UserTopBar";
+import ToogleDropDown from "../../presentational/ToogleDropDown";
+import DropDown from "../dashboard/DropDown";
+import ListContainer from "../dashboard/ListContainer";
+import DropDownItem from "../../presentational/DropDownItem";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons/faUserPlus";
 

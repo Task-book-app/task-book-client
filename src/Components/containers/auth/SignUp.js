@@ -141,7 +141,7 @@ const SignUp = () => {
             <H2 textAlign="center">loading...</H2>
           ) : (
             <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
-              Log In
+              Create Account
             </Button>
           )}
         </FormControl>
