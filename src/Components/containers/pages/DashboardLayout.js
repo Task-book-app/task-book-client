@@ -15,16 +15,15 @@ const DashboardLayout = () => {
   } = useFela();
 
   const rules = () => ({
-    margin: "auto",
-    height: "100vh",
-    maxHeight: "900px",
+    // margin: "auto",
+    height: "100%",
+    // maxHeight: "900px",
 
     display: "flex",
-
-    [desktop]: {
-      maxWidth: "1600px",
-      maxHeight: "992px",
-    },
+    // [desktop]: {
+    //   maxWidth: "1600px",
+    //   maxHeight: "992px",
+    // },
   });
 
   return (

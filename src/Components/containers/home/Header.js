@@ -157,6 +157,7 @@ const Header = ({ modus, user }) => {
           src={dashboardPicture}
           width={"100%"}
           height={"auto"}
+          loading="lazy"
           alt="Dashboard main view once you create an account"
         />
       </div>
