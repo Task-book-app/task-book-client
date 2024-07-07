@@ -2,7 +2,7 @@ import React from "react";
 import { useFela } from "react-fela";
 import { Outlet } from "react-router-dom";
 
-const AppLayout = () => {
+const AppLayout = ({ currentTheme }) => {
   const {
     css,
     theme: {
@@ -13,9 +13,9 @@ const AppLayout = () => {
   const rules = () => ({
     margin: "0 auto",
     width: "100vw",
+    height: "100vh",
     maxWidth: "1440px",
-    minHeight: "100vh",
-    display: "",
+    maxHeight: "900px",
     [desktop]: {
       maxWidth: "1600px",
       maxHeight: "992px",

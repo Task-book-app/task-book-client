@@ -109,7 +109,8 @@ const theme = {
       scrollbarWidth: "thin", //Firefox, Chrome,
       scrollbarColor: `#0aa7bd ${backgroundScrollbar}`, //Firefox, Chrome,
       "::-webkit-scrollbar": {
-        width: "10px",
+        width: "8px",
+        height: "8px",
       },
       "::-webkit-scrollbar-track": {
         background: backgroundScrollbar,

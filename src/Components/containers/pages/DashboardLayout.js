@@ -7,24 +7,11 @@ import { appContext } from "../../../context/GlobalContext";
 
 const DashboardLayout = () => {
   const { user, currentTheme, logoutMutation } = useContext(appContext);
-  const {
-    css,
-    theme: {
-      breakpoints: { desktop },
-    },
-  } = useFela();
+  const { css } = useFela();
 
   const rules = () => ({
-    margin: "auto",
-    height: "100vh",
-    maxHeight: "900px",
-
+    height: "100%",
     display: "flex",
-
-    [desktop]: {
-      maxWidth: "1600px",
-      maxHeight: "992px",
-    },
   });
 
   return (

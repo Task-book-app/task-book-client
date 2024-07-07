@@ -20,11 +20,8 @@ const MainLayout = () => {
 
   const rules = () => ({
     ...darkModusLayout(currentTheme),
-    height: "100vh",
-    "& .container": {
-      height: "auto",
-      backgroundColor: "inherit",
-    },
+    width: "100vw",
+    minHeight: "100vh",
   });
 
   useEffect(() => {
@@ -42,9 +39,7 @@ const MainLayout = () => {
     <>
       <Alert message={alertMessage} alertSettings={alertSettings} />
       <div className={css(rules)}>
-        <div className="container">
-          <AppLayout />
-        </div>
+        <AppLayout currentTheme={currentTheme} />
       </div>
     </>
   );

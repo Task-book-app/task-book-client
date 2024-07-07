@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import TopBarHome from "../home/TopBarHome";
 import { appContext } from "../../../context/GlobalContext";
-import Header from "../home/Header";
+import Header from "../home/header/Header";
 
 const LandingPage = () => {
   const { currentTheme, user } = useContext(appContext);
