@@ -73,8 +73,8 @@ const Header = ({ modus, user }) => {
       },
     },
 
-    "& >:nth-child(2)": {
-      width: "auto",
+    "& .hero-img": {
+      width: "100%",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -127,7 +127,7 @@ const Header = ({ modus, user }) => {
           </>
         )}
       </div>
-      <div>
+      <div className="hero-img">
         <HeaderImageContainer modus={modus} />
       </div>
     </div>
