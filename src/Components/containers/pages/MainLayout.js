@@ -15,21 +15,13 @@ const MainLayout = () => {
     theme: {
       darkModusLayout,
       colors: { bg_dark, bg_light },
-      scrollBarStyles,
     },
   } = useFela();
 
   const rules = () => ({
     ...darkModusLayout(currentTheme),
     width: "100vw",
-    // height: "100vh",
     minHeight: "100vh",
-    // overflow: "scroll",
-    // ...scrollBarStyles(currentTheme),
-    // "& .container": {
-    //     height: "auto",
-    //     backgroundColor: "inherit",
-    // },
   });
 
   useEffect(() => {
@@ -47,9 +39,7 @@ const MainLayout = () => {
     <>
       <Alert message={alertMessage} alertSettings={alertSettings} />
       <div className={css(rules)}>
-        {/* <div className="container"> */}
         <AppLayout currentTheme={currentTheme} />
-        {/* </div> */}
       </div>
     </>
   );
