@@ -119,11 +119,11 @@ const Chart = () => {
 
               borderRadius: "0.8rem",
               color: theme.colors.blue,
-              fontSize: "1.3rem",
+              fontSize: "1.8rem",
             }}
             itemStyle={{
               color: currentTheme === "light" ? "#222831" : "#fafafa",
-              fontSize: "1.2rem",
+              fontSize: "1.8rem",
             }}
             cursor={false}
           />

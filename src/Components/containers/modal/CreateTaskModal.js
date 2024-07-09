@@ -36,7 +36,15 @@ const NEW_TASK = gql`
 `;
 
 const CreateTaskModal = ({ handleCloseModal }) => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      boxesGeneral,
+      darkModusBoxes,
+      breakpoints: { tablet, laptop },
+      colors: { blue },
+    },
+  } = useFela();
 
   const { setAlertMessage, tasks, setTasks, currentTheme } =
     useContext(appContext);
@@ -60,28 +68,28 @@ const CreateTaskModal = ({ handleCloseModal }) => {
   });
 
   const rules = () => ({
-    minWidth: "90vw",
-    fontSize: "1.4rem",
+    minWidth: "95vw",
+    fontSize: "1.8rem",
 
-    ...theme.boxesGeneral,
-    ...theme.darkModusBoxes(currentTheme),
+    ...boxesGeneral,
+    ...darkModusBoxes(currentTheme),
     "& > :not(:last-child)": {
       marginBottom: "3rem",
     },
 
-    [theme.breakpoints.laptop]: {
+    [laptop]: {
       minWidth: "50vw",
     },
 
     "& .inputs-row": {
       display: "none",
-      [theme.breakpoints.tablet]: {
+      [tablet]: {
         display: "block",
       },
     },
     "& .inputs-column": {
       display: "block",
-      [theme.breakpoints.tablet]: {
+      [tablet]: {
         display: "none",
       },
     },
@@ -172,7 +180,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
 
   return (
     <form className={css(rules)} onSubmit={handleSubmit}>
-      <H3 color={theme.colors.blue}>Add a new task</H3>
+      <H3 color={blue}>Add a new task</H3>
 
       <ModalGroup gb={1}>
         <Label htmlFor="task">What should be done?</Label>
@@ -210,6 +218,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           <ModalGroup gb={1}>
             <Label htmlFor={"category"}>Category</Label>
             <Select
+              id={"category"}
               dropDownValues={myCategories}
               onChange={handleChange}
               value={category}
@@ -219,6 +228,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
           <ModalGroup gb={1}>
             <Label htmlFor={"priority"}>Priority</Label>
             <Select
+              id={"priority"}
               dropDownValues={myPriorities}
               onChange={handleChange}
               value={priority}
@@ -264,7 +274,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
       <ModalGroup fd={"row"} gr={3} jc="flex-end">
         <Button
           width={"auto"}
-          fontSize={1.6}
+          fontSize={1.8}
           bg="danger"
           type="button"
           event={resetAndClose}
@@ -272,7 +282,7 @@ const CreateTaskModal = ({ handleCloseModal }) => {
         >
           Cancel
         </Button>
-        <Button width={"auto"} fontSize={1.6} type="submit" disabled={disable}>
+        <Button width={"auto"} fontSize={1.8} type="submit" disabled={disable}>
           {loading ? (
             <FontAwesomeIcon
               style={{

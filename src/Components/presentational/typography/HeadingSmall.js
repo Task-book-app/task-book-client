@@ -3,7 +3,7 @@ import { useFela } from "react-fela";
 
 const rules = ({ color }) => ({
   color,
-  fontSize: "1.4rem",
+  fontSize: "1.6rem",
   lineHeight: "1.9rem",
   letterSpacing: "0.02em",
 });

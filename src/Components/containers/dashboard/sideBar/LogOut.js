@@ -24,7 +24,7 @@ const LogOut = ({ onClick = null }) => {
     <div className={css(rules)}>
       <ListContainer marginBottom={3}>
         <ButtonMenu
-          fontSize={1.6}
+          fontSize={1.8}
           title="Log Out"
           event={onClick}
           hoverColor={danger}

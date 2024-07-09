@@ -29,7 +29,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
 
   const rules = () => ({
     minWidth: "90vw",
-    fontSize: "1.4rem",
+    // fontSize: "1.4rem",
 
     ...theme.boxesGeneral,
     ...theme.darkModusBoxes(currentTheme),
@@ -55,7 +55,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     },
 
     "& .info": {
-      fontSize: "1.4rem",
+      fontSize: "1.8rem",
       lineHeight: "1.9rem",
       letterSpacing: "0.03em",
 
@@ -145,6 +145,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
           <ModalGroup gb={1}>
             <Label htmlFor="username">Username</Label>
             <Input
+              id={"username"}
               placeholder={user.username || "username"}
               onChange={(e) => {
                 setUsername(e.target.value);
@@ -156,6 +157,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
           <ModalGroup gb={1}>
             <Label htmlFor="email">Email</Label>
             <Input
+              id={"email"}
               placeholder={user.email || "email@address.com"}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -167,7 +169,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
           <ModalGroup fd={"column"} gb={2} jc="flex-end">
             <Button
               width={"auto"}
-              fontSize={1.4}
+              fontSize={1.8}
               type="submit"
               disabled={disable || loading}
             >
@@ -185,7 +187,7 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
             </Button>
             <Button
               width={"auto"}
-              fontSize={1.4}
+              fontSize={1.8}
               bg="danger"
               type="button"
               event={resetAndClose}

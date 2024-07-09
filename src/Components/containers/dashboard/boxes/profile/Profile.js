@@ -40,7 +40,7 @@ const Profile = () => {
     },
 
     "& .info": {
-      fontSize: "1.4rem",
+      fontSize: "1.8rem",
       lineHeight: "1.9rem",
       letterSpacing: "0.03em",
 

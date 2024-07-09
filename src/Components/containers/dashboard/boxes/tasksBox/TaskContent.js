@@ -36,7 +36,7 @@ const TaskContent = ({
 
   const rules = () => ({
     height: 0,
-    fontSize: "1.4rem",
+    fontSize: "1.8rem",
     lineHeight: "1.9rem",
     letterSpacing: "0.02em",
     transition: "height 0.6s ease-out, margin-top 0.6s",
@@ -90,7 +90,7 @@ const TaskContent = ({
           marginRight: "1.5rem",
         },
         [theme.breakpoints.laptop_L]: {
-          transform: "translateX(-3.3rem)",
+          transform: "translateX(-3.6rem)",
         },
       },
       "&__2": {
@@ -103,7 +103,7 @@ const TaskContent = ({
           marginRight: "1rem",
         },
         [theme.breakpoints.laptop_L]: {
-          transform: "translateX(6rem)",
+          transform: "translateX(7rem)",
         },
       },
     },
@@ -188,10 +188,10 @@ const TaskContent = ({
         >
           <div className={"box__1"}>
             {completeResult.called ? (
-              <CheckBox fontSize={1.8} checked={!checked} disabled={true} />
+              <CheckBox fontSize={2} checked={!checked} disabled={true} />
             ) : (
               <CheckBox
-                fontSize={1.8}
+                fontSize={2}
                 checked={checked}
                 callback={(checked) => handleCheckBox(checked)}
                 disabled={disableCheckBox}
@@ -220,7 +220,7 @@ const TaskContent = ({
             )}
             {!checked && (
               <ButtonIcon onClick={handleUpdateTask}>
-                <EditIcon fontSize={1.8} />
+                <EditIcon fontSize={2} />
               </ButtonIcon>
             )}
 
@@ -232,7 +232,7 @@ const TaskContent = ({
               />
             ) : (
               <ButtonIcon onClick={handleRemoveTask}>
-                <TrashIcon fontSize={1.8} />
+                <TrashIcon fontSize={2} />
               </ButtonIcon>
             )}
           </div>

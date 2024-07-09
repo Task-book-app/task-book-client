@@ -2,7 +2,7 @@ import { useFela } from "react-fela";
 
 const Button = ({
   children,
-  fontSize = 1.4,
+  fontSize = 1.8,
   type,
   event = null,
   width = "100%",

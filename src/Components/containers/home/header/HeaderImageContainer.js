@@ -11,6 +11,8 @@ import largeDesktop from "../../../../images/hero/1000-hero/large1000.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import "react-lazy-load-image-component/src/effects/blur.css";
+import "react-lazy-load-image-component/src/effects/black-and-white.css";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
 const HeaderImageContainer = ({ modus }) => {
@@ -56,6 +58,8 @@ const HeaderImageContainer = ({ modus }) => {
           alt="Dashboard once a user creates an account"
           width="100%"
           height="100%"
+          // effect="opacity"
+          // effect="black-and-white"
           effect="blur"
           placeholderSrc={smallDesktop}
           src={largeDesktop}
@@ -66,6 +70,8 @@ const HeaderImageContainer = ({ modus }) => {
           alt="Dashboard once a user creates an account"
           width="100%"
           height="100%"
+          // effect="opacity"
+          // effect="black-and-white"
           effect="blur"
           placeholderSrc={smallDesktop}
           src={largeDesktop}

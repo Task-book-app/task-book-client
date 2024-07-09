@@ -104,7 +104,7 @@ const TopBarHome = ({ modus, user }) => {
                   setShowDropDown={setShowDropDown}
                 />
                 {showDropDown && (
-                  <DropDown width={"17rem"} border={"1px solid " + blue}>
+                  <DropDown width={"19rem"} border={"1px solid " + blue}>
                     <ListContainer marginBottom={0}>
                       <DropDownItem
                         title={"Sign Up"}

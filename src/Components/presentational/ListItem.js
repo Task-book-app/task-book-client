@@ -3,7 +3,7 @@ import { useFela } from "react-fela";
 import { NavLink } from "react-router-dom";
 import Icon from "./Icon";
 
-const ListItem = ({ title = "", fontIcon, fontSize = 1.6, link }) => {
+const ListItem = ({ title = "", fontIcon, fontSize = 1.8, link }) => {
   const { css, theme } = useFela({ fontSize });
 
   const rules = ({ fontSize }) => ({

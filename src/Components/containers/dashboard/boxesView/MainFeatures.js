@@ -35,11 +35,11 @@ const MainFeatures = () => {
     <>
       <div className={css(rules)}>
         <div className="add-task">
-          <Button fontSize={1.6} event={handleShowModal}>
+          <Button fontSize={1.8} event={handleShowModal}>
             <FontAwesomeIcon
               icon={faCircleXmark}
               transform={{ rotate: 45 }}
-              fontSize={"1.6rem"}
+              fontSize={"1.8rem"}
             />
             New task
           </Button>

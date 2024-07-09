@@ -3,6 +3,9 @@ import SunIcon from "./icons/SunIcon";
 import { useFela } from "react-fela";
 import { appContext } from "../../context/GlobalContext";
 import MoonIcon from "./icons/MoonIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
+import { faSun } from "@fortawesome/free-solid-svg-icons/faSun";
 
 const ToogleDarkMode = () => {
   const { css } = useFela();
@@ -11,16 +14,22 @@ const ToogleDarkMode = () => {
 
   const rules = () => ({
     cursor: "pointer",
+    // all: "unset",
+    backgroundColor: "unset",
+    display: "inline-block",
+    fontSize: "2.5rem",
+    border: "none",
+    color: "inherit",
   });
 
   return (
-    <div className={css(rules)} onClick={themeToggler}>
+    <button className={css(rules)} onClick={themeToggler}>
       {currentTheme === "light" ? (
-        <MoonIcon fontSize={2.5} />
+        <FontAwesomeIcon icon={faMoon} fixedWidth pull="left" />
       ) : (
-        <SunIcon fontSize={2.5} />
+        <FontAwesomeIcon icon={faSun} fixedWidth pull="left" />
       )}
-    </div>
+    </button>
   );
 };
 

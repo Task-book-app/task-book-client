@@ -36,11 +36,11 @@ const TopBar = () => {
   return (
     <>
       <div className={css(rules)}>
-        <Button width={"auto"} fontSize={1.6} event={handleShowModal}>
+        <Button width={"auto"} fontSize={1.8} event={handleShowModal}>
           <FontAwesomeIcon
             icon={faCircleXmark}
             transform={{ rotate: 45 }}
-            fontSize={"1.6rem"}
+            fontSize={"1.8rem"}
           />
           New task
         </Button>
