@@ -13,19 +13,42 @@ import { modalContext } from "../../../../context/ModalProvider";
 const MainFeatures = () => {
   const { handleCloseModal, slideAnimation, handleShowModal } =
     useContext(modalContext);
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { tablet, laptop, laptop_L },
+    },
+  } = useFela();
   const rules = () => ({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+    marginRight: "2rem",
+    marginBottom: "2rem",
     "& > :not(:last-child)": {
-      marginBottom: "3rem",
+      marginBottom: "2rem",
     },
-    [theme.breakpoints.tablet]: {
+    [`${tablet} and (maxWidth: 64em)`]: {
       width: "53%",
+      marginRight: "2rem",
+      marginBottom: "2rem",
     },
+    [`${laptop} and (max-width: 90em)`]: {
+      width: "53%",
+      marginRight: "2rem",
+      marginBottom: "2rem",
+    },
+    [laptop_L]: {
+      width: "53%",
+      marginRight: "3rem",
+      marginBottom: "3rem",
+      "& > :not(:last-child)": {
+        marginBottom: "3rem",
+      },
+    },
+
     "& .add-task": {
-      [theme.breakpoints.laptop]: {
+      [laptop]: {
         display: "none",
       },
     },

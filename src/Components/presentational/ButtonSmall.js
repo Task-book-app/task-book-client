@@ -6,7 +6,7 @@ const ButtonSmall = ({ children, event }) => {
     <Button
       event={event}
       bg={"danger"}
-      fontSize={1}
+      fontSize={1.6}
       extend={{
         padding: "0.2rem 1rem",
       }}

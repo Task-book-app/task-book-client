@@ -25,9 +25,9 @@ const FactDay = () => {
   const rules = () => ({
     ...boxesGeneral,
     ...darkModusBoxes(currentTheme),
-    lineHeight: "2.1rem",
-    fontSize: "1.8rem",
-    letterSpacing: "0.02em",
+    lineHeight: "2.5rem",
+    fontSize: "1.6rem",
+    letterSpacing: "0.04em",
 
     display: "flex",
     flexDirection: "column",
@@ -38,7 +38,7 @@ const FactDay = () => {
 
     "& .figure": {
       "& > :not(:last-child)": {
-        marginBottom: ".8rem",
+        marginBottom: "1.5rem",
       },
     },
 
@@ -46,6 +46,7 @@ const FactDay = () => {
       fontStyle: "italic",
       whiteSpace: "break-spaces",
       textAlign: "center",
+      padding: "0 1.5rem",
     },
 
     "& .figcaption": {

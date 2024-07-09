@@ -11,7 +11,7 @@ const MainView = ({ currentTheme }) => {
   const {
     css,
     theme: {
-      breakpoints: { laptop, laptop_L },
+      breakpoints: { tablet, laptop, laptop_L },
       getMediaQuery,
       scrollBarStyles,
     },
@@ -20,14 +20,20 @@ const MainView = ({ currentTheme }) => {
   const laptopScreenListener = useMediaQuery(getMediaQuery(laptop));
 
   const rules = () => ({
-    width: "84%",
-    padding: "2rem 2rem 0",
+    width: "100%",
+    padding: "2rem 1rem 0",
     flex: "1 1 auto",
     minHeight: "100%",
     overflowY: "scroll",
     display: "flex",
     flexDirection: "column",
     ...scrollBarStyles(currentTheme),
+    [`${tablet} and (max-width: 90em)`]: {
+      padding: "2rem 2rem 0",
+    },
+    [laptop]: {
+      width: "84%",
+    },
     [laptop_L]: {
       padding: "2rem 7rem",
     },
