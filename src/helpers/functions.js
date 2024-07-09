@@ -1,3 +1,9 @@
+import fallbackQuotes from "./fallbackQuotes.json";
+
+export const randomFallbackQuote = () => {
+  return fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+};
+
 export const longDate = () => {
   const months = [
     "January",

@@ -7,7 +7,7 @@ import ButtonMenu from "./ButtonMenu";
 import ChevronIcon from "./icons/ChevronIcon";
 import Input from "./Input";
 
-const Select = ({ dropDownValues, onChange, value, setValue }) => {
+const Select = ({ dropDownValues, onChange, value, setValue, id }) => {
   const { currentTheme } = useContext(appContext);
   const [showDropDown, setShowDropDown] = useState(false);
   const { css, theme } = useFela({ currentTheme });
@@ -54,7 +54,7 @@ const Select = ({ dropDownValues, onChange, value, setValue }) => {
     dropDownValues.map((item) => (
       <ButtonMenu
         padding="1rem 2rem"
-        fontSize={1.2}
+        fontSize={1.8}
         title={item}
         key={item}
         id={item}
@@ -69,21 +69,25 @@ const Select = ({ dropDownValues, onChange, value, setValue }) => {
     <div
       ref={toggleButton}
       className={css(rules)}
-      onClick={() => setShowDropDown(!showDropDown)}
+      onClick={() => {
+        setShowDropDown(!showDropDown);
+      }}
     >
       <Input
+        id={id}
         type="select"
-        name="category"
-        disabled
-        id="category"
+        name={id}
+        disabled={false}
         placeholder="Select"
-        border="none"
         cursor="pointer"
         value={value}
-        // onChange={onChange}
+        onChange={onChange}
+        border="none"
+        borderOnFocus="none"
+        caretColor="transparent"
       />
 
-      <ChevronIcon showDropDown={showDropDown} />
+      <ChevronIcon showDropDown={showDropDown} fontSize={3.5} />
 
       {showDropDown && (
         <DropDown width={"100%"} border={"1px solid " + theme.colors.blue}>

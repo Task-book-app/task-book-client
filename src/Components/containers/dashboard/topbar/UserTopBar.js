@@ -58,7 +58,7 @@ const UserTopBar = () => {
         setShowDropDown={setShowDropDown}
       />
       {showDropDown && (
-        <DropDown width={"17rem"} border={"1px solid " + blue}>
+        <DropDown width={"20rem"} border={"1px solid " + blue}>
           <ListContainer marginBottom={0}>
             <DropDownItem title={"Home"} link="/" icon={faHome} />
             <DropDownItem
@@ -75,7 +75,7 @@ const UserTopBar = () => {
 
             <ButtonMenu
               padding="1.25rem 2rem"
-              fontSize={1.6}
+              fontSize={1.8}
               title={currentTheme === "light" ? "Dark Mode" : "Light Mode"}
               event={themeToggler}
             >
@@ -88,7 +88,7 @@ const UserTopBar = () => {
 
             <ButtonMenu
               padding="1.25rem 2rem"
-              fontSize={1.6}
+              fontSize={1.8}
               title="Log Out"
               event={logoutMutation}
               hoverColor={danger}

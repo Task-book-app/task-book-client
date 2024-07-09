@@ -12,7 +12,7 @@ const rules = () => ({
   display: "flex",
   alignItems: "center",
 
-  fontSize: "1.6rem",
+  fontSize: "1.8rem",
   // lineHeight: "2rem",
   // lineHeight: "1.5rem",
 

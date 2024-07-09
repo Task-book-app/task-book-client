@@ -4,7 +4,7 @@ import { useFela } from "react-fela";
 const rules = ({ color }) => ({
   color,
   fontFamily: "Semi-bold",
-  fontSize: "1.6rem",
+  fontSize: "1.8rem",
   lineHeight: "2.2rem",
   letterSpacing: "0.025rem",
 });

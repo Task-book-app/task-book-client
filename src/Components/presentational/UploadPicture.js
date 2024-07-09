@@ -24,7 +24,7 @@ const UploadPicture = ({ avatarPreview, setAvatarPreview }) => {
     },
     "& div": {
       marginTop: "1rem",
-      fontSize: "1.2rem",
+      fontSize: "1.6rem",
       lineHeight: "1.6rem",
       letterSpacing: "0.03em",
     },

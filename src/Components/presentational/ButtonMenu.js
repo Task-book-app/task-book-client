@@ -18,6 +18,11 @@ const ButtonMenu = ({
   const { css, theme } = useFela({ padding, fontSize, hoverColor });
 
   const rules = ({ padding, fontSize, hoverColor }) => ({
+    userSelect: "none",
+    "-webkit-user-select": "none",
+    "-moz-user-select": "none",
+    "-ms-user-select": "none",
+
     backgroundColor: "unset",
     width: "100%",
 

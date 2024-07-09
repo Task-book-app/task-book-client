@@ -2,17 +2,31 @@ import React, { useContext } from "react";
 import { useFela } from "react-fela";
 import { appContext } from "../../../../context/GlobalContext";
 import H3 from "../../../presentational/typography/H3";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
 
 const FactDay = () => {
-  const { currentTheme, errorFetchQuote, quote } = useContext(appContext);
+  const {
+    currentTheme,
+    // errorFetchQuote,
+    quote,
+  } = useContext(appContext);
 
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      boxesGeneral,
+      darkModusBoxes,
+      colors: { blue },
+      breakpoints: { tablet },
+    },
+  } = useFela();
 
   const rules = () => ({
-    ...theme.boxesGeneral,
-    ...theme.darkModusBoxes(currentTheme),
+    ...boxesGeneral,
+    ...darkModusBoxes(currentTheme),
     lineHeight: "2.1rem",
-    fontSize: "1.4rem",
+    fontSize: "1.8rem",
     letterSpacing: "0.02em",
 
     display: "flex",
@@ -38,17 +52,24 @@ const FactDay = () => {
       textAlign: "end",
     },
     "& h3": { display: "none" },
-    [theme.breakpoints.tablet]: {
+    [tablet]: {
       "& h3": { display: "block" },
     },
   });
 
-  if (errorFetchQuote || !quote) {
-    return <></>;
-  } else {
-    return (
-      <div className={css(rules)}>
-        <H3 color={theme.colors.blue}>Quote of the day</H3>
+  return (
+    <div className={css(rules)}>
+      <H3 color={blue}>Quote of the day</H3>
+
+      {!quote ? (
+        <>
+          <FontAwesomeIcon
+            color={blue}
+            icon={faCircleNotch}
+            className="fa-spin fa-2x"
+          />
+        </>
+      ) : (
         <figure className="figure">
           <blockquote className="blockquote">
             <q>{quote.content}</q>
@@ -57,9 +78,9 @@ const FactDay = () => {
             <b>- {quote.author}</b>
           </figcaption>
         </figure>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 };
 
 export default FactDay;

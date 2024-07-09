@@ -6,6 +6,7 @@ import GlobalStyles from "../Components/GlobalStyles";
 import useAlert from "../Components/hooks/useAlert";
 import useDarkMode from "../Components/hooks/useDarkMode";
 import axios from "axios";
+import { randomFallbackQuote } from "../helpers/functions";
 
 const GET_VERIFY_USER = gql`
   mutation VerifyLoggedUser {
@@ -91,6 +92,7 @@ export function GlobalContext({ children }) {
         }
       } catch (error) {
         console.log(error);
+        setQuote(randomFallbackQuote());
         setErrorFetchQuote(error);
       }
     };

@@ -9,15 +9,19 @@ const Input = ({
   id,
   name,
   disabled,
-  border,
   cursor,
   onChange,
+  border,
+  borderOnFocus,
+  caretColor,
 }) => {
   const { css, theme } = useFela();
 
   const { currentTheme } = useContext(appContext);
 
   const rules = () => ({
+    caretColor,
+    fontSize: "1.8rem",
     cursor,
     width: "100%",
     background: "inherit",
@@ -34,7 +38,7 @@ const Input = ({
 
     ":focus": {
       boxShadow: theme.shadows.boxShadow_1,
-      border: `1px solid ${theme.colors.blue}`,
+      border: borderOnFocus ? borderOnFocus : `1px solid ${theme.colors.blue}`,
       outline: "none",
     },
 
