@@ -5,21 +5,23 @@ import MainFeatures from "./MainFeatures";
 import SecondaryFeatures from "./SecondaryFeatures";
 
 const BoxesView = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { tablet, laptop_L },
+    },
+  } = useFela();
   const rules = () => ({
     display: "flex",
     flexDirection: "column",
     flex: "1 1 auto",
-    marginTop: "3rem",
-    "& > :not(:last-child)": {
-      marginBottom: "3rem",
-    },
 
-    [theme.breakpoints.tablet]: {
+    marginTop: "2rem",
+    [tablet]: {
       flexDirection: "row",
-      "& > :not(:last-child)": {
-        marginRight: "3rem",
-      },
+    },
+    [laptop_L]: {
+      marginTop: "3rem",
     },
   });
   return (

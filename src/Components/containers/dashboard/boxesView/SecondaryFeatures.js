@@ -5,18 +5,29 @@ import ProgressChart from "../boxes/ProgressChart";
 import TimeAndDate from "../boxes/TimeAndDate";
 
 const SecondaryFeatures = () => {
-  const { css, theme } = useFela();
+  const {
+    css,
+    theme: {
+      breakpoints: { tablet, laptop_L },
+    },
+  } = useFela();
   const rules = () => ({
     width: "100%",
     display: "flex",
     flexDirection: "column",
 
     "& > :not(:last-child)": {
-      marginBottom: "3rem",
+      marginBottom: "2rem",
     },
 
-    [theme.breakpoints.tablet]: {
+    [tablet]: {
       width: "47%",
+    },
+
+    [laptop_L]: {
+      "& > :not(:last-child)": {
+        marginBottom: "3rem",
+      },
     },
   });
 

@@ -37,7 +37,7 @@ const TaskContent = ({
   const rules = () => ({
     height: 0,
     fontSize: "1.8rem",
-    lineHeight: "1.9rem",
+    lineHeight: "2.5rem",
     letterSpacing: "0.02em",
     transition: "height 0.6s ease-out, margin-top 0.6s",
 
@@ -83,6 +83,8 @@ const TaskContent = ({
     "& .box": {
       "&__1": {
         display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         transform: "translateX(0)",
         transition: "all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)",
 
@@ -96,6 +98,7 @@ const TaskContent = ({
       "&__2": {
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         transform: "translateX(0)",
         transition: "all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)",
 
@@ -114,6 +117,7 @@ const TaskContent = ({
       border: "none",
       outline: "none",
       fontStyle: "italic",
+      fontSize: "1.6rem",
       letterSpacing: "0.03em",
     },
   });

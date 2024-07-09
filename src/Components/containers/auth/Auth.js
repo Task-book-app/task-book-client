@@ -2,8 +2,9 @@ import Brand from "../../presentational/Brand";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useFela } from "react-fela";
+import SpiralBackground from "../../presentational/SpiralBackground";
 
-const Auth = () => {
+const Auth = ({ laptopScreen }) => {
   const {
     theme: {
       breakpoints: { mobile_L, tablet, laptop, laptop_L },
@@ -27,6 +28,21 @@ const Auth = () => {
     },
   };
 
+  const smallImageRules = {
+    position: "absolute",
+    width: "50%",
+    top: "80%",
+    left: "75%",
+  };
+
+  const laptopBigImagerules = {
+    position: "absolute",
+    width: "160%",
+    right: "65%",
+    bottom: "-25%",
+    // right: `${dimensions.width / 3}px`,
+  };
+
   return (
     <div className="auth">
       <Brand position="absolute" right="1.5rem" top="1rem" bp={brandBp}>
@@ -48,6 +64,12 @@ const Auth = () => {
           Sign Up
         </NavLink>
       </Brand>
+      {laptopScreen && (
+        <>
+          <SpiralBackground styles={laptopBigImagerules} />
+          <SpiralBackground styles={smallImageRules} />
+        </>
+      )}
       <Outlet />
     </div>
   );
