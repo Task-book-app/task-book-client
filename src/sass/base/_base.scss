@@ -28,10 +28,17 @@ body {
 }
 
 .activeLink {
+  display: inline-block;
+  text-decoration: none;
   transition: all 0.3s;
   color: $color-blue;
+  font-weight: bold;
+  font-family: Poppins-Bold;
+  -webkit-transform: skewX(-8deg) translateX(0.4rem);
+  -moz-transform: skewX(-8deg) translateX(0.4rem);
+  -ms-transform: skewX(-8deg) translateX(0.4rem);
+  -o-transform: skewX(-8deg) translateX(0.4rem);
   transform: skewX(-8deg) translateX(0.4rem);
-
   // display: inline;
   // background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
   // background-position: bottom;
@@ -49,7 +56,12 @@ body {
 }
 
 .inactiveLink {
+  display: inline-block;
+  text-decoration: none;
   color: inherit;
   transition: all 0.3s;
   transform: skewX(0) translateX(0);
+  &:hover {
+    color: $color-blue;
+  }
 }

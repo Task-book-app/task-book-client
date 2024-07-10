@@ -25,19 +25,17 @@ const MainFeatures = () => {
     flexDirection: "column",
     marginRight: "2rem",
     marginBottom: "2rem",
+
     "& > :not(:last-child)": {
       marginBottom: "2rem",
     },
-    [`${tablet} and (maxWidth: 64em)`]: {
+
+    [`${tablet} and (max-width: 90em)`]: {
       width: "53%",
       marginRight: "2rem",
       marginBottom: "2rem",
     },
-    [`${laptop} and (max-width: 90em)`]: {
-      width: "53%",
-      marginRight: "2rem",
-      marginBottom: "2rem",
-    },
+
     [laptop_L]: {
       width: "53%",
       marginRight: "3rem",

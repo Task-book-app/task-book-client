@@ -67,8 +67,8 @@ const FormControl = ({
     padding: px ? `0 ${px}rem` : py ? `${py}rem 0` : `${p}rem`,
 
     "& label": {
-      marginLeft: marginModal ? marginModal : "4.7rem",
-      fontSize: "1.4rem",
+      marginLeft: marginModal ? marginModal : "4rem",
+      fontSize: "1.8rem",
       lineHeight: "3rem",
       // letterSpacing: '.09rem'
     },
@@ -77,13 +77,13 @@ const FormControl = ({
       alignItems: "center",
     },
     "& div input": {
-      marginLeft: marginModal ? marginModal : "1.9rem",
+      marginLeft: marginModal ? `${marginModal}rem` : "0.5rem",
       fontFamily: "inherit",
       color: "inherit",
       // color: theme.colors.blue,
       transition: "all 0.1s",
       fontSize: "1.8rem",
-      padding: "0.8rem 1.7rem",
+      padding: "1.8rem 1.7rem",
       // padding: '2rem',
       border: "none",
       borderRadius: ".5rem",
@@ -97,7 +97,7 @@ const FormControl = ({
       },
       "::placeholder": {
         // color: theme.colors.blue,
-        fontSize: "1.5rem",
+        fontSize: "1.6rem",
         fontStyle: "italic",
         fontFamily: "inherit",
       },
