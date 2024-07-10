@@ -9,7 +9,6 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 
 const AuthLayout = () => {
   const { user, currentTheme } = useContext(appContext);
-
   const {
     css,
     theme: {
@@ -36,7 +35,7 @@ const AuthLayout = () => {
           <div className="auth-layout">
             {laptopScreen && <CircleBg />}
 
-            <Auth laptopScreen={laptopScreen} />
+            <Auth laptopScreen={laptopScreen} modus={currentTheme} />
           </div>
         </div>
       )}

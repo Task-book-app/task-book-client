@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import FormControl from "../../presentational/FormControl";
 import H1 from "../../presentational/typography/H1";
-import H2 from "../../presentational/typography/H2";
-import Icon from "../../presentational/Icon";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../presentational/Button";
 import { useFela } from "react-fela";
@@ -10,6 +8,8 @@ import { gql, useMutation } from "@apollo/client";
 import { appContext } from "../../../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
 import ShowHidePassword from "../../presentational/ShowHidePassword";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
 
 const REGISTER_USER = gql`
   mutation RegisterUser($email: String!, $password: String!) {
@@ -23,7 +23,11 @@ const REGISTER_USER = gql`
 
 const SignUp = () => {
   const { setAlertMessage, setUser } = useContext(appContext);
-  const { theme } = useFela();
+  const {
+    theme: {
+      colors: { blue },
+    },
+  } = useFela();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -98,12 +102,20 @@ const SignUp = () => {
   return (
     <>
       <form className="form" onSubmit={submitDataUser}>
-        <H1>Create</H1>
-        <H1>Your Account</H1>
-        <FormControl mt={5}>
+        <H1 fontSize={3.5} lineHeight={5} textAlign="center">
+          <span style={{ color: blue }}>Create</span>
+          <br /> Your Account
+        </H1>
+        <FormControl mt={4}>
           <label htmlFor="email">E-mail</label>
           <div>
-            <Icon color={theme.colors.blue} fontIcon={faAt} />
+            <FontAwesomeIcon
+              color={blue}
+              icon={faAt}
+              fontSize="2rem"
+              fixedWidth
+              pull="left"
+            />
             <input
               type="email"
               name="email"
@@ -118,7 +130,13 @@ const SignUp = () => {
         <FormControl mt={3}>
           <label htmlFor="password">Password</label>
           <div>
-            <Icon color={theme.colors.blue} fontIcon={faLock} />
+            <FontAwesomeIcon
+              color={blue}
+              icon={faLock}
+              fontSize="2rem"
+              fixedWidth
+              pull="left"
+            />
             <input
               type={!showPassword ? "password" : "text"}
               name="password"
@@ -131,19 +149,25 @@ const SignUp = () => {
           </div>
         </FormControl>
 
-        <FormControl mt={1} ml={-1} display="flex">
+        <FormControl mt={1} ml={-0.5} display="flex">
           <ShowHidePassword
             callback={(checked) => handleShowPassword(checked)}
           />
         </FormControl>
-        <FormControl mt={8}>
-          {loading ? (
-            <H2 textAlign="center">loading...</H2>
-          ) : (
-            <Button type="submit" fontFamily="Semi-bold" disabled={disable}>
-              Create Account
-            </Button>
-          )}
+        <FormControl mt={5}>
+          <Button
+            fontSize={2}
+            height={5}
+            type="submit"
+            fontFamily="Semi-bold"
+            disabled={disable}
+          >
+            {loading ? (
+              <FontAwesomeIcon icon={faCircleNotch} className="fa-spin fa-1x" />
+            ) : (
+              "Create Account"
+            )}
+          </Button>
         </FormControl>
       </form>
     </>

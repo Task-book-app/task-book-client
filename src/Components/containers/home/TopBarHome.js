@@ -27,6 +27,7 @@ const TopBarHome = ({ modus, user }) => {
     },
   } = useFela();
 
+  //  tablet: `@media only screen and (min-width: 48em)`,// 768px
   const tabletScreenListener = useMediaQuery(getMediaQuery(tablet));
 
   const rules = () => ({
@@ -43,16 +44,7 @@ const TopBarHome = ({ modus, user }) => {
     },
     "& .navToAuth": {
       fontSize: "2rem",
-      "& a": {
-        textDecoration: "none",
-        ":active": {
-          textDecoration: "none",
-        },
-        ":hover": {
-          color: blue,
-        },
-        [laptop]: { fontSize: "2rem" },
-      },
+
       "& > *": { marginRight: "4rem" },
     },
   });

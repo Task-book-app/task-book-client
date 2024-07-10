@@ -3,6 +3,7 @@ import { useFela } from "react-fela";
 import CheckBox from "./CheckBox";
 
 const rules = () => ({
+  fontSize: "1.6rem",
   "& > :first-child": {
     marginRight: "1rem",
   },
