@@ -17,6 +17,7 @@ A web-based task management application designed to help users organize and prio
 - [Quotable (Quotations API) Copyright © 2019 Luke Peavey](https://github.com/lukePeavey/quotable?tab=readme-ov-file)
 - [FontAwesome](https://fontawesome.com/)
 - [Apollo-Client](https://www.apollographql.com/docs/react/)
+- [JWT (JSON Web Tokens) for user authentication](https://jwt.io/)
 
 ## View this proyect 👇
 - To the [tasks-book ](https://tasks-book-nine.vercel.app/)
