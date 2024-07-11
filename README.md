@@ -24,8 +24,8 @@ A web-based task management application designed to help users organize and prio
 
 <img src="./src/images/dashboard.png" width="70%"/>
 
-Design by [CupTeam](http://cupteam.com.ua/)
+Design by [CupTeam](https://www.figma.com/@oter)
 &&
-[Darsh Bhavsar](https://www.figma.com/community/file/1075400112363458636)
+[Darsh Bhavsar](https://www.figma.com/@DraxAtelier)
 
 Devoloped by [Habid Badillo](https://habid-badillo.vercel.app/)
