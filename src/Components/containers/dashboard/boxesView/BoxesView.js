@@ -16,7 +16,7 @@ const BoxesView = () => {
     flexDirection: "column",
     flex: "1 1 auto",
 
-    marginTop: "2rem",
+    margin: "2rem 0",
     [tablet]: {
       flexDirection: "row",
     },
