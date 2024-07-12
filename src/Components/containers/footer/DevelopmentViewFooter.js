@@ -21,7 +21,7 @@ const DevelopmentViewFooter = () => {
             href="https://habid-badillo.vercel.app"
             icon={faCode}
             // transform={"shrink-10"}
-            boldContent="Habid Badillo"
+            boldContent="Habid B. Espinosa"
             content="-> have a look at my website."
           />
           <FontAwesomeListItem
