@@ -7,11 +7,14 @@ const AppLayout = ({ currentTheme }) => {
     css,
     theme: {
       breakpoints: { desktop },
+      scrollBarStyles,
     },
   } = useFela();
 
   const rules = () => ({
+    overflow: "auto",
     margin: "0 auto",
+    ...scrollBarStyles(currentTheme),
     width: "100vw",
     height: "100vh",
     maxWidth: "1440px",

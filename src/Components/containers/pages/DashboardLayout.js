@@ -10,6 +10,7 @@ const DashboardLayout = () => {
   const { css } = useFela();
 
   const rules = () => ({
+    width: "100%",
     height: "100%",
     display: "flex",
   });
@@ -17,7 +18,6 @@ const DashboardLayout = () => {
   return (
     <>
       {!user && <Navigate replace to="/auth" />}
-
       <div className={css(rules)}>
         <SideBar currentTheme={currentTheme} logoutMutation={logoutMutation} />
         <MainView currentTheme={currentTheme} />

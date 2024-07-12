@@ -25,7 +25,7 @@ const HeaderImageContainer = ({ modus }) => {
   const rules = () => ({
     width: "100%",
     aspectRatio: "1280/811",
-    padding: "2rem",
+    padding: "1.5rem",
     ...darkModusBoxes(modus),
     borderRadius: "2rem",
     display: "flex",

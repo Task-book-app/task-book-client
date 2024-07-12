@@ -17,16 +17,13 @@ const DropDown = ({ children, width, border }) => {
     border,
     padding: "1rem 0",
     position: "absolute",
-
     boxShadow: boxShadow_3,
     borderRadius: "1rem",
-
     ...darkModusBoxes(currentTheme),
-
     transform: "translateY(100%)",
     bottom: 0,
     right: 0,
-    zIndex: 1000,
+    zIndex: 11000,
   });
 
   return <div className={css(rules)}>{children}</div>;

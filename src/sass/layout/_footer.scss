@@ -1,0 +1,38 @@
+.footer {
+  padding: 2.5rem;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  gap: 3rem;
+
+  @include devices(laptop) {
+    flex-direction: row;
+    font-size: 1.6rem;
+  }
+
+  &-explore {
+    flex: 2;
+    & h4 {
+      color: $color-blue;
+      font-family: Poppins-Bold;
+    }
+  }
+  &-development {
+    flex: 1;
+  }
+  &-contact {
+    flex: 1;
+  }
+
+  &-light {
+    @include modusBox(light);
+  }
+  &-dark {
+    @include modusBox(dark);
+  }
+}

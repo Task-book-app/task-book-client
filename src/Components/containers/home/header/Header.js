@@ -47,10 +47,10 @@ const Header = ({ modus, user }) => {
       justifyContent: "space-around",
       alignItems: "center",
       "& .subtitle": {
-        opacity: "0.4",
+        opacity: "0.5",
         // fontSize: "1.8rem",
         fontSize: "2.25rem",
-        letterSpacing: "0",
+        letterSpacing: "0.5px",
         lineHeight: "3.2rem",
         marginBottom: "2rem",
       },

@@ -6,9 +6,10 @@ import { appContext } from "../../../context/GlobalContext";
 import { Navigate } from "react-router-dom";
 import TopBarHome from "../home/TopBarHome";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import Footer from "../footer/Footer";
 
 const AuthLayout = () => {
-  const { user, currentTheme } = useContext(appContext);
+  const { user, currentTheme, themeToggler } = useContext(appContext);
   const {
     css,
     theme: {
@@ -30,14 +31,17 @@ const AuthLayout = () => {
       {user ? (
         <Navigate replace to="/dashboard" user={user} />
       ) : (
-        <div className={css(containerLayout)}>
-          <TopBarHome modus={currentTheme} />
-          <div className="auth-layout">
-            {laptopScreen && <CircleBg />}
+        <>
+          <div className={css(containerLayout)}>
+            <TopBarHome modus={currentTheme} themeToggler={themeToggler} />
+            <div className="auth-layout">
+              {laptopScreen && <CircleBg />}
 
-            <Auth laptopScreen={laptopScreen} modus={currentTheme} />
+              <Auth laptopScreen={laptopScreen} modus={currentTheme} />
+            </div>
           </div>
-        </div>
+          <Footer modus={currentTheme} />
+        </>
       )}
     </>
   );
