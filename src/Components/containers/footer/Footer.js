@@ -1,13 +1,15 @@
 import ExploreViewFooter from "./ExploreViewFooter";
 import DevelopmentViewFooter from "./DevelopmentViewFooter";
-import ContactViewFooter from "./ContactViewFooter";
+import DesignViewFooter from "./DesignViewFooter";
 
 const Footer = ({ modus }) => {
   return (
     <footer className={`footer footer-${modus}`}>
-      <ExploreViewFooter />
-      <DevelopmentViewFooter />
-      <ContactViewFooter />
+      <div className="footer-features">
+        <ExploreViewFooter />
+        <DesignViewFooter />
+        <DevelopmentViewFooter />
+      </div>
     </footer>
   );
 };

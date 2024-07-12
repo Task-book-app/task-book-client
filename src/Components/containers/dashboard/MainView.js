@@ -21,7 +21,7 @@ const MainView = ({ currentTheme }) => {
 
   const rules = () => ({
     width: "100%",
-    padding: "1rem 1rem",
+    padding: "1rem",
     flex: "1 1 auto",
     minHeight: "100%",
     overflowY: "scroll",
