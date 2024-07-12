@@ -1,0 +1,26 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &-item {
+    &:hover {
+      color: $color-blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &-link {
+    @include resetAncor;
+
+    &-content {
+      font-family: Poppins-Bold;
+      font-size: 2rem;
+      line-height: 1.6rem;
+      @include devices(laptop) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

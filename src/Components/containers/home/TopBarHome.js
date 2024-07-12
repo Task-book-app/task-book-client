@@ -11,8 +11,13 @@ import ListContainer from "../dashboard/ListContainer";
 import DropDownItem from "../../presentational/DropDownItem";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons/faUserPlus";
+import ToogleDarkMode from "../../presentational/ToogleDarkMode";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons/faSun";
+import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
+import ButtonMenu from "../../presentational/ButtonMenu";
 
-const TopBarHome = ({ modus, user }) => {
+const TopBarHome = ({ themeToggler, modus, user }) => {
   // toogles the dropdown for sign up and log in.
   const [showDropDown, setShowDropDown] = useState(false);
 
@@ -44,6 +49,9 @@ const TopBarHome = ({ modus, user }) => {
     },
     "& .navToAuth": {
       fontSize: "2rem",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
 
       "& > *": { marginRight: "4rem" },
     },
@@ -81,6 +89,8 @@ const TopBarHome = ({ modus, user }) => {
                 >
                   Sign Up
                 </NavLink>
+
+                <ToogleDarkMode />
               </div>
             )}
           </>
@@ -108,6 +118,26 @@ const TopBarHome = ({ modus, user }) => {
                         link="/auth"
                         icon={faKey}
                       />
+                      <ButtonMenu
+                        padding="1.25rem 2rem"
+                        fontSize={1.8}
+                        title={modus === "light" ? "Dark Mode" : "Light Mode"}
+                        event={themeToggler}
+                      >
+                        {modus === "light" ? (
+                          <FontAwesomeIcon
+                            icon={faMoon}
+                            fixedWidth
+                            pull="left"
+                          />
+                        ) : (
+                          <FontAwesomeIcon
+                            icon={faSun}
+                            fixedWidth
+                            pull="left"
+                          />
+                        )}
+                      </ButtonMenu>
                     </ListContainer>
                   </DropDown>
                 )}

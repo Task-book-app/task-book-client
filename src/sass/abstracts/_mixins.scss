@@ -44,3 +44,24 @@
     }
   }
 }
+
+@mixin modusBox($modus) {
+  transition: all 0.5s linear;
+  @if $modus == light {
+    background-color: #ffffff;
+  }
+  @if $modus == dark {
+    background-color: #2c3440;
+  }
+}
+
+@mixin resetAncor {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Usa el color del texto del elemento padre */
+  font-weight: normal; /* Restablece el peso de la fuente */
+  font-size: inherit; /* Usa el tamaño de fuente del elemento padre */
+  background: none; /* Elimina cualquier fondo */
+  border: none; /* Elimina cualquier borde */
+  padding: 0; /* Elimina cualquier padding */
+  margin: 0; /* Elimina cualquier margen */
+}

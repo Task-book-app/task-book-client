@@ -1,7 +1,7 @@
 import React from "react";
 import { useFela } from "react-fela";
 import { ModalProvider } from "../../../context/ModalProvider";
-import Footer from "./boxes/Footer";
+import Footer from "../footer/Footer";
 import BoxesView from "./boxesView/BoxesView";
 import TopBar from "./topbar/TopBar";
 import TopBarSmallScreen from "./topbar/TopBarSmallScreen";
@@ -21,7 +21,7 @@ const MainView = ({ currentTheme }) => {
 
   const rules = () => ({
     width: "100%",
-    padding: "1rem 1rem 0",
+    padding: "1rem 1rem",
     flex: "1 1 auto",
     minHeight: "100%",
     overflowY: "scroll",
@@ -51,7 +51,7 @@ const MainView = ({ currentTheme }) => {
         </ModalProvider>
       )}
       <BoxesView />
-      <Footer />
+      <Footer modus={currentTheme} />
     </div>
   );
 };
