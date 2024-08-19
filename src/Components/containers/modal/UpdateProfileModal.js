@@ -76,9 +76,10 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
     onCompleted: (data) => {
       setUser({ ...user, ...data.updateUser });
       handleCloseModal();
+      setAvatarPreview(data.updateUser.picture);
     },
     onError: (error) => {
-      console.error(error);
+      console.error("Error at updateUserMutation:", error);
       setAlertMessage({ error });
     },
   });
@@ -120,7 +121,6 @@ const UpdateProfileModal = ({ handleCloseModal }) => {
       setAlertMessage({ error });
     }
   };
-  // console.log(avatarPreview);
 
   const resetAndClose = () => {
     setUsername(user.username);
