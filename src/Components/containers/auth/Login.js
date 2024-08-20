@@ -138,7 +138,7 @@ const Login = () => {
           </div>
         </FormControl>
         <FormControl mt={3}>
-          <label htmlFor={!showPassword ? "password" : "text"}>Password</label>
+          <label htmlFor="password">Password</label>
           <div>
             <FontAwesomeIcon
               color={blue}
@@ -148,9 +148,9 @@ const Login = () => {
               pull="left"
             />
             <input
+              id="password"
+              name="password"
               type={!showPassword ? "password" : "text"}
-              name={!showPassword ? "password" : "text"}
-              id={!showPassword ? "password" : "text"}
               value={formData.password}
               onChange={getUserData}
               placeholder="Enter your password"
