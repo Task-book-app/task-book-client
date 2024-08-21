@@ -22,7 +22,7 @@ const Alert = ({ message, alertSettings }) => {
     transform: "translate(-50%, 0)",
 
     color: whiteText,
-    zIndex: 20000,
+    zIndex: 200000,
   });
 
   return (

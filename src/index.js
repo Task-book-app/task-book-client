@@ -1,6 +1,5 @@
 import "./sass/main.scss";
 import ReactDOM from "react-dom";
-import { GlobalContext } from "./context/GlobalContext";
 import { RendererProvider, ThemeProvider } from "react-fela";
 import theme from "./felaConfig/theme";
 import { createRenderer } from "fela";
@@ -24,9 +23,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <RendererProvider renderer={renderer}>
       <ThemeProvider theme={theme}>
-        <GlobalContext>
-          <App />
-        </GlobalContext>
+        <App />
       </ThemeProvider>
     </RendererProvider>
   </ApolloProvider>,
